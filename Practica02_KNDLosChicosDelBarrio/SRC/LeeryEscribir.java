@@ -1,3 +1,5 @@
+//Hola Bere 
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -19,7 +21,7 @@ import java.util.Scanner;
  */
 public class LeeryEscribir {
     protected File file;
-    
+
     /**
      * Constructor por parametros
      * @param nombreArchivo -- el NombredelArchivo que se creara
@@ -47,7 +49,7 @@ public class LeeryEscribir {
      * @return String[] -- contiene como elemento cada linea del archivo
      * @throws ArchivoNoExiste -- Excepcion que sale cuando el archivo no se ha a creado
      */
-    public String[] leeArchivo() throws ArchivoNoExiste{		
+    public String[] leeArchivo() throws ArchivoNoExiste{
 	Scanner input = null;
 	String lineas = "";
 	try {
@@ -63,5 +65,3 @@ public class LeeryEscribir {
     }
 
 }
-
-
