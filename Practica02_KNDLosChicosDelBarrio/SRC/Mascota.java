@@ -15,7 +15,7 @@ public class Mascota {
     private int peso;
     private String especie;
     private String raza;
-    private String nombreDeDueño;
+    private String nombreDeDuenio;
     /**
      * Constructor por omision
      */
@@ -25,30 +25,26 @@ public class Mascota {
         this.peso = 15;
         this.especie = "perro";
         this.raza = "pitbull";
-        this.nombreDeDueño = "Rodrigo";
+        this.nombreDeDuenio = "Rodrigo";
     }
 
     /**
      * Constructor por parametros que genera un Operador
-     * @param nombre -- Nombre del Operador
-     * @param apellidoP -- Apellido Paterno del Operador
-     * @param apellidoM -- Apellido MAterno del Operador
-     * @param fecha -- Fecha de Nacimiento del Operador
-     * @param direccion -- DIrección del domimicilio del Operador
-     * @param genero -- Genero del Operador puede ser M o F
-     * @param gradoMaximo -- Grado Máximo de EStudios del Operador
-     * @param telefono -- Telefono del Operador
-     * @param horario -- Horario que labora el Operador
-     * @param dias  -- Dias que labora el Operador
+     * @param nombre -- Nombre de la Mascota
+     * @param edad -- Edad de la Mascota
+     * @param peso -- Peso de la Mascota
+     * @param especie -- Especie de la Mascota
+     * @param raza -- Raza de la Mascota
+     * @param nombreDeDuenio -- Nombre del dueño de la Mascota
      */
 
-    public Operador(String nombre, int edad, int peso, string especie, string raza, string nombreDeDueño) {
+    public Operador(String nombre, int edad, int peso, string especie, string raza, string nombreDeDuenio) {
         this.nombre = nombre;
         this.edad = edad;
         this.peso = peso;
         this.especie = especie;
         this.raza = raza;
-        this.nombreDeDueño = nombreDeDueño;
+        this.nombreDeDuenio = nombreDeDuenio;
     }
 
     /**
@@ -69,7 +65,7 @@ public class Mascota {
      * Metodo getApellidoP que obtiene el apellido Paterno del Operador
      * @return apellidoP -- El Apellido Paterno del Operador
      */
-    public String getEdad() {
+    public int getEdad() {
         return edad;
     }
     /**
@@ -79,133 +75,70 @@ public class Mascota {
     public void setEdad(int edad) {
         this.edad = edad;
     }
-
-
-////////////////////////////////Falta cambiar desde aquí y todos los comentarios
-
-
     /**
      * Metodo getAPellidoM que obtiene el apellido Materno del Operador
      * @return apellidoM -- El apellido Materno del Operador
      */
-    public String getApellidoM() {
-        return apellidoM;
+    public int getPeso() {
+        return peso;
     }
     /**
      * Metodo setApellidoM que define el nuevo apellido materno del Operador
      * @param apellidoM  -- EL nuevo apellido materno del operador
      */
-    public void setApellidoM(String apellidoM) {
-        this.apellidoM = apellidoM;
+    public void setPeso(String peso) {
+        this.peso = peso;
     }
     /**
      * Metodo getFecha que obtiene la fecha de nacimiento del Operador
      * @return fecha -- La fecha de Nacimiento del Operador
      */
-    public String getFecha() {
-        return fecha;
+    public String getEspecie() {
+        return especie;
     }
     /**
      * Metodo setFecha que define la nueva fecha de nacimiento del Opeardor
      * @param fecha -- La nueva fecha de nacimiento del operador
      */
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public void setEspecie(String especie) {
+        this.especie = especie;
     }
     /**
      * Metodo getDIreccion que obtiene la DIreccion del Domicilio del Operador
      * @return direccion -- La dirección del Operador
      */
-    public String getDireccion() {
-        return direccion;
+    public String getRaza() {
+        return raza;
     }
     /**
-     * Metodo setDireccion que define la nueva direccion del Domicilio del Operador
-     * @param direccion -- La nueva dirección del operador
+     * Metodo setRaza que define la nueva raza de la Mascota
+     * @param raza -- La nueva raza de la mascota
      */
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setRaza(String raza) {
+        this.raza = raza;
     }
     /**
-     * Metodo getGenero que obtiene el genero del Operador
-     * @return genero -- el genero del operador
+     * Metodo getNombreDuenio que obtiene el nombre de duenio de la Mascota
+     * @return nombreDeDuenio -- El nombre de duenio de la mascota
      */
-    public char getGenero() {
-        return genero;
+    public String getNombreDuenio() {
+        return nombreDeDuenio;
     }
     /**
-     * Metodo setGenero que define el nuevo genero del Operador
-     * @param genero -- El nuevo GEnero del Operador
+     * Metodo setNombreDuenio que define el nuevo nombre de duenio de la Mascota
+     * @param nombreDeDuenio -- El nuevo nombre de duenio de la Mascota
      */
-    public void setGenero(char genero) {
-        this.genero = genero;
+    public void setNombreDuenio(String nombreDeDuenio) {
+        this.nombreDeDuenio = nombreDeDuenio;
     }
     /**
-     * Metodo getGradoMaximo que obtiene el grado Maximo de estudios del operador
-     * @return gradoMAximo -- El grado maximo que tiene el operador.
-     */
-    public String getGradoMaximo() {
-        return gradoMaximo;
-    }
-    /**
-     * Metodo setGradoMaximo que define el nuevo gradoMaximo del operador
-     * @param gradoMaximo -- EL nuevo grado del operador.
-     */
-    public void setGradoMaximo(String gradoMaximo) {
-        this.gradoMaximo = gradoMaximo;
-    }
-    /**
-     * Metodo getTelefono que obtiene el telefono del operador
-     * @return telefono -- EL telefono del operador
-     */
-    public String getTelefono() {
-        return telefono;
-    }
-    /**
-     * Metodo setTelefono que define el nuevo telefono del Operador
-     * @param telefono -- El nuevo telefono del operador
-     */
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-    /**
-     * Metodo getHorario que obtiene el horario laboral del Operador
-     * @return horario -- El horario laboral del trabajador
-     */
-    public String getHorario() {
-        return horario;
-    }
-    /**
-     * Metodo setHorario que define el nuevo horario laboral del operador
-     * @param horario -- El nuevo horario laboral del operador
-     */
-    public void setHorario(String horario) {
-        this.horario = horario;
-    }
-    /**
-     * Metodo getDias que obtiene los dias que labora el Operador
-     * @return dias -- Los dias que labora el Operador
-     */
-    public String getDias() {
-        return dias;
-    }
-    /**
-     * Metodo setDias que define los nuevos dias que labora el Operador
-     * @param dias -- Los nuevos dias que labora el Operador
-     */
-    public void setDias(String dias) {
-        this.dias = dias;
-    }
-
-    /**
-     * Metodo ToString de Operador
-     * @return Regresa la representación de un operador para generar el CSV
+     * Metodo ToString de Mascota
+     * @return Regresa la representación de una mascota para generar el CSV
      */
     @Override
     public String toString() {
-        return this.nombre +","+this.apellidoP+","+this.apellidoM+","+this.fecha
-                +","+this.direccion+","+this.genero+","+this.gradoMaximo+","+
-                this.telefono+","+this.horario+","+this.dias;
+        return this.nombre +","+this.edad+","+this.peso+","+this.especie
+                +","+this.raza+","+this.nombreDeDuenio;
     }
 
 
