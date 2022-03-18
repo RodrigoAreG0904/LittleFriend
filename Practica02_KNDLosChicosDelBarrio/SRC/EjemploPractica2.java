@@ -4,7 +4,11 @@ import java.util.Scanner;
 
 /**
  * Clase Main que sirve para la practica 2
- * @author poner a todos
+ * @author Rodrigo Arevalo Gaytan
+ *	   Diana Berenice Hernández Alonso
+ * 	   Julio Cesar Torres Escobedo
+ *	   Santiago  Arroyo Lozano
+ *	   Karyme Ivette Azpeitia Garcia
  * @version 16/03/2022
  */
 public class EjemploPractica2 {

@@ -8,7 +8,11 @@ import java.util.Scanner;
 
 /**
  * Clase que que permite leer y escribir a un archivo
- * @author poner a todos
+ * @author Rodrigo Arevalo Gaytan
+ *	   Diana Berenice Hernández Alonso
+ * 	   Julio Cesar Torres Escobedo
+ *	   Santiago  Arroyo Lozano
+ *	   Karyme Ivette Azpeitia Garcia
  * @version 16/03/2022
  */
 public class LeeryEscribir {
