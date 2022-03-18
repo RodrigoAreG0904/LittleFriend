@@ -14,11 +14,11 @@ public class Mascota {
     private String especie;
     private String raza;
     private String nombreDeDuenio;
-    
+
     /**
      * Constructor por omision
      */
-    public Operador() {
+    public Mascota() {
         this.nombre = "Firulais";
         this.edad = 2;
         this.peso = 15;
@@ -37,7 +37,7 @@ public class Mascota {
      * @param nombreDeDuenio -- Nombre del dueño de la Mascota
      */
 
-    public Operador(String nombre, int edad, int peso, string especie, string raza, string nombreDeDuenio) {
+    public Mascota(String nombre, int edad, int peso, string especie, string raza, string nombreDeDuenio) {
         this.nombre = nombre;
         this.edad = edad;
         this.peso = peso;
@@ -53,7 +53,7 @@ public class Mascota {
     public String getNombre() {
         return nombre;
     }
-    
+
     /**
      * Metodo setNombre que define el nuevo nombre de la Mascota
      * @param nombre -- El nuevo nombre de la Mascota
@@ -61,7 +61,7 @@ public class Mascota {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
+
     /**
      * Metodo getEdad que obtiene la edad de la Mascota
      * @return edad -- La edad de la Mascota
@@ -69,7 +69,7 @@ public class Mascota {
     public int getEdad() {
         return edad;
     }
-    
+
     /**
      * Metodo setEdad que define la nueva edad de la Mascota
      * @param edad -- La nueva edad de la Mascota
@@ -77,7 +77,7 @@ public class Mascota {
     public void setEdad(int edad) {
         this.edad = edad;
     }
-    
+
     /**
      * Metodo getPeso que obtiene el peso de la Mascota
      * @return peso -- El peso de la Mascota
@@ -85,7 +85,7 @@ public class Mascota {
     public int getPeso() {
         return peso;
     }
-    
+
     /**
      * Metodo setPeso que define el nuevo peso de la Mascota
      * @param peso  -- EL nuevo peso de la Mascota
@@ -93,7 +93,7 @@ public class Mascota {
     public void setPeso(String peso) {
         this.peso = peso;
     }
-    
+
     /**
      * Metodo getEspecie que obtiene la especie de la Mascota
      * @return especie -- La especie de la Mascota
@@ -101,7 +101,7 @@ public class Mascota {
     public String getEspecie() {
         return especie;
     }
-    
+
     /**
      * Metodo setEspecie que define la nueva especie de la Mascota
      * @param especie -- La nueva especie de la Mascota
@@ -109,7 +109,7 @@ public class Mascota {
     public void setEspecie(String especie) {
         this.especie = especie;
     }
-    
+
     /**
      * Metodo getRaza que obtiene la raza de la Mascota
      * @return raza -- La raza de la Mascota
@@ -117,7 +117,7 @@ public class Mascota {
     public String getRaza() {
         return raza;
     }
-    
+
     /**
      * Metodo setRaza que define la nueva raza de la Mascota
      * @param raza -- La nueva raza de la Mascota
@@ -125,7 +125,7 @@ public class Mascota {
     public void setRaza(String raza) {
         this.raza = raza;
     }
-    
+
     /**
      * Metodo getNombreDuenio que obtiene el nombre del duenio de la Mascota
      * @return nombreDeDuenio -- El nombre del duenio de la Mascota
@@ -133,7 +133,7 @@ public class Mascota {
     public String getNombreDuenio() {
         return nombreDeDuenio;
     }
-    
+
     /**
      * Metodo setNombreDuenio que define el nuevo nombre del duenio de la Mascota
      * @param nombreDeDuenio -- El nuevo nombre del duenio de la Mascota
@@ -141,7 +141,7 @@ public class Mascota {
     public void setNombreDuenio(String nombreDeDuenio) {
         this.nombreDeDuenio = nombreDeDuenio;
     }
-    
+
     /**
      * Metodo ToString de Mascota
      * @return Regresa la representación de una Mascota para generar el CSV
