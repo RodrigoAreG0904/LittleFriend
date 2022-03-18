@@ -18,7 +18,6 @@ public class Mascota {
     /**
      * Constructor por omision
      */
-     
     public Operador() {
         this.nombre = "Firulais";
         this.edad = 2;
