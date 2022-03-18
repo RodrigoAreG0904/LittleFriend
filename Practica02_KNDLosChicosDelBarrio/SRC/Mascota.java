@@ -9,33 +9,25 @@ package EjemploPractica2;
  * @author Ricardo Badillo Macias
  * @version 16/03/2022
  */
-public class Operador {
+public class Mascota {
     private String nombre;
-    private String apellidoP;
-    private String apellidoM;
-    private String fecha;
-    private String direccion;
-    private char genero;
-    private String gradoMaximo;
-    private String telefono;
-    private String horario;
-    private String dias;
+    private int edad;
+    private int peso;
+    private String especie;
+    private String raza;
+    private String nombreDeDueño;
     /**
      * Constructor por omision
      */
     public Operador() {
-        this.nombre = "Ricardo";
-        this.apellidoP = "Badillo";
-        this.apellidoM = "Macias";
-        this.fecha = "12/06/1998";
-        this.direccion = "1era Cerrada ...";
-        this.genero = 'M';
-        this.gradoMaximo = "Licenciatura";
-        this.telefono = "55555555555";
-        this.horario = "10am a 12pm";
-        this.dias = "Lunes";
+        this.nombre = "Firulais";
+        this.edad = 2;
+        this.peso = 15;
+        this.especie = "perro";
+        this.raza = "pitbull";
+        this.nombreDeDueño = "Rodrigo";
     }
-    
+
     /**
      * Constructor por parametros que genera un Operador
      * @param nombre -- Nombre del Operador
@@ -49,20 +41,16 @@ public class Operador {
      * @param horario -- Horario que labora el Operador
      * @param dias  -- Dias que labora el Operador
      */
-    
-    public Operador(String nombre, String apellidoP, String apellidoM, String fecha, String direccion, char genero, String gradoMaximo, String telefono, String horario, String dias) {
+
+    public Operador(String nombre, int edad, int peso, string especie, string raza, string nombreDeDueño) {
         this.nombre = nombre;
-        this.apellidoP = apellidoP;
-        this.apellidoM = apellidoM;
-        this.fecha = fecha;
-        this.direccion = direccion;
-        this.genero = genero;
-        this.gradoMaximo = gradoMaximo;
-        this.telefono = telefono;
-        this.horario = horario;
-        this.dias = dias;
+        this.edad = edad;
+        this.peso = peso;
+        this.especie = especie;
+        this.raza = raza;
+        this.nombreDeDueño = nombreDeDueño;
     }
-    
+
     /**
     * Metodo getNombre que obtiene el nombre del Operador
     * @return nombre -- El nombre del Operador
@@ -81,17 +69,21 @@ public class Operador {
      * Metodo getApellidoP que obtiene el apellido Paterno del Operador
      * @return apellidoP -- El Apellido Paterno del Operador
      */
-    public String getApellidoP() {
-        return apellidoP;
+    public String getEdad() {
+        return edad;
     }
     /**
      * Metodo setAPellidoP que define el nuevo apellido del Operador
      * @param apellidoP -- El nuevo Apellido del Operador
      */
-    public void setApellidoP(String apellidoP) {
-        this.apellidoP = apellidoP;
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
-    
+
+
+////////////////////////////////Falta cambiar desde aquí y todos los comentarios
+
+
     /**
      * Metodo getAPellidoM que obtiene el apellido Materno del Operador
      * @return apellidoM -- El apellido Materno del Operador
@@ -185,7 +177,7 @@ public class Operador {
     }
     /**
      * Metodo setHorario que define el nuevo horario laboral del operador
-     * @param horario -- El nuevo horario laboral del operador 
+     * @param horario -- El nuevo horario laboral del operador
      */
     public void setHorario(String horario) {
         this.horario = horario;
@@ -204,7 +196,7 @@ public class Operador {
     public void setDias(String dias) {
         this.dias = dias;
     }
-    
+
     /**
      * Metodo ToString de Operador
      * @return Regresa la representación de un operador para generar el CSV
@@ -215,7 +207,7 @@ public class Operador {
                 +","+this.direccion+","+this.genero+","+this.gradoMaximo+","+
                 this.telefono+","+this.horario+","+this.dias;
     }
-    
-    
-    
+
+
+
 }
