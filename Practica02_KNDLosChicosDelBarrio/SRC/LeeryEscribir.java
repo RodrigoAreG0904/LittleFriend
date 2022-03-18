@@ -1,9 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package EjemploPractica2;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,7 +8,7 @@ import java.util.Scanner;
 
 /**
  * Clase que que permite leer y escribir a un archivo
- * @author Ricardo Badillo MAcias
+ * @author poner a todos
  * @version 16/03/2022
  */
 public class LeeryEscribir {
@@ -25,7 +19,7 @@ public class LeeryEscribir {
      * @param nombreArchivo -- el NombredelArchivo que se creara
      */
     public LeeryEscribir(String nombreArchivo) {
-	file = new File(nombreArchivo);
+	     file = new File(nombreArchivo);
     }
     /**
      * Metodo que escribe la información en file (archivo a modificar)
@@ -48,18 +42,18 @@ public class LeeryEscribir {
      * @throws ArchivoNoExiste -- Excepcion que sale cuando el archivo no se ha a creado
      */
     public String[] leeArchivo() throws ArchivoNoExiste{
-	Scanner input = null;
-	String lineas = "";
-	try {
-            input = new Scanner(file);
-            while (input.hasNextLine()) {
-            lineas += input.nextLine() + "|";
-            }
-	} catch (FileNotFoundException e) {
-            throw new ArchivoNoExiste("No hay datos que se puedan leer");
-	}
-	String lines [] = lineas.split("\\|");
-	return lines;
+      Scanner input = null;
+      String lineas = "";
+      try {
+        input = new Scanner(file);
+        while (input.hasNextLine()) {
+          lineas += input.nextLine() + "|";
+        }
+      } catch (FileNotFoundException e) {
+        throw new ArchivoNoExiste("No hay datos que se puedan leer");
+      }
+      String lines [] = lineas.split("\\|");
+      return lines;
     }
 
 }

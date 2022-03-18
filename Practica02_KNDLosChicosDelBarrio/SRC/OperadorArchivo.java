@@ -1,14 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package EjemploPractica2;
-
 import java.util.ArrayList;
 
 /**
  *Clase que permite escribir y leer a Operadores sobre un archivo CSV
- * @author Ricardo Badillo Macias
+ * @author poner a todos
  * @version 16/03/2022
  */
 public class OperadorArchivo extends LeeryEscribir{
@@ -30,7 +24,7 @@ public class OperadorArchivo extends LeeryEscribir{
 	}
 	super.escribeArchivo(lineaOperador);
 	}
-    
+
     /**
      * Metodo que convierte un arreglo de String a un arreglo de Operadores
      * @return operadores -- El arreglo de operadores
