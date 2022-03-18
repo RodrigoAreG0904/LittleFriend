@@ -18,7 +18,7 @@ public class Mascota {
     /**
      * Constructor por omision
      */
-    public Operador() {
+    public Mascota() {
         this.nombre = "Firulais";
         this.edad = 2;
         this.peso = 15;
@@ -37,7 +37,7 @@ public class Mascota {
      * @param nombreDeDuenio -- Nombre del dueño de la Mascota
      */
 
-    public Operador(String nombre, int edad, int peso, string especie, string raza, string nombreDeDuenio) {
+    public Mascota(String nombre, int edad, int peso, string especie, string raza, string nombreDeDuenio) {
         this.nombre = nombre;
         this.edad = edad;
         this.peso = peso;
