@@ -1,13 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package EjemploPractica2;
-
 /**
- * Clase que representa el Operador del Sistema de Transporte Colectivo.
- * @author Ricardo Badillo Macias
- * @version 16/03/2022
+ * Clase que representa las Mascotas.
+ * @author Rodrigo Arevalo Gaytan
+ *	   Diana Berenice Hernández Alonso
+ * 	   Julio Cesar Torres Escobedo
+ *	   Santiago  Arroyo Lozano
+ *	   Karyme Ivette Azpeitia Garcia
+ * @version 17/03/2022
  */
 public class Mascota {
     private String nombre;
@@ -16,9 +14,11 @@ public class Mascota {
     private String especie;
     private String raza;
     private String nombreDeDuenio;
+    
     /**
      * Constructor por omision
      */
+     
     public Operador() {
         this.nombre = "Firulais";
         this.edad = 2;
@@ -29,7 +29,7 @@ public class Mascota {
     }
 
     /**
-     * Constructor por parametros que genera un Operador
+     * Constructor por parametros que genera una Mascota
      * @param nombre -- Nombre de la Mascota
      * @param edad -- Edad de la Mascota
      * @param peso -- Peso de la Mascota
@@ -48,99 +48,109 @@ public class Mascota {
     }
 
     /**
-    * Metodo getNombre que obtiene el nombre del Operador
-    * @return nombre -- El nombre del Operador
+    * Metodo getNombre que obtiene el nombre de la Mascota
+    * @return nombre -- El nombre de la Mascota
     */
     public String getNombre() {
         return nombre;
     }
+    
     /**
-     * Metodo setNombre que define el nuevo nombre del Operador
-     * @param nombre -- El nuevo nombre del Operador
+     * Metodo setNombre que define el nuevo nombre de la Mascota
+     * @param nombre -- El nuevo nombre de la Mascota
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+    
     /**
-     * Metodo getApellidoP que obtiene el apellido Paterno del Operador
-     * @return apellidoP -- El Apellido Paterno del Operador
+     * Metodo getEdad que obtiene la edad de la Mascota
+     * @return edad -- La edad de la Mascota
      */
     public int getEdad() {
         return edad;
     }
+    
     /**
-     * Metodo setAPellidoP que define el nuevo apellido del Operador
-     * @param apellidoP -- El nuevo Apellido del Operador
+     * Metodo setEdad que define la nueva edad de la Mascota
+     * @param edad -- La nueva edad de la Mascota
      */
     public void setEdad(int edad) {
         this.edad = edad;
     }
+    
     /**
-     * Metodo getAPellidoM que obtiene el apellido Materno del Operador
-     * @return apellidoM -- El apellido Materno del Operador
+     * Metodo getPeso que obtiene el peso de la Mascota
+     * @return peso -- El peso de la Mascota
      */
     public int getPeso() {
         return peso;
     }
+    
     /**
-     * Metodo setApellidoM que define el nuevo apellido materno del Operador
-     * @param apellidoM  -- EL nuevo apellido materno del operador
+     * Metodo setPeso que define el nuevo peso de la Mascota
+     * @param peso  -- EL nuevo peso de la Mascota
      */
     public void setPeso(String peso) {
         this.peso = peso;
     }
+    
     /**
-     * Metodo getFecha que obtiene la fecha de nacimiento del Operador
-     * @return fecha -- La fecha de Nacimiento del Operador
+     * Metodo getEspecie que obtiene la especie de la Mascota
+     * @return especie -- La especie de la Mascota
      */
     public String getEspecie() {
         return especie;
     }
+    
     /**
-     * Metodo setFecha que define la nueva fecha de nacimiento del Opeardor
-     * @param fecha -- La nueva fecha de nacimiento del operador
+     * Metodo setEspecie que define la nueva especie de la Mascota
+     * @param especie -- La nueva especie de la Mascota
      */
     public void setEspecie(String especie) {
         this.especie = especie;
     }
+    
     /**
-     * Metodo getDIreccion que obtiene la DIreccion del Domicilio del Operador
-     * @return direccion -- La dirección del Operador
+     * Metodo getRaza que obtiene la raza de la Mascota
+     * @return raza -- La raza de la Mascota
      */
     public String getRaza() {
         return raza;
     }
+    
     /**
      * Metodo setRaza que define la nueva raza de la Mascota
-     * @param raza -- La nueva raza de la mascota
+     * @param raza -- La nueva raza de la Mascota
      */
     public void setRaza(String raza) {
         this.raza = raza;
     }
+    
     /**
-     * Metodo getNombreDuenio que obtiene el nombre de duenio de la Mascota
-     * @return nombreDeDuenio -- El nombre de duenio de la mascota
+     * Metodo getNombreDuenio que obtiene el nombre del duenio de la Mascota
+     * @return nombreDeDuenio -- El nombre del duenio de la Mascota
      */
     public String getNombreDuenio() {
         return nombreDeDuenio;
     }
+    
     /**
-     * Metodo setNombreDuenio que define el nuevo nombre de duenio de la Mascota
-     * @param nombreDeDuenio -- El nuevo nombre de duenio de la Mascota
+     * Metodo setNombreDuenio que define el nuevo nombre del duenio de la Mascota
+     * @param nombreDeDuenio -- El nuevo nombre del duenio de la Mascota
      */
     public void setNombreDuenio(String nombreDeDuenio) {
         this.nombreDeDuenio = nombreDeDuenio;
     }
+    
     /**
      * Metodo ToString de Mascota
-     * @return Regresa la representación de una mascota para generar el CSV
+     * @return Regresa la representación de una Mascota para generar el CSV
      */
     @Override
     public String toString() {
         return this.nombre +","+this.edad+","+this.peso+","+this.especie
                 +","+this.raza+","+this.nombreDeDuenio;
     }
-
-
 
 }
