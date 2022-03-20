@@ -37,7 +37,7 @@ public class Mascota {
      * @param nombreDeDuenio -- Nombre del dueño de la Mascota
      */
 
-    public Mascota(String nombre, int edad, int peso, string especie, string raza, string nombreDeDuenio) {
+    public Mascota(String nombre, int edad, int peso, String especie, String raza, String nombreDeDuenio) {
         this.nombre = nombre;
         this.edad = edad;
         this.peso = peso;
@@ -90,7 +90,7 @@ public class Mascota {
      * Metodo setPeso que define el nuevo peso de la Mascota
      * @param peso  -- EL nuevo peso de la Mascota
      */
-    public void setPeso(String peso) {
+    public void setPeso(int peso) {
         this.peso = peso;
     }
 

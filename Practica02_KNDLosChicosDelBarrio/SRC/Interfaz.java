@@ -15,7 +15,7 @@ public class Interfaz {
   
   public void hazInterfaz(String opcion){
     if(opcion.equals("Mascota")){
-      ArrayList<Mascota> mascotas = new ArrayList<>(;
+      ArrayList<Mascota> mascotas = new ArrayList<>();
       MascotaArchivo archivo = new MascotaArchivo();
       System.out.println("Ingresa la opcion deseda\n 1-CargarDatos\n 2-CrearNuevo\n 3-Salir");
       try{
@@ -148,7 +148,7 @@ public class Interfaz {
 
     // Aqui el menu para esteticas
     if(opcion.equals("Estetica")){
-            ArrayList<Estetica> esteticas = new ArrayList<>(;
+            ArrayList<Estetica> esteticas = new ArrayList<>();
             EsteticaArchivo archivo = new EsteticaArchivo();
             System.out.println("Ingresa la opcion deseda\n 1-CargarDatos\n 2-CrearNuevo\n 3-Salir");
             try{
@@ -281,7 +281,7 @@ public class Interfaz {
 
     // aqui el menu para duenios
     if(opcion.equals("Duenio")){
-      ArrayList<Duenio> duenios = new ArrayList<>(;
+      ArrayList<Duenio> duenios = new ArrayList<>();
       DuenioArchivo archivo = new DuenioArchivo();
       System.out.println("Ingresa la opcion deseda\n 1-CargarDatos\n 2-CrearNuevo\n 3-Salir");
       try{
@@ -407,7 +407,7 @@ public class Interfaz {
         default:
         break;
         }
-        }
-        }
+      }
+    }
   }
 }

@@ -36,7 +36,7 @@ public class EjemploPractica2 {
             case 1:
             System.out.println("Cargando datos de Mascotas...");
             try{
-              mascotas = archivo.leeOperadores();
+              mascotas = archivo.leeMascotas();
               System.out.println("Listo...");
             }catch(Exception e){
               System.out.println(e);
@@ -74,7 +74,7 @@ public class EjemploPractica2 {
                   case 5:
                   if(!mascotas.isEmpty()){
                     System.out.println("Guardando datos de mascotas...");
-                    archivo.escribeOpeador(mascotas);
+                    archivo.escribeMascota(mascotas);
                     System.out.println("Datos guardados");
                   }
                   bandera = false;
@@ -121,7 +121,7 @@ public class EjemploPractica2 {
                   case 5:
                   if(!mascotas.isEmpty()){
                     System.out.println("Guardando datos de mascotas...");
-                    archivo.escribeOpeador(mascotas);
+                    archivo.escribeMascota(mascotas);
                     System.out.println("Datos guardados");
                   }
                   bandera = false;
