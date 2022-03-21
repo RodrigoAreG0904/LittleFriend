@@ -1,5 +1,5 @@
 /**
- * Clase que representa los Duenios.
+ * Clase que representa las Esteticas.
  * @author Rodrigo Arevalo Gaytan
  *	   Diana Berenice Hernández Alonso
  * 	   Julio Cesar Torres Escobedo
@@ -24,10 +24,10 @@ public class Estetica {
     }
 
     /**
-     * Constructor por parametros que genera un Duenio
-     * @param nombre -- Nombre del Duenio
-     * @param direccion -- direccion del Duenio
-     * @param telefono -- Telefono del Duenio
+     * Constructor por parametros que genera una Estetica
+     * @param nombre -- Nombre de la Estetica
+     * @param direccion -- direccion de la Estetica
+     * @param telefono -- Telefono de la Estetica
      * @param horario -- El horario de la Estetica
      */
 
@@ -39,72 +39,72 @@ public class Estetica {
     }
 
     /**
-    * Metodo getNombre que obtiene el nombre de la Duenio
-    * @return nombre -- El nombre del Duenio
+    * Metodo getNombre que obtiene el nombre de la Estetica
+    * @return nombre -- El nombre de la Estetica
     */
     public String getNombre() {
         return nombre;
     }
 
     /**
-     * Metodo setNombre que define el nuevo nombre del Duenio
-     * @param nombre -- El nuevo nombre del Duenio
+     * Metodo setNombre que define el nuevo nombre de la Estetica
+     * @param nombre -- El nuevo nombre de la Estetica
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
     /**
-     * Metodo getDireccion que obtiene la direccion del Duenio
-     * @return direccion -- La direccion del Duenio
+     * Metodo getDireccion que obtiene la direccion de la Estetica
+     * @return direccion -- La direccion de la Estetica
      */
     public String getDireccion() {
         return direccion;
     }
 
     /**
-     * Metodo setDireccion que define la nueva direccion del Duenio
-     * @param direccion -- La nueva direccion del Duenio
+     * Metodo setDireccion que define la nueva direccion de la Estetica
+     * @param direccion -- La nueva direccion de la Estetica
      */
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
 
     /**
-     * Metodo getTelefono que obtiene el telefono del Duenio
-     * @return telefono -- El telefono del Duenio
+     * Metodo getTelefono que obtiene el telefono de la Estetica
+     * @return telefono -- El telefono de la Estetica
      */
     public int getTelefono() {
         return telefono;
     }
 
     /**
-     * Metodo setTelefono que define el nuevo telefono del Duenio
-     * @param telefono -- El nuevo telefono del Duenio
+     * Metodo setTelefono que define el nuevo telefono de la Estetica
+     * @param telefono -- El nuevo telefono de la Estetica
      */
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
 
     /**
-     * Metodo getDireccion que obtiene la direccion del Duenio
-     * @return direccion -- La direccion del Duenio
+     * Metodo getHorario que obtiene el horario de la Estetica
+     * @return horario -- El horario de la Estetica
      */
     public String getHorario() {
         return horario;
     }
 
     /**
-     * Metodo setDireccion que define la nueva direccion del Duenio
-     * @param direccion -- La nueva direccion del Duenio
+     * Metodo setHorario que define el nuevo horario de la Estetica
+     * @param horario -- El nuevo horario de la Estetica
      */
     public void setHorario(String horario) {
         this.horario = horario;
     }
 
     /**
-     * Metodo ToString de Duenio
-     * @return Regresa la representación de un Duenio para generar el CSV
+     * Metodo ToString de la Estetica
+     * @return Regresa la representación de una Estetica para generar el CSV
      */
     @Override
     public String toString() {

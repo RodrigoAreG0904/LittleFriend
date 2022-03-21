@@ -9,7 +9,7 @@ import java.util.ArrayList;
  *	   Karyme Ivette Azpeitia Garcia
  * @version 16/03/2022
  */
-public class DuenioArchivo {
+public class DuenioArchivo extends LeeryEscribir {
     /**
      * Constructor por omision que crea el archivo Duenio.csv
      */
