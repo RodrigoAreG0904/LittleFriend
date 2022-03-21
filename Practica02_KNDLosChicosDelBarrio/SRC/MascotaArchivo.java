@@ -53,8 +53,8 @@ public class MascotaArchivo extends LeeryEscribir{
     private Mascota parseaMascota(String cadenaMascota) {
       String linea[] = cadenaMascota.trim().split(",");
       String nombre = linea[0];
-      int edad = linea[1];
-      int peso = linea[2];
+      int edad = Integer.valueOf(linea[1]);
+      int peso = Integer.valueOf(linea[2]);
       String especie = linea[3];
       String raza = linea[4];
       String nombreDeDuenio= linea[5];
