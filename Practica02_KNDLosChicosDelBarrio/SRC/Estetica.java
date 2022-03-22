@@ -108,6 +108,6 @@ public class Estetica {
      */
     @Override
     public String toString() {
-        return this.nombre +","+","+this.direccion+","+this.telefono+","+this.horario;
+        return this.nombre +","+this.direccion+","+this.telefono+","+this.horario;
     }
 }
