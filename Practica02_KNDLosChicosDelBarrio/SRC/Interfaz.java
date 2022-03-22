@@ -26,7 +26,7 @@ public class Interfaz {
         opcion = input.nextInt();
       } catch (InputMismatchException e) {
         input.next();
-        System.out.println("Ingresa un número como opción");
+        System.out.println("Ingresa un número como opcion");
       }
       if(opcion > 0 && opcion < 4){
         switch(opcion){
@@ -40,13 +40,13 @@ public class Interfaz {
           }
           do{
             bandera = true;
-            System.out.println("Ingresa la opción deseada\n" + "1-Agregar Mascota\n" + "2-Ver Mascotas\n"
+            System.out.println("Ingresa la opcion deseada\n" + "1-Agregar Mascota\n" + "2-Ver Mascotas\n"
             + "3-Editar Mascota\n" + "4-Borrar Mascota\n" + "5-Salir\n");
             try {
               opcion = input.nextInt();
             } catch (InputMismatchException e) {
               input.next();
-              System.out.println("Ingresa un número como opción");
+              System.out.println("Ingresa un número como opcion");
             }
             if (opcion > 0 && opcion < 6) {
               switch (opcion) {
@@ -64,7 +64,7 @@ public class Interfaz {
 
                 case 3:
                 //dejar que edite cada uno de los atributos de la mascota,
-                //pero que haya una opción para dejar el atributo que se le deja para editar como esta, hacer un mini menu para que elija que quiere editar, o si quiere editar todo.
+                //pero que haya una opcion para dejar el atributo que se le deja para editar como esta, hacer un mini menu para que elija que quiere editar, o si quiere editar todo.
                 break;
 
                 case 4:
@@ -94,13 +94,13 @@ public class Interfaz {
             case 2:
             do{
               bandera = true;
-              System.out.println("Ingresa la opción deseada\n" + "1-Agregar Mascota\n" + "2-Ver Mascotas\n"
+              System.out.println("Ingresa la opcion deseada\n" + "1-Agregar Mascota\n" + "2-Ver Mascotas\n"
               + "3-Editar Mascotas\n" + "4-Borrar Mascota\n" + "5-Salir\n");
               try {
                 opcion = input.nextInt();
               } catch (InputMismatchException e) {
                 input.next();
-                System.out.println("Ingresa un número como opción");
+                System.out.println("Ingresa un número como opcion");
                 }
                 if (opcion > 0 && opcion < 6) {
                   switch (opcion) {
@@ -159,7 +159,7 @@ public class Interfaz {
         opcion = input.nextInt();
       } catch (InputMismatchException e) {
         input.next();
-        System.out.println("Ingresa un número como opción");
+        System.out.println("Ingresa un número como opcion");
       }
       if(opcion > 0 && opcion < 4){
         switch(opcion){
@@ -173,13 +173,13 @@ public class Interfaz {
           }
           do{
             bandera = true;
-            System.out.println("Ingresa la opción deseada\n" + "1-Agregar Estetica\n" + "2-Ver Esteticas\n"
+            System.out.println("Ingresa la opcion deseada\n" + "1-Agregar Estetica\n" + "2-Ver Esteticas\n"
             + "3-Editar Estetica\n" + "4-Borrar Estetica\n" + "5-Salir\n");
             try {
               opcion = input.nextInt();
             } catch (InputMismatchException e) {
               input.next();
-              System.out.println("Ingresa un número como opción");
+              System.out.println("Ingresa un número como opcion");
             }
             if (opcion > 0 && opcion < 6) {
               switch (opcion) {
@@ -197,7 +197,7 @@ public class Interfaz {
 
                 case 3:
                 //dejar que edite cada uno de los atributos de la estetica,
-                //pero que haya una opción para dejar el atributo que se le deja para editar como esta, hacer un mini menu para que elija que quiere editar, o si quiere editar todo.
+                //pero que haya una opcion para dejar el atributo que se le deja para editar como esta, hacer un mini menu para que elija que quiere editar, o si quiere editar todo.
                 break;
 
                 case 4:
@@ -227,13 +227,13 @@ public class Interfaz {
             case 2:
             do{
               bandera = true;
-              System.out.println("Ingresa la opción deseada\n" + "1-Agregar Estetica\n" + "2-Ver Esteticas\n"
+              System.out.println("Ingresa la opcion deseada\n" + "1-Agregar Estetica\n" + "2-Ver Esteticas\n"
               + "3-Editar Esteticas\n" + "4-Borrar Estetica\n" + "5-Salir\n");
               try {
                 opcion = input.nextInt();
               } catch (InputMismatchException e) {
                 input.next();
-                System.out.println("Ingresa un número como opción");
+                System.out.println("Ingresa un número como opcion");
               }
               if (opcion > 0 && opcion < 6) {
                 switch (opcion) {
@@ -292,7 +292,7 @@ public class Interfaz {
         opcion = input.nextInt();
       } catch (InputMismatchException e) {
         input.next();
-        System.out.println("Ingresa un número como opción");
+        System.out.println("Ingresa un número como opcion");
       }
       if(opcion > 0 && opcion < 4){
         switch(opcion){
@@ -306,13 +306,13 @@ public class Interfaz {
         }
         do{
           bandera = true;
-          System.out.println("Ingresa la opción deseada\n" + "1-Agregar Duenio\n" + "2-Ver Duenios\n"
+          System.out.println("Ingresa la opcion deseada\n" + "1-Agregar Duenio\n" + "2-Ver Duenios\n"
           + "3-Editar Duenio\n" + "4-Borrar Duenio\n" + "5-Salir\n");
           try {
             opcion = input.nextInt();
           } catch (InputMismatchException e) {
             input.next();
-            System.out.println("Ingresa un número como opción");
+            System.out.println("Ingresa un número como opcion");
           }
           if (opcion > 0 && opcion < 6) {
             switch (opcion) {
@@ -330,7 +330,7 @@ public class Interfaz {
 
             case 3:
             //dejar que edite cada uno de los atributos de la duenio,
-            //pero que haya una opción para dejar el atributo que se le deja para editar como esta, hacer un mini menu para que elija que quiere editar, o si quiere editar todo.
+            //pero que haya una opcion para dejar el atributo que se le deja para editar como esta, hacer un mini menu para que elija que quiere editar, o si quiere editar todo.
             break;
 
             case 4:
@@ -359,13 +359,13 @@ public class Interfaz {
         case 2:
         do{
           bandera = true;
-          System.out.println("Ingresa la opción deseada\n" + "1-Agregar Duenio\n" + "2-Ver Duenios\n"
+          System.out.println("Ingresa la opcion deseada\n" + "1-Agregar Duenio\n" + "2-Ver Duenios\n"
           + "3-Editar Duenios\n" + "4-Borrar Duenio\n" + "5-Salir\n");
           try {
             opcion = input.nextInt();
           } catch (InputMismatchException e) {
             input.next();
-            System.out.println("Ingresa un número como opción");
+            System.out.println("Ingresa un número como opcion");
           }
           if (opcion > 0 && opcion < 6) {
             switch (opcion) {
@@ -421,48 +421,45 @@ public class Interfaz {
     nombre = especie = raza = duenio = "";
     int edad, peso;
     edad = peso = 0;
+    boolean continua;
     System.out.println("Ingresa el nombre de tu mascota\n");
-    try {
-      nombre = input.nextLine();
-    } catch (InputMismatchException e) {
-      input.next();
-      System.out.println("Ingresa un nombre valido");
-    }
+    nombre = input.nextLine();
+    //poner error?
     System.out.println("Ingresa la edad de tu mascota\n");
-    try {
-      edad = input.nextInt();
-    } catch (InputMismatchException e) {
-      input.next();
-      System.out.println("Ingresa una edad valida");
-    }
-    System.out.println("Ingresa el peso de tu mascota\n");
-    try {
-      peso = input.nextInt();
-    } catch (InputMismatchException e) {
-      input.next();
-      System.out.println("Ingresa un peso valido");
-    }
+    do{
+      try {
+        continua = false;
+        edad = input.nextInt();
+      } catch (InputMismatchException e) {
+        System.out.println("Ingresa una edad valida");
+        input.next();
+        continua = true;
+      }
+    } while (continua);
+    do{
+      System.out.println("Ingresa el peso de tu mascota\n");
+      try {
+        continua = false;
+        peso = input.nextInt();
+      } catch (InputMismatchException e) {
+        System.out.println("Ingresa un peso valido");
+        input.next();
+        continua = true;
+      }
+    } while(continua);
+
+    //nextLine vacio que el programa salta por el nextInt anterior
+    input.nextLine();
+
     System.out.println("Ingresa la especie de tu mascota\n");
-    try {
-      especie = input.nextLine();
-    } catch (InputMismatchException e) {
-      input.next();
-      System.out.println("Ingresa una especie valida");
-    }
+    especie = input.nextLine();
+    
     System.out.println("Ingresa la raza de tu mascota\n");
-    try {
-      raza = input.nextLine();
-    } catch (InputMismatchException e) {
-      input.next();
-      System.out.println("Ingresa una raza valida");
-    }
+    raza = input.nextLine();
+
     System.out.println("Ingresa tu nombre (nombre del duenio)\n");
-    try {
-      duenio = input.nextLine();
-    } catch (InputMismatchException e) {
-      input.next();
-      System.out.println("Ingresa un nombre valido");
-    }
+    duenio = input.nextLine();
+
     Mascota mascota = new Mascota(nombre, edad, peso, especie, raza, duenio);
     return mascota;
   }
