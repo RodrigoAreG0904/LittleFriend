@@ -3,10 +3,10 @@ import java.util.ArrayList;
 /**
  * Clase que permite escribir y leer a Operadores sobre un archivo CSV
  * @author Rodrigo Arevalo Gaytan
- *	   Diana Berenice Hernández Alonso
- * 	   Julio Cesar Torres Escobedo
- *	   Santiago  Arroyo Lozano
- *	   Karyme Ivette Azpeitia Garcia
+ * @author Diana Berenice Hernández Alonso
+ * @author Julio Cesar Torres Escobedo
+ * @author Santiago  Arroyo Lozano
+ * @author Karyme Ivette Azpeitia Garcia
  * @version 16/03/2022
  */
 public class DuenioArchivo extends LeeryEscribir {

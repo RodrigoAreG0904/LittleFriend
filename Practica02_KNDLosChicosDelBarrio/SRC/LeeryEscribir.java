@@ -1,7 +1,6 @@
-import java.io.BufferedReader;
+
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -9,10 +8,10 @@ import java.util.Scanner;
 /**
  * Clase que que permite leer y escribir a un archivo
  * @author Rodrigo Arevalo Gaytan
- *	   Diana Berenice Hernández Alonso
- * 	   Julio Cesar Torres Escobedo
- *	   Santiago  Arroyo Lozano
- *	   Karyme Ivette Azpeitia Garcia
+ * @author Diana Berenice Hernández Alonso
+ * @author Julio Cesar Torres Escobedo
+ * @author Santiago  Arroyo Lozano
+ * @author Karyme Ivette Azpeitia Garcia
  * @version 16/03/2022
  */
 public class LeeryEscribir {
