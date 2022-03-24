@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
+import java.net.URL;
 
 /**
  * Clase que que permite leer y escribir a un archivo
@@ -22,8 +23,10 @@ public class LeeryEscribir {
      * @param nombreArchivo -- el NombredelArchivo que se creara
      */
     public LeeryEscribir(String nombreArchivo) {
-	     file = new File(nombreArchivo);
+      URL url = getClass().getResource(nombreArchivo);
+	    this.file = new File(url.getPath());
     }
+    
     /**
      * Metodo que escribe la información en file (archivo a modificar)
      * @param linea -- La información a escribir

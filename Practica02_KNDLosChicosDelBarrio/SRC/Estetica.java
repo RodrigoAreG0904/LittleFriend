@@ -154,7 +154,7 @@ public class Estetica {
      */
     @Override
     public String toString() {
-        return this.nombre +", "+this.direccion+", "+this.telefono+", "+this.horario + ", " + toStringRegistroIngresos() + ", " + this.gananciasTotales;
+        return this.nombre +","+this.direccion+","+this.telefono+","+this.horario + "," + toStringRegistroIngresos() + "," + this.gananciasTotales;
     }
 
     /**
