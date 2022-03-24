@@ -304,7 +304,7 @@ public class InterfazM {
       for(int i = 0; i < lista.size(); i++){
         actual = lista.get(i);
         int edadActual = actual.getEdad();
-        if(edadActual.equals(mascota))
+        if(edadActual == mascota)
           busqueda.add(actual);
       }
     }
@@ -329,7 +329,7 @@ public class InterfazM {
       for(int i = 0; i < lista.size(); i++){
         actual = lista.get(i);
         int pesoActual = actual.getPeso();
-        if(pesoActual.equals(mascota))
+        if(pesoActual == mascota)
           busqueda.add(actual);
       }
     }
@@ -401,7 +401,7 @@ public class InterfazM {
     ArrayList<Mascota> busqueda = new ArrayList<Mascota>();
     if(mascota.equals("") || lista.isEmpty()){
       return null;
-    }else{
+    } else {
       for(int i = 0; i < lista.size(); i++){
         actual = lista.get(i);
         String duenioActual = actual.getNombreDuenio();
