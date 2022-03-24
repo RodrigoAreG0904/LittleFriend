@@ -92,10 +92,19 @@ public class InterfazE {
           break; // Break caso 1.3: editar Estetica
 
           case 4:
-          // metodo para buscar estetica y que todos los datos correspondan a una única estetica o que busque por diferentes
-          // atributos y elija cual eliminar (le puede ir apareciendo las esteticas que corresponden con la busqueda)
-          //esteticas.remove(estetica);
-          //System.out.println("Se elimino la Estetica");
+          System.out.println("Inserte el nombre de la estetica que busca: ");
+            try {
+              String nombreE = input.nextLine();
+              estetica = buscarEstetica(esteticas, nombreE);
+              if(estetica == null){
+                System.out.println("No hay ninguna estetica registrada con este nombre.");
+                return;
+              }
+              esteticas.remove(estetica);
+            }catch (InputMismatchException e){
+              input.next();
+              System.out.println("Nombre de estetica invalido.");
+            }
           break;
 
           case 5:
@@ -139,10 +148,54 @@ public class InterfazE {
           break; // Break caso 2.2: ver Esteticas
 
           case 3:
-          break;
+          System.out.println("Inserte el nombre de la estetica: ");
+          try {
+            input.nextLine();
+            String nombreE = input.nextLine();
+            estetica = buscarEstetica(esteticas, nombreE);
+            if(estetica == null){
+              System.out.println("No hay ninguna estetica registrada con este nombre.");
+              return;
+            }
+            System.out.println("Seleccione la opcion que quiera editar:\n" + "1.- Nombre de la estetica\n" + "2.- Direccion\n" + "3.- Telefono\n" 
+            + "4.- Horario\n" + "5.- Salir\n");
+            
+            opcion = input.nextInt();
+            switch(opcion){
+              case 1: editarNombre(estetica); break;
+              case 2: editarDireccion(estetica); break;
+              case 3: editarTelefono(estetica); break;
+              case 4: editarHorario(estetica); break;
+              case 5: 
+                System.out.println("Saliendo del menu de edicion.");
+              break;
+
+              default:
+                System.out.println("Seleccione una opcion correcta");
+              break;
+            }
+          } catch (InputMismatchException e){
+            input.next();
+            System.out.println("Nombre de estetica invalido.");
+          }
+          break; // Break caso 2.3: editar estetica
 
           case 4:
-          break;
+          System.out.println("Inserte el nombre de la estetica: ");
+            try {
+              input.nextLine();
+              String nombreE = input.nextLine();
+              estetica = buscarEstetica(esteticas, nombreE);
+              if(estetica == null){
+                System.out.println("No hay ninguna estetica registrada con este nombre.");
+                return;
+              }
+              esteticas.remove(estetica);
+            }catch (InputMismatchException e){
+              input.next();
+              System.out.println("Nombre de la estetica invalido.");
+            }
+          break; // Break caso 2.4: eliminar estetica
 
           case 5:
             if(!esteticas.isEmpty()){
@@ -209,7 +262,7 @@ public class InterfazE {
   public void editarTelefono(Estetica estetica){
     System.out.println("Escriba el nuevo telefono de su estetica: \n");
     int nuevo = input.nextInt();
-    if(nuevo <= 0 || nuevo > 9999999999){
+    if(nuevo <= 0 || nuevo > Integer.MAX_VALUE){
       System.out.println("Ponga un numero mayor a 0 y menor a 9999999999\n");
       return;
     }
