@@ -19,11 +19,7 @@ public class InterfazM {
   private ArrayList<Mascota> mascotas = new ArrayList<>();
 
   public void interfazMascota() {
-<<<<<<< HEAD
-    input = new Scanner(System.in);
-=======
     input = new Scanner(System.in); 
->>>>>>> 78860a0769bb5e4bd894b7592b4b2348443bb7be
     MascotaArchivo archivo = new MascotaArchivo();
     System.out.println("Ingresa la opcion deseda\n 1-CargarDatos\n 2-CrearNuevo\n 3-Salir");
     try {
@@ -151,11 +147,7 @@ public class InterfazM {
           break; // Break caso 2.1: agregar mascota
 
           case 2:
-<<<<<<< HEAD
-            for(int i = 0;i < mascotas.size();i++)
-=======
             for(int i=0;i < mascotas.size();i++)
->>>>>>> 78860a0769bb5e4bd894b7592b4b2348443bb7be
               System.out.println(mascotas.get(i).toString());
           break;  // Break caso 2.2: ver mascotas
 

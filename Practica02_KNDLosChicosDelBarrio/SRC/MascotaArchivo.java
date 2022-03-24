@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author Karyme Ivette Azpeitia Garcia
  * @version 16/03/2022
  */
-public class MascotaArchivo extends LeeryEscribir{
+public class MascotaArchivo extends LeeryEscribir {
     /**
      * Constructor por omision que crea el archivo Mascota.csv
      */

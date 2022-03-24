@@ -262,7 +262,7 @@ public class InterfazE {
   public void editarTelefono(Estetica estetica){
     System.out.println("Escriba el nuevo telefono de su estetica: \n");
     int nuevo = input.nextInt();
-    if(nuevo <= 0 || nuevo > 9999999999){
+    if(nuevo <= 0 || nuevo > Integer.MAX_VALUE){
       System.out.println("Ponga un numero mayor a 0 y menor a 9999999999\n");
       return;
     }
@@ -285,22 +285,156 @@ public class InterfazE {
     System.out.println("Se ha guardado el horario.\n");
   }
 
+  //  private String nombre;
+  //  private String direccion;
+  //  private int telefono;
+  //  private String horario;
+  //  private ArrayList<Integer> registroIngresos = new ArrayList<Integer>();
+  //  private int gananciasTotales;
   /**
-  * Metodo para agregar una Estetica
-  * @return Estetica -- La Estetica agregada
+  * Metodo para buscar el nombre de una estetica
+  * @param estetica -- La estetica a buscar
+  * @param lista -- lista de las esteticas registradas
+  * @return Estetica -- La estetica encontrada
+  */
+  public Estetica buscarEstetica(ArrayList<Estetica> lista, String estetica){
+    Estetica actual = new Estetica();
+    ArrayList<Estetica> busqueda = new ArrayList<Estetica>();
+    if(estetica.equals("") || lista.isEmpty()){
+      return null;
+    }else{
+      for(int i = 0; i < lista.size(); i++){
+        actual = lista.get(i);
+        String nombreActual = actual.getNombre();
+        if(nombreActual.equals(estetica))
+          busqueda.add(actual);
+      }
+    }
+    if(busqueda.size() > 1){
+      System.out.println("Hemos encontrado mas de 1 resultado, por favor inserte la direccion de su estetica\n");
+      String direccion = input.nextInt();
+      actual = buscarDireccion(busqueda, direccion);
+      return actual;
+    }else if(busqueda.isEmpty()){
+      return null;
+    }else{
+      return busqueda.get(0);
+    }
+  }
+
+  /**
+  * Metodo para buscar la direccion de una estetica
+  * @param estetica -- La estetica a buscar
+  * @param lista -- lista de las esteticas registradas con el mismo nombre
+  * @return Estetica -- La estetica encontrada
+  */
+  public Estetica buscarDireccion(ArrayList<Estetica> lista, int estetica){
+    Estetica actual = new Estetica();
+    ArrayList<Estetica> busqueda = new ArrayList<Estetica>();
+    if(estetica < 0 || lista.isEmpty()){
+      return null;
+    }else{
+      for(int i = 0; i < lista.size(); i++){
+        actual = lista.get(i);
+        String direccionActual = actual.getDireccion();
+        if(direccionActual == estetica)
+          busqueda.add(actual);
+      }
+    }
+    if(busqueda.size() > 1){
+      System.out.println("Hemos encontrado mas de 1 resultado, por favor inserte el telefono de su estetica\n");
+      int telefono = input.nextInt();
+      actual = buscarTelefono(busqueda, telefono);
+      return actual;
+    }else if(busqueda.isEmpty()){
+      return null;
+    }else{
+      return busqueda.get(0);
+    }
+  }
+
+  /**
+  * Metodo para buscar el telefono de una estetica
+  * @param estetica -- La estetica a buscar
+  * @param lista -- lista de las esteticas registradas con el mismo nombre y direccion
+  * @return Estetica -- La estetica encontrada
+  */
+  public Estetica buscarTelefono(ArrayList<Estetica> lista, int estetica){
+    Estetica actual = new Estetica();
+    ArrayList<Estetica> busqueda = new ArrayList<Estetica>();
+    if(estetica < 0 || lista.isEmpty()){
+      return null;
+    }else{
+      for(int i = 0; i < lista.size(); i++){
+        actual = lista.get(i);
+        int telefonoActual = actual.getTelefono();
+        if(telefonoActual == estetica)
+          busqueda.add(actual);
+      }
+    }
+    if(busqueda.size() > 1){
+      System.out.println("Hemos encontrado mas de 1 resultado, por favor inserte el horario de su estetica (nn:nn - nn:nn)\n");
+      String horario = input.nextLine();
+      actual = buscarHorario(busqueda, horario);
+      return actual;
+    }else if(busqueda.isEmpty()){
+      return null;
+    }else{
+      return busqueda.get(0);
+    }
+  }
+  
+  /**
+  * Metodo para buscar la horario de una estetica
+  * @param estetica -- La estetica a buscar
+  * @param lista -- lista de las esteticas registradas con el mismo nombre, direccion y telefono
+  * @return Estetica -- La estetica encontrada
+  */
+  public Estetica buscarHorario(ArrayList<Estetica> lista, String estetica){
+    Estetica actual = new Estetica();
+    ArrayList<Estetica> busqueda = new ArrayList<Estetica>();
+    if(estetica.equals("") || lista.isEmpty()){
+      return null;
+    }else{
+      for(int i = 0; i < lista.size(); i++){
+        actual = lista.get(i);
+        String horarioActual = actual.getHorario();
+        if(horarioActual.equals(estetica))
+          busqueda.add(actual);
+      }
+    }
+    if(busqueda.size() > 1){
+      System.out.println("Hemos encontrado una copia de su estetica. Procedemos a eliminar la(s) copia(s).\n");
+      for(int i = 1; i <= busqueda.size(); i++){
+        esteticas.remove(i);
+      }
+      return busqueda.get(0);
+    }else if(busqueda.isEmpty()){
+      return null;
+    }else{
+      return busqueda.get(0);
+  }
+
+
+  /**
+  * Metodo para agregar una estetica
+  * @return Estetica -- La estetica agregada
   */
   public Estetica agregarEstetica(){
     input = new Scanner(System.in);
-    String nombre, direccion, horario;
-    nombre = direccion = horario = "";
-    int telefono;
-    telefono = 0;
+    String nombre, horario, raza, duenio;
+    nombre = horario = raza = duenio = "";
+    int direccion, telefono;
+    direccion = telefono = 0;
     boolean continua;
-    System.out.println("Ingresa el nombre de la estetica\n");
+    System.out.println("Ingresa el nombre de tu estetica\n");
     nombre = input.nextLine();
     //poner error?
-    System.out.println("Ingresa la direccion de la estetica\n");
+    System.out.println("Ingresa la direccion de tu estetica\n");
+    direccion = input.nextLine();
     do{
+      System.out.println("Ingresa el telefono de tu estetica\n");
+>>>>>>> 7c1d394dc8c319c6dd3fde0a27f1a4a4f73a8085
       try {
         continua = false;
         telefono = input.nextInt();
@@ -309,18 +443,23 @@ public class InterfazE {
         input.next();
         continua = true;
       }
-    } while (continua);
+    } while(continua);
 
     //nextLine vacio que el programa salta por el nextInt anterior
     input.nextLine();
 
-    System.out.println("Ingresa la direccion de la estetica\n");
-    direccion = input.nextLine();
-    
-    System.out.println("Ingresa el horario de la estetica\n");
+    System.out.println("Ingresa el horario de tu estetica\n");
     horario = input.nextLine();
+    
+    System.out.println("Ingresa la raza de tu estetica\n");
+    raza = input.nextLine();
 
-    Estetica estetica = new Estetica(nombre, direccion, telefono, horario);
+    // numero al azar para poder crear estetica
+    gananciasTotales = 5
+
+    Estetica estetica = new Estetica(nombre, direccion, telefono, horario, ingresos, gananciasTotales);
+    estetica.setGanancias();
+
     return estetica;
   }
 }
