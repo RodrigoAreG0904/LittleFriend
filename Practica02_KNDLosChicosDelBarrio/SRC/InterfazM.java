@@ -52,63 +52,12 @@ public class InterfazM {
             Mascota mascota = agregarMascota();
             mascotas.add(mascota);
             System.out.println("Se agrego la Mascota");
-          break;
+          break; // Break caso 1.1: agregar mascota
 
           case 2:
             for(int i=0;i<mascotas.size();i++)
               System.out.println(mascotas.get(i).toString());
-          break;
-
-          case 3:
-          
-          break;
-
-          case 4:
-          // metodo para buscar mascota y que todos los datos correspondan a una única mascota o que busque por diferentes
-          // atributos y elija cual eliminar (le puede ir apareciendo las mascotas que corresponden con la busqueda)
-          //mascotas.remove(mascota);
-          //System.out.println("Se elimino la Mascota");
-          break;
-
-          case 5:
-            if(!mascotas.isEmpty()) {
-              System.out.println("Guardando datos de mascotas...");
-              archivo.escribeMascota(mascotas);
-              System.out.println("Datos guardados");
-            }
-            bandera = false;
-            System.out.println("Saliendo del sistema...\nHasta pronto.");
-          break;
-
-          default: 
-            System.out.println("Por favor introduce una opcion valida");
-          break;
-        }
-      } while(bandera);
-      break; //BREAK CASO 1 SWITCH PRINCIPAL !!!!!!
-
-      case 2:
-      do {
-        bandera = true;
-        System.out.println("Ingresa la opcion deseada\n" + "1-Agregar Mascota\n" + "2-Ver Mascotas\n"
-        + "3-Editar Mascotas\n" + "4-Borrar Mascota\n" + "5-Salir\n");
-        try {
-          opcion = input.nextInt();
-        } catch (InputMismatchException e) {
-          input.next();
-          System.out.println("Ingresa un número como opcion");
-        }
-        switch (opcion) {
-          case 1:
-            Mascota mascota = agregarMascota();
-            mascotas.add(mascota);
-            System.out.println("Se agrego la Mascota");
-          break;
-
-          case 2:
-            for(int i=0;i<mascotas.size();i++)
-              System.out.println(mascotas.get(i).toString());
-          break;
+          break;  // Break caso 1.2: ver mascota
 
           case 3:
             System.out.println("Inserte el nombre de su mascota: ");
@@ -142,11 +91,113 @@ public class InterfazM {
               input.next();
               System.out.println("Nombre de mascota invalido.");
             }
-          
-          break;
+          break;   // Break caso 1.3: editar mascota
 
           case 4:
+            System.out.println("Inserte el nombre de su mascota: ");
+            try {
+              String nombreM = input.nextLine();
+              mascota = buscarMascota(mascotas, nombreM);
+              if(mascota == null){
+                System.out.println("No hay ninguna mascota registrada con este nombre.");
+                return;
+              }
+              mascotas.remove(mascota);
+            }catch (InputMismatchException e){
+              input.next();
+              System.out.println("Nombre de mascota invalido.");
+            } 
+          break;  // Break caso 1.4: eliminar mascota
+
+          case 5:
+            if(!mascotas.isEmpty()) {
+              System.out.println("Guardando datos de mascotas...");
+              archivo.escribeMascota(mascotas);
+              System.out.println("Datos guardados");
+            }
+            bandera = false;
+            System.out.println("Saliendo del sistema...\nHasta pronto.");
+          break;  // Break caso 1.5: salir
+
+          default: 
+            System.out.println("Por favor introduce una opcion valida");
           break;
+        }
+      } while(bandera);
+      break; //BREAK CASO 1 SWITCH PRINCIPAL !!!!!!
+
+      case 2:
+      do {
+        bandera = true;
+        System.out.println("Ingresa la opcion deseada\n" + "1-Agregar Mascota\n" + "2-Ver Mascotas\n"
+        + "3-Editar Mascotas\n" + "4-Borrar Mascota\n" + "5-Salir\n");
+        try {
+          opcion = input.nextInt();
+        } catch (InputMismatchException e) {
+          input.next();
+          System.out.println("Ingresa un número como opcion");
+        }
+        switch (opcion) {
+          case 1:
+            Mascota mascota = agregarMascota();
+            mascotas.add(mascota);
+            System.out.println("Se agrego la Mascota");
+          break; // Break caso 2.1: agregar mascota
+
+          case 2:
+            for(int i=0;i<mascotas.size();i++)
+              System.out.println(mascotas.get(i).toString());
+          break;  // Break caso 2.2: ver mascotas
+
+          case 3:
+            System.out.println("Inserte el nombre de su mascota: ");
+            try {
+              String nombreM = input.nextLine();
+              mascota = buscarMascota(mascotas, nombreM);
+              if(mascota == null){
+                System.out.println("No hay ninguna mascota registrada con este nombre.");
+                return;
+              }
+              System.out.println("Seleccione la opcion que quiera editar:\n" + "1.- Nombre de la mascota\n" + "2.- Edad\n" + "3.- Peso\n" 
+              + "4.- Especie\n" + "5.- Raza\n" + "6.- Nombre del duenio\n" + "7.- Salir\n");
+              
+              opcion = input.nextInt();
+              switch(opcion){
+                case 1: editarNombre(mascota); break;
+                case 2: editarEdad(mascota); break;
+                case 3: editarPeso(mascota); break;
+                case 4: editarEspecie(mascota); break;
+                case 5: editarRaza(mascota); break;
+                case 6: editarNombreDuenio(mascota); break;
+                case 7: 
+                  System.out.println("Saliendo del menu de edicion.");
+                break;
+
+                default:
+                  System.out.println("Seleccione una opcion correcta");
+                break;
+              }
+            } catch (InputMismatchException e){
+              input.next();
+              System.out.println("Nombre de mascota invalido.");
+            }
+          break;   // Break caso 2.3: editar mascota
+
+          case 4:
+            System.out.println("Inserte el nombre de su mascota: ");
+            try {
+              String nombreM = input.nextLine();
+              mascota = buscarMascota(mascotas, nombreM);
+              if(mascota == null){
+                System.out.println("No hay ninguna mascota registrada con este nombre.");
+                return;
+              }
+              mascotas.remove(mascota);
+            }catch (InputMismatchException e){
+              input.next();
+              System.out.println("Nombre de mascota invalido.");
+            } 
+          break;  // Break caso 2.4: eliminar mascota
 
           case 5:
             if(!mascotas.isEmpty()){
@@ -156,7 +207,7 @@ public class InterfazM {
             }
             bandera = false;
             System.out.println("Saliendo del sistema...\nHasta pronto.");
-          break;
+          break;  // Break caso 2.5: salir
 
           default: 
             System.out.println("Por favor introduce una opcion valida");
@@ -269,6 +320,8 @@ public class InterfazM {
   /**
   * Metodo para buscar el nombre de una mascota
   * @param mascota -- La mascota a buscar
+  * @param lista -- lista de las mascotas registradas
+  * @return Mascota -- La mascota encontrada
   */
   public Mascota buscarMascota(ArrayList<Mascota> lista, String mascota){
     Mascota actual = new Mascota();
@@ -295,6 +348,12 @@ public class InterfazM {
     }
   }
 
+  /**
+  * Metodo para buscar la edad de una mascota
+  * @param mascota -- La mascota a buscar
+  * @param lista -- lista de las mascotas registradas con el mismo nombre
+  * @return Mascota -- La mascota encontrada
+  */
   public Mascota buscarEdad(ArrayList<Mascota> lista, int mascota){
     Mascota actual = new Mascota();
     ArrayList<Mascota> busqueda = new ArrayList<Mascota>();
@@ -320,6 +379,12 @@ public class InterfazM {
     }
   }
 
+  /**
+  * Metodo para buscar el peso de una mascota
+  * @param mascota -- La mascota a buscar
+  * @param lista -- lista de las mascotas registradas con el mismo nombre y edad
+  * @return Mascota -- La mascota encontrada
+  */
   public Mascota buscarPeso(ArrayList<Mascota> lista, int mascota){
     Mascota actual = new Mascota();
     ArrayList<Mascota> busqueda = new ArrayList<Mascota>();
@@ -345,6 +410,12 @@ public class InterfazM {
     }
   }
   
+  /**
+  * Metodo para buscar la especie de una mascota
+  * @param mascota -- La mascota a buscar
+  * @param lista -- lista de las mascotas registradas con el mismo nombre, edad y peso
+  * @return Mascota -- La mascota encontrada
+  */
   public Mascota buscarEspecie(ArrayList<Mascota> lista, String mascota){
     Mascota actual = new Mascota();
     ArrayList<Mascota> busqueda = new ArrayList<Mascota>();
@@ -370,6 +441,12 @@ public class InterfazM {
     }
   }
 
+  /**
+  * Metodo para buscar la raza de una mascota
+  * @param mascota -- La mascota a buscar
+  * @param lista -- lista de las mascotas registradas con el mismo nombre, edad, peso y especie
+  * @return Mascota -- La mascota encontrada
+  */
   public Mascota buscarRaza(ArrayList<Mascota> lista, String mascota){
     Mascota actual = new Mascota();
     ArrayList<Mascota> busqueda = new ArrayList<Mascota>();
@@ -395,7 +472,12 @@ public class InterfazM {
     }
   }
 
-
+  /**
+  * Metodo para buscar el duenio de la mascota
+  * @param mascota -- La mascota a buscar
+  * @param lista -- lista de las mascotas registradas con el mismo nombre, edad, peso, especie y raza
+  * @return Mascota -- La mascota encontrada
+  */
   public Mascota buscarDuenio(ArrayList<Mascota> lista, String mascota){
     Mascota actual = new Mascota();
     ArrayList<Mascota> busqueda = new ArrayList<Mascota>();
@@ -412,7 +494,7 @@ public class InterfazM {
     if(busqueda.size() > 1){
       System.out.println("Hemos encontrado una copia de su mascota. Procedemos a eliminar la(s) copia(s).\n");
       for(int i = 1; i <= busqueda.size(); i++){
-        remove(i);
+        mascotas.remove(i);
       }
       return busqueda.get(0);
     }else if(busqueda.isEmpty()){
@@ -422,7 +504,10 @@ public class InterfazM {
     }
   }
 
-
+  /**
+  * Metodo para agregar una mascota
+  * @return Mascota -- La mascota agregada
+  */
   public Mascota agregarMascota(){
     input = new Scanner(System.in);
     String nombre, especie, raza, duenio;
