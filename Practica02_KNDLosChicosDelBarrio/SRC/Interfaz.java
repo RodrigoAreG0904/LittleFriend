@@ -282,8 +282,15 @@ public class Interfaz {
       }
     }
     if(busqueda.size() > 1){
-      Mascota actual = buscarEdad(lista, mascota);
+      System.out.println("Hemos encontrado mas de 1 resultado, por favor inserte la edad de su mascota\n")
+      int edad = input.nextInt();
+      Mascota actual = buscarEdad(busqueda, edad);
       return actual;
+    }else if(busqueda.isEmpty()){
+      return null;
+    }
+    }else{
+      return busqueda.get(0);
     }
   }
 
