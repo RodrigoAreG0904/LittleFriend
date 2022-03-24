@@ -209,8 +209,8 @@ public class Duenio {
      */
     @Override
     public String toString() {
-        return this.nombre +", "+this.apellidoP+", "+this.apellidoM+", "+this.fecha+", "+this.curp
-                +", "+this.direccion+", "+this.telefono+", "+this.tarjeta+", "+this.correo;
+        return this.nombre +","+this.apellidoP+","+this.apellidoM+","+this.fecha+","+this.curp 
+        +","+this.direccion+","+this.telefono+","+this.tarjeta+","+this.correo;
     }
     
 }

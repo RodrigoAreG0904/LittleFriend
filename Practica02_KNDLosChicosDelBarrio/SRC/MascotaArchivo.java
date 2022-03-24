@@ -46,12 +46,15 @@ public class MascotaArchivo extends LeeryEscribir{
     }
 
     /**
-     * Metodo que recibe una cadena y parsea los datos para crear a un Operador
-     * @param cadenaOperador -- La cadena  parsear
+     * Metodo que recibe una cadena y parsea los datos para crear a una Mascota
+     * @param cadenaMascota -- La cadena  parsear
      * @return el objeto con los datos de la cadena
      */
     private Mascota parseaMascota(String cadenaMascota) {
       String linea[] = cadenaMascota.trim().split(",");
+      for (int i = 0; i < linea.length; i++) {
+        System.out.println(linea[i]);
+      }
       String nombre = linea[0];
       int edad = Integer.valueOf(linea[1]);
       int peso = Integer.valueOf(linea[2]);
