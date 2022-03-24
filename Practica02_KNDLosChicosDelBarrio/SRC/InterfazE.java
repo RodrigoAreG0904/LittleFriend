@@ -61,6 +61,7 @@ public class InterfazE {
 
           case 3:
             System.out.println("Inserte el nombre de la Estetica: ");
+            input.nextLine();
             try {
               String nombreE = input.nextLine();
               estetica = buscarEstetica(esteticas, nombreE);
@@ -69,7 +70,7 @@ public class InterfazE {
                 return;
               }
               System.out.println("Seleccione la opcion que quiera editar:\n" + "1.- Nombre de la estetica\n" + "2.- Direccion\n" + "3.- Telefono\n" 
-              + "4.- Horario\n" + "5.- Salir\n");
+              + "4.- Horario\n" + "5.-Agergar ingreso\n" + "6.- Salir\n");
             
               opcion = input.nextInt();
               switch(opcion){
@@ -78,6 +79,20 @@ public class InterfazE {
                 case 3: editarTelefono(estetica); break;
                 case 4: editarHorario(estetica); break;
                 case 5: 
+              int ingresoAAgregar = 0;
+              try {
+                System.out.println("Ingresa la cantidad");
+                ingresoAAgregar = input.nextInt();
+              } catch (InputMismatchException e) {
+                input.next();
+                System.out.println("Ingresa un número como opcion");
+              }
+              ArrayList<Integer> listaIngresos = estetica.getIngresos();
+              listaIngresos.add(ingresoAAgregar);
+              estetica.setGanancias();
+              break;
+              
+              case 6: 
                   System.out.println("Saliendo del menu de edicion.");
                 break;
 
@@ -159,7 +174,7 @@ public class InterfazE {
               return;
             }
             System.out.println("Seleccione la opcion que quiera editar:\n" + "1.- Nombre de la estetica\n" + "2.- Direccion\n" + "3.- Telefono\n" 
-            + "4.- Horario\n" + "5.- Salir\n");
+            + "4.- Horario\n" + "5.-Agregar ingreso\n" +"6.- Salir\n");
             
             opcion = input.nextInt();
             switch(opcion){
@@ -168,6 +183,20 @@ public class InterfazE {
               case 3: editarTelefono(estetica); break;
               case 4: editarHorario(estetica); break;
               case 5: 
+              int ingresoAAgregar = 0;
+              try {
+                System.out.println("Ingresa la cantidad");
+                ingresoAAgregar = input.nextInt();
+              } catch (InputMismatchException e) {
+                input.next();
+                System.out.println("Ingresa un número como opcion");
+              }
+              ArrayList<Integer> listaIngresos = estetica.getIngresos();
+              listaIngresos.add(ingresoAAgregar);
+              estetica.setGanancias();
+              break;
+
+              case 6: 
                 System.out.println("Saliendo del menu de edicion.");
               break;
 
@@ -419,8 +448,8 @@ public class InterfazE {
   */
   public Estetica agregarEstetica(){
     input = new Scanner(System.in);
-    String nombre, horario, raza, duenio, direccion;
-    nombre = horario = raza = duenio = direccion = "";
+    String nombre, horario, direccion;
+    nombre = horario = direccion = "";
     int telefono, ingreso, gananciasTotales;
     telefono = ingreso = 0;
     boolean continua;
@@ -447,7 +476,7 @@ public class InterfazE {
     System.out.println("Ingresa el horario de tu estetica\n");
     horario = input.nextLine();
     do{
-      System.out.println("Ingresa el el ingreso mas tardio de tu estetica\n");
+      System.out.println("Ingresa el ingreso mas tardio de tu estetica\n");
       try {
         continua = false;
         ingreso = input.nextInt();
