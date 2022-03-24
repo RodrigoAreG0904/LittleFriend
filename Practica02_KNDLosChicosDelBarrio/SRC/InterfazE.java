@@ -285,12 +285,6 @@ public class InterfazE {
     System.out.println("Se ha guardado el horario.\n");
   }
 
-  //  private String nombre;
-  //  private String direccion;
-  //  private int telefono;
-  //  private String horario;
-  //  private ArrayList<Integer> registroIngresos = new ArrayList<Integer>();
-  //  private int gananciasTotales;
   /**
   * Metodo para buscar el nombre de una estetica
   * @param estetica -- La estetica a buscar
@@ -328,10 +322,10 @@ public class InterfazE {
   * @param lista -- lista de las esteticas registradas con el mismo nombre
   * @return Estetica -- La estetica encontrada
   */
-  public Estetica buscarDireccion(ArrayList<Estetica> lista, int estetica){
+  public Estetica buscarDireccion(ArrayList<Estetica> lista, String estetica){
     Estetica actual = new Estetica();
     ArrayList<Estetica> busqueda = new ArrayList<Estetica>();
-    if(estetica < 0 || lista.isEmpty()){
+    if(estetica.equals("") || lista.isEmpty()){
       return null;
     }else{
       for(int i = 0; i < lista.size(); i++){
@@ -415,7 +409,6 @@ public class InterfazE {
       return busqueda.get(0);
   }
 
-
   /**
   * Metodo para agregar una estetica
   * @return Estetica -- La estetica agregada
@@ -434,7 +427,6 @@ public class InterfazE {
     direccion = input.nextLine();
     do{
       System.out.println("Ingresa el telefono de tu estetica\n");
->>>>>>> 7c1d394dc8c319c6dd3fde0a27f1a4a4f73a8085
       try {
         continua = false;
         telefono = input.nextInt();
@@ -459,7 +451,6 @@ public class InterfazE {
 
     Estetica estetica = new Estetica(nombre, direccion, telefono, horario, ingresos, gananciasTotales);
     estetica.setGanancias();
-
     return estetica;
   }
 }
