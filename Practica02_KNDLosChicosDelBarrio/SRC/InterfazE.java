@@ -431,7 +431,6 @@ public class InterfazE {
     direccion = input.nextLine();
     do{
       System.out.println("Ingresa el telefono de tu estetica\n");
->>>>>>> 7c1d394dc8c319c6dd3fde0a27f1a4a4f73a8085
       try {
         continua = false;
         telefono = input.nextInt();
@@ -465,7 +464,6 @@ public class InterfazE {
 
     Estetica estetica = new Estetica(nombre, direccion, telefono, horario, ingresos, gananciasTotales);
     estetica.setGanancias();
-
     return estetica;
   }
 }
