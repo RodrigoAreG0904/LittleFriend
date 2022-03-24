@@ -49,7 +49,7 @@ public class InterfazE {
         }
         switch (opcion) {
           case 1:
-            Estetica estetica = new Estetica();
+            Estetica estetica = agregarEstetica();
             esteticas.add(estetica);
             System.out.println("Se agrego la Estetica");
           break; // Break caso 1.1: agregar Estetica
@@ -138,7 +138,7 @@ public class InterfazE {
         }
         switch (opcion) {
           case 1:
-            Estetica estetica = new Estetica();
+            Estetica estetica = agregarEstetica();
             esteticas.add(estetica);
             System.out.println("Se agrego la Estetica");
           break; // Break caso 2.1: agregar Estetica
@@ -431,6 +431,7 @@ public class InterfazE {
     direccion = input.nextLine();
     do{
       System.out.println("Ingresa el telefono de tu estetica\n");
+>>>>>>> 7c1d394dc8c319c6dd3fde0a27f1a4a4f73a8085
       try {
         continua = false;
         telefono = input.nextInt();
@@ -464,6 +465,7 @@ public class InterfazE {
 
     Estetica estetica = new Estetica(nombre, direccion, telefono, horario, ingresos, gananciasTotales);
     estetica.setGanancias();
+
     return estetica;
   }
 }
