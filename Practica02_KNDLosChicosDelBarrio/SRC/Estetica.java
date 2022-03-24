@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Clase que representa las Esteticas.
  * @author Rodrigo Arevalo Gaytan
@@ -12,6 +14,8 @@ public class Estetica {
     private String direccion;
     private int telefono;
     private String horario;
+    private ArrayList<Integer> registroIngresos = new ArrayList<Integer>();
+    private int gananciasTotales;
 
     /**
      * Constructor por omision
@@ -21,6 +25,8 @@ public class Estetica {
         this.direccion = "Ciudad de Mexico";
         this.telefono = 123456789;
         this.horario = "12:00-1:00";
+        registroIngresos.add(5000);
+        this.gananciasTotales = 5000;
     }
 
     /**
@@ -29,13 +35,17 @@ public class Estetica {
      * @param direccion -- direccion de la Estetica
      * @param telefono -- Telefono de la Estetica
      * @param horario -- El horario de la Estetica
+     * @param registroIngresos -- Los ingresos de la Estetica
+     * @param gananciasTotales -- Los ingresos de la Estetica
      */
 
-    public Estetica(String nombre, String direccion, int telefono, String horario) {
+    public Estetica(String nombre, String direccion, int telefono, String horario, ArrayList<Integer> registroIngresos, int gananciasTotales) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.horario = horario;
+        this.registroIngresos = registroIngresos;
+        this.gananciasTotales = gananciasTotales;
     }
 
     /**
@@ -103,11 +113,64 @@ public class Estetica {
     }
 
     /**
+     * Metodo getIngresos que obtiene el registro de ingresos de la Estetica
+     * @return registroIngresos -- Los ingresos de la Estetica
+     */
+    public ArrayList<Integer> getIngresos() {
+        return registroIngresos;
+    }
+
+    /**
+     * Metodo setIngresos que define el registro de ingresos de la Estetica
+     * @param registroIngresos -- El nuevo ingreso de la Estetica
+     */
+    public void setIngresos(ArrayList<Integer> registroIngresos) {
+        this.registroIngresos = registroIngresos;
+    }
+
+    /**
+     * Metodo getGanancias que obtiene la suma de los ingresos de la lista registroIngresos de la Estetica
+     * @return gananciasTotales -- La ganancia hasta el momento de la Estetica
+     */
+    public int getGanancias() {
+        return gananciasTotales;
+    }
+
+    /**
+     * Metodo setGanancias que define la ganancia total de la Estetica
+     * (las ganancias totales se calcula por medio de la lista registroIngresos)
+     */
+    public void setGanancias() {
+        int total=0;
+        for(int i = 0; i < registroIngresos.size(); i++){
+            total = total + registroIngresos.get(i);
+        }
+        this.gananciasTotales = total;
+    }
+
+    /**
      * Metodo ToString de la Estetica
      * @return Regresa la representación de una Estetica para generar el CSV
      */
     @Override
     public String toString() {
-        return this.nombre +", "+this.direccion+", "+this.telefono+", "+this.horario;
+        return this.nombre +", "+this.direccion+", "+this.telefono+", "+this.horario + ", " + toStringRegistroIngresos() + ", " + this.gananciasTotales;
     }
+
+    /**
+     * Metodo ToStringRegistroIngresos
+     * @return Regresa la representación de la lista de ingresos
+     */
+    public String toStringRegistroIngresos() {
+        if(registroIngresos.size() == 0){
+            return "no hay ingresos";
+        }
+        String finalList = "";
+        for(int i = 0; i < registroIngresos.size(); i++){
+            finalList = finalList + registroIngresos.get(i) + ";";
+        }
+        return finalList;
+
+    }
+
 }

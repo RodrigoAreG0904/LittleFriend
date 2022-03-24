@@ -13,7 +13,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        Interfaz interfaz = new Interfaz();
+        InterfazM interfazM = new InterfazM();
+        InterfazD interfazD = new InterfazD();
+        InterfazE interfazE = new InterfazE();
         int opcion = 0;
         boolean validacion = false;
 
@@ -39,9 +41,9 @@ public class Main {
             }
         } while(!validacion);
         switch (opcion) {
-            case 1: interfaz.interfazMascota();break;
-            case 2: interfaz.interfazEstetica();break;
-            case 3: interfaz.interfazDuenios();break;
+            case 1: interfazM.interfazMascota();break;
+            case 2: interfazE.interfazEstetica();break;
+            case 3: interfazD.interfazDuenios();break;
         }
     }
 }

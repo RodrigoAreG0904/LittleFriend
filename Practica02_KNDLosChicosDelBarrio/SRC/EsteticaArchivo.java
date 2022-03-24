@@ -46,8 +46,8 @@ public class EsteticaArchivo extends LeeryEscribir{
       }
   
       /**
-       * Metodo que recibe una cadena y parsea los datos para crear a un Operador
-       * @param cadenaOperador -- La cadena  parsear
+       * Metodo que recibe una cadena y parsea los datos para crear a una Estetica
+       * @param cadenaEstetica -- La cadena a parsear
        * @return el objeto con los datos de la cadena
        */
       private Estetica parseaEstetica(String cadenaEstetica) {
@@ -56,6 +56,17 @@ public class EsteticaArchivo extends LeeryEscribir{
         String direccion = linea[1];
         int telefono = Integer.valueOf(linea[2]);
         String horario = linea[3];
-        return new Estetica(nombre, direccion, telefono, horario);
+
+        //para la lista de ingresos
+        String ingresos[] = linea[4].trim().split(";");
+        ArrayList<Integer> registroIngresos = new ArrayList<Integer>();
+        int temp;
+        for(String ingreso : ingresos){
+          temp = Integer.parseInt(ingreso);
+          registroIngresos.add(temp);
+        }
+        
+        int gananciasTotales = Integer.valueOf(linea[5]);
+        return new Estetica(nombre, direccion, telefono, horario, registroIngresos, gananciasTotales);
       }
 }
