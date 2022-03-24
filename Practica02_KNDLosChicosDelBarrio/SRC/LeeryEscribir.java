@@ -21,8 +21,8 @@ public class LeeryEscribir {
      * Constructor por parametros
      * @param nombreArchivo -- el NombredelArchivo que se creara
      */
-    public LeeryEscribir(String nombreArchivo) {
-	     file = new File(nombreArchivo);
+    public LeeryEscribir(String file) {
+	    this.file = new File(file);
     }
     /**
      * Metodo que escribe la información en file (archivo a modificar)

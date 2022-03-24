@@ -16,10 +16,10 @@ public class InterfazM {
   private boolean bandera;
   private int opcion = 0;
   private Scanner input;
+  private ArrayList<Mascota> mascotas = new ArrayList<>();
 
   public void interfazMascota() {
-    input = new Scanner(System.in);
-    ArrayList<Mascota> mascotas = new ArrayList<>();
+    input = new Scanner(System.in); 
     MascotaArchivo archivo = new MascotaArchivo();
     System.out.println("Ingresa la opcion deseda\n 1-CargarDatos\n 2-CrearNuevo\n 3-Salir");
     try {
@@ -145,7 +145,7 @@ public class InterfazM {
           break; // Break caso 2.1: agregar mascota
 
           case 2:
-            for(int i=0;i<mascotas.size();i++)
+            for(int i=0;i < mascotas.size();i++)
               System.out.println(mascotas.get(i).toString());
           break;  // Break caso 2.2: ver mascotas
 
