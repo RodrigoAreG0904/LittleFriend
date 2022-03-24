@@ -16,6 +16,7 @@ public class InterfazE {
   private boolean bandera;
   private int opcion = 0;
   private Scanner input;
+  
     public void interfazEstetica() {
     input = new Scanner(System.in);
     ArrayList<Estetica> esteticas = new ArrayList<>();
