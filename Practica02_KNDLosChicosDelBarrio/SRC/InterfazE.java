@@ -69,7 +69,7 @@ public class InterfazE {
                 return;
               }
               System.out.println("Seleccione la opcion que quiera editar:\n" + "1.- Nombre de la estetica\n" + "2.- Direccion\n" + "3.- Telefono\n" 
-              + "4.- Horario\n" + "5.- Salir\n");
+              + "4.- Horario\n" +  "5.- Registro de Ingresos\n" + "6.- Salir\n");
             
               opcion = input.nextInt();
               switch(opcion){
@@ -77,7 +77,8 @@ public class InterfazE {
                 case 2: editarDireccion(estetica); break;
                 case 3: editarTelefono(estetica); break;
                 case 4: editarHorario(estetica); break;
-                case 5: 
+                case 5: editarRegistroIngresos(estetica); break;
+                case 6: 
                   System.out.println("Saliendo del menu de edicion.");
                 break;
 
@@ -92,7 +93,7 @@ public class InterfazE {
           break; // Break caso 1.3: editar Estetica
 
           case 4:
-                    System.out.println("Inserte el nombre de la estetica que busca: ");
+              System.out.println("Inserte el nombre de la estetica que busca: ");
             try {
               String nombreE = input.nextLine();
               estetica = buscarEstetica(esteticas, nombreE);
@@ -105,7 +106,6 @@ public class InterfazE {
               input.next();
               System.out.println("Nombre de estetica invalido.");
             }
-
           break;
 
           case 5:
@@ -116,7 +116,7 @@ public class InterfazE {
             }
             bandera = false;
             System.out.println("Saliendo del sistema...\nHasta pronto.");
-          break;
+          break; // Break caso 1.5: salir
 
           default: 
             System.out.println("Por favor introduce una opcion valida");
@@ -149,7 +149,7 @@ public class InterfazE {
           break; // Break caso 2.2: ver Esteticas
 
           case 3:
-                    System.out.println("Inserte el nombre de la estetica: ");
+              System.out.println("Inserte el nombre de la estetica: ");
           try {
             input.nextLine();
             String nombreE = input.nextLine();
@@ -159,7 +159,7 @@ public class InterfazE {
               return;
             }
             System.out.println("Seleccione la opcion que quiera editar:\n" + "1.- Nombre de la estetica\n" + "2.- Direccion\n" + "3.- Telefono\n" 
-            + "4.- Horario\n" + "5.- Salir\n");
+            + "4.- Horario\n" + "5.- Registro de Ingresos\n" + "6.- Salir\n");
             
             opcion = input.nextInt();
             switch(opcion){
@@ -167,21 +167,20 @@ public class InterfazE {
               case 2: editarDireccion(estetica); break;
               case 3: editarTelefono(estetica); break;
               case 4: editarHorario(estetica); break;
-              case 5: 
+              case 5: editarRegistroIngresos(estetica); break;
+              case 6: 
                 System.out.println("Saliendo del menu de edicion.");
               break;
 
               default:
                 System.out.println("Seleccione una opcion correcta");
-          break;
-          }
+              break;
+            }
           } catch (InputMismatchException e){
             input.next();
             System.out.println("Nombre de estetica invalido.");
           }
           break; // Break caso 2.3: editar estetica
-
-
           case 4:
                     System.out.println("Inserte el nombre de la estetica: ");
             try {
@@ -287,7 +286,6 @@ public class InterfazE {
     estetica.setHorario(nuevo);
     System.out.println("Se ha guardado el horario.\n");
   }
-
 
   /**
   * Metodo para buscar el nombre de una estetica
