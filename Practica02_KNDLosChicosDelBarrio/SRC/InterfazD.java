@@ -49,8 +49,9 @@ public class InterfazD {
         }
         switch (opcion) {
           case 1:
-            Duenio duenio = new Duenio();
+            Duenio duenio = agregarDuenio();
             duenios.add(duenio);
+            archivo.escribeDuenio(duenios);
             System.out.println("Se agrego la Duenio");
           break;  // Break caso 1.1 = agregar duenio
 
@@ -187,6 +188,7 @@ public class InterfazD {
             } catch (InputMismatchException e){
               input.next();
               System.out.println("Nombre del duenio invalido.");
+            }
           break;  // Break caso 2.3: editar duenio
 
           case 4:
@@ -268,7 +270,7 @@ public class InterfazD {
   * Metodo para editar el apellido materno del duenio
   * @param duenio -- El duenio que modificaremos
   */
-  public void editarApellidoP(Duenio duenio){
+  public void editarApellidoM(Duenio duenio){
     System.out.println("Escriba el nuevo apellido materno del duenio: \n");
     String nuevo = input.nextLine();
     if(nuevo.equals("")){
@@ -298,7 +300,7 @@ public class InterfazD {
   * Metodo para editar el CURP del duenio
   * @param duenio -- El duenio que modificaremos
   */
-  public void editarFecha(Duenio duenio){
+  public void editarCURP(Duenio duenio){
     System.out.println("Escriba el nuevo CURP del duenio: \n");
     String nuevo = input.nextLine();
     if(nuevo.equals("")){
@@ -376,7 +378,7 @@ public class InterfazD {
   * @param lista -- lista de los duenios registrados
   * @return Duenio -- El duenio encontrada
   */
-  public Duenio buscarDuenio(ArrayList<Mascota> lista, String duenio){
+  public Duenio buscarDuenio(ArrayList<Duenio> lista, String duenio){
     Duenio actual = new Duenio();
     ArrayList<Duenio> busqueda = new ArrayList<Duenio>();
     if(duenio.equals("") || lista.isEmpty()){
@@ -408,7 +410,7 @@ public class InterfazD {
   * @param lista -- lista de los duenios registrados
   * @return Duenio -- El duenio encontrado
   */
-  public Duenio buscarApellidoP(ArrayList<Mascota> lista, String duenio){
+  public Duenio buscarApellidoP(ArrayList<Duenio> lista, String duenio){
     Duenio actual = new Duenio();
     ArrayList<Duenio> busqueda = new ArrayList<Duenio>();
     if(duenio.equals("") || lista.isEmpty()){
@@ -440,7 +442,7 @@ public class InterfazD {
   * @param lista -- lista de los duenios registrados
   * @return Duenio -- El duenio encontrado
   */
-  public Duenio buscarApellidoM(ArrayList<Mascota> lista, String duenio){
+  public Duenio buscarApellidoM(ArrayList<Duenio> lista, String duenio){
     Duenio actual = new Duenio();
     ArrayList<Duenio> busqueda = new ArrayList<Duenio>();
     if(duenio.equals("") || lista.isEmpty()){
@@ -472,7 +474,7 @@ public class InterfazD {
   * @param lista -- lista de los duenios registrados
   * @return Duenio -- El duenio encontrado
   */
-  public Duenio buscarFecha(ArrayList<Mascota> lista, String duenio){
+  public Duenio buscarFecha(ArrayList<Duenio> lista, String duenio){
     Duenio actual = new Duenio();
     ArrayList<Duenio> busqueda = new ArrayList<Duenio>();
     if(duenio.equals("") || lista.isEmpty()){
@@ -488,7 +490,7 @@ public class InterfazD {
     if(busqueda.size() > 1){
       System.out.println("Hemos encontrado mas de 1 resultado, por favor inserte el CURP del duenio\n");
       input.nextLine();
-      String fecha = input.nextLine();
+      String curp = input.nextLine();
       actual = buscarCURP(busqueda, curp);
       return actual;
     }else if(busqueda.isEmpty()){
@@ -504,7 +506,7 @@ public class InterfazD {
   * @param lista -- lista de los duenios registrados
   * @return Duenio -- El duenio encontrado
   */
-  public Duenio buscarCURP(ArrayList<Mascota> lista, String duenio){
+  public Duenio buscarCURP(ArrayList<Duenio> lista, String duenio){
     Duenio actual = new Duenio();
     ArrayList<Duenio> busqueda = new ArrayList<Duenio>();
     if(duenio.equals("") || lista.isEmpty()){
@@ -536,7 +538,7 @@ public class InterfazD {
   * @param lista -- lista de los duenios registrados
   * @return Duenio -- El duenio encontrado
   */
-  public Duenio buscarDireccion(ArrayList<Mascota> lista, String duenio){
+  public Duenio buscarDireccion(ArrayList<Duenio> lista, String duenio){
     Duenio actual = new Duenio();
     ArrayList<Duenio> busqueda = new ArrayList<Duenio>();
     if(duenio.equals("") || lista.isEmpty()){
@@ -568,7 +570,7 @@ public class InterfazD {
   * @param lista -- lista de los duenios registrados
   * @return Duenio -- El duenio encontrado
   */
-  public Duenio buscarDireccion(ArrayList<Mascota> lista, int duenio){
+  public Duenio buscarTelefono(ArrayList<Duenio> lista, int duenio){
     Duenio actual = new Duenio();
     ArrayList<Duenio> busqueda = new ArrayList<Duenio>();
     if(duenio < 0 || lista.isEmpty()){
@@ -600,7 +602,7 @@ public class InterfazD {
   * @param lista -- lista de los duenios registrados
   * @return Duenio -- El duenio encontrado
   */
-  public Duenio buscarTarjeta(ArrayList<Mascota> lista, String duenio){
+  public Duenio buscarTarjeta(ArrayList<Duenio> lista, String duenio){
     Duenio actual = new Duenio();
     ArrayList<Duenio> busqueda = new ArrayList<Duenio>();
     if(duenio.equals("") || lista.isEmpty()){
@@ -609,7 +611,7 @@ public class InterfazD {
       for(int i = 0; i < lista.size(); i++){
         actual = lista.get(i);
         String tarjeta = actual.getTarjeta();
-        if(direccion.equals(duenio))
+        if(tarjeta.equals(duenio))
           busqueda.add(actual);
       }
     }
@@ -632,7 +634,7 @@ public class InterfazD {
   * @param lista -- lista de los duenios registrados
   * @return Duenio -- El duenio encontrado
   */
-  public Duenio buscarTarjeta(ArrayList<Mascota> lista, String duenio){
+  public Duenio buscarCorreo(ArrayList<Duenio> lista, String duenio){
     Duenio actual = new Duenio();
     ArrayList<Duenio> busqueda = new ArrayList<Duenio>();
     if(duenio.equals("") || lista.isEmpty()){
@@ -709,7 +711,7 @@ public class InterfazD {
     System.out.println("Ingresa el correo del duenio\n");
     correo = input.nextLine();
 
-    Duenio duenio = new Mascota(nombre, apellidoP, apellidoM, fecha, curp, direccion, telefono, tarjeta, correo);
+    Duenio duenio = new Duenio(nombre, apellidoP, apellidoM, fecha, curp, direccion, telefono, tarjeta, correo);
     return duenio;
   }
 
