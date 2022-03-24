@@ -175,7 +175,10 @@ public class Interfaz {
     }
   }
 
-
+  /**
+  * Metodo para editar el nombre de la mascota
+  * @param mascota -- La mascota que modificaremos
+  */
   public void editarNombre(Mascota mascota){
     System.out.println("Escriba el nuevo nombre de su mascota: \n");
     String nuevo = input.nextLine();
@@ -187,6 +190,10 @@ public class Interfaz {
     System.out.println("Se ha guardado el nombre.\n");
   }
 
+  /**
+  * Metodo para editar la edad de la mascota
+  * @param mascota -- La mascota que modificaremos
+  */
   public void editarEdad(Mascota mascota){
     System.out.println("Escriba la nueva edad de su mascota: \n");
     int nuevo = input.nextInt();
@@ -198,6 +205,10 @@ public class Interfaz {
     System.out.println("Se ha guardado la edad.\n");
   }
 
+  /**
+  * Metodo para editar el peso de la mascota
+  * @param mascota -- La mascota que modificaremos
+  */
   public void editarPeso(Mascota mascota){
     System.out.println("Escriba el nuevo peso de su mascota: \n");
     int nuevo = input.nextInt();
@@ -209,17 +220,10 @@ public class Interfaz {
     System.out.println("Se ha guardado el peso.\n");
   }
 
-  public void editarPeso(Mascota mascota){
-    System.out.println("Escriba el nuevo peso de su mascota: \n");
-    int nuevo = input.nextInt();
-    if(peso == null || peso < 0){
-      System.out.println("Ponga el peso mayor a 0\n");
-      return;
-    }
-    mascota.setPeso(nuevo);
-    System.out.println("Se ha guardado el peso.\n");
-  }
-
+  /**
+  * Metodo para editar la especie de la mascota
+  * @param mascota -- La mascota que modificaremos
+  */
   public void editarEspecie(Mascota mascota){
     System.out.println("Escriba la nueva especie de su mascota: \n");
     String nuevo = input.nextLine();
@@ -231,6 +235,10 @@ public class Interfaz {
     System.out.println("Se ha guardado la especie.\n");
   }
 
+  /**
+  * Metodo para editar la raza de la mascota
+  * @param mascota -- La mascota que modificaremos
+  */
   public void editarRaza(Mascota mascota){
     System.out.println("Escriba la nueva raza de su mascota: \n");
     String nuevo = input.nextLine();
@@ -242,6 +250,10 @@ public class Interfaz {
     System.out.println("Se ha guardado la raza.\n");
   }
 
+  /**
+  * Metodo para editar el nombre del duenio de la mascota
+  * @param mascota -- La mascota que modificaremos
+  */
   public void editarNombreDuenio(Mascota mascota){
     System.out.println("Escriba el nuevo duenio de la mascota: \n");
     String nuevo = input.nextLine();
