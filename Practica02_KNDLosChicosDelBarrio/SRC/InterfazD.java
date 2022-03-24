@@ -695,7 +695,7 @@ public class InterfazD {
         continua = false;
         telefono = input.nextInt();
       } catch (InputMismatchException e) {
-        System.out.println("Ingresa un telefono valida");
+        System.out.println("Ingresa un telefono valida (menos al valor maximo de int)");
         input.next();
         continua = true;
       }

@@ -262,7 +262,7 @@ public class InterfazE {
   public void editarTelefono(Estetica estetica){
     System.out.println("Escriba el nuevo telefono de su estetica: \n");
     int nuevo = input.nextInt();
-    if(nuevo <= 0 || nuevo > 9999999999){
+    if(nuevo <= 0 || nuevo > Integer.MAX_VALUE){
       System.out.println("Ponga un numero mayor a 0 y menor a 9999999999\n");
       return;
     }
