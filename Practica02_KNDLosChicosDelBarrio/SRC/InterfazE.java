@@ -92,7 +92,7 @@ public class InterfazE {
           break; // Break caso 1.3: editar Estetica
 
           case 4:
-          System.out.println("Inserte el nombre de la estetica que busca: ");
+                    System.out.println("Inserte el nombre de la estetica que busca: ");
             try {
               String nombreE = input.nextLine();
               estetica = buscarEstetica(esteticas, nombreE);
@@ -105,6 +105,7 @@ public class InterfazE {
               input.next();
               System.out.println("Nombre de estetica invalido.");
             }
+
           break;
 
           case 5:
@@ -148,7 +149,7 @@ public class InterfazE {
           break; // Break caso 2.2: ver Esteticas
 
           case 3:
-          System.out.println("Inserte el nombre de la estetica: ");
+                    System.out.println("Inserte el nombre de la estetica: ");
           try {
             input.nextLine();
             String nombreE = input.nextLine();
@@ -172,16 +173,17 @@ public class InterfazE {
 
               default:
                 System.out.println("Seleccione una opcion correcta");
-              break;
-            }
+          break;
+          }
           } catch (InputMismatchException e){
             input.next();
             System.out.println("Nombre de estetica invalido.");
           }
           break; // Break caso 2.3: editar estetica
 
+
           case 4:
-          System.out.println("Inserte el nombre de la estetica: ");
+                    System.out.println("Inserte el nombre de la estetica: ");
             try {
               input.nextLine();
               String nombreE = input.nextLine();
@@ -262,8 +264,9 @@ public class InterfazE {
   public void editarTelefono(Estetica estetica){
     System.out.println("Escriba el nuevo telefono de su estetica: \n");
     int nuevo = input.nextInt();
-    if(nuevo <= 0 || nuevo > Integer.MAX_VALUE){
+        if(nuevo <= 0 || nuevo > Integer.MAX_VALUE){
       System.out.println("Ponga un numero mayor a 0 y menor a 9999999999\n");
+
       return;
     }
     estetica.setTelefono(nuevo);
@@ -285,13 +288,7 @@ public class InterfazE {
     System.out.println("Se ha guardado el horario.\n");
   }
 
-  //  private String nombre;
-  //  private String direccion;
-  //  private int telefono;
-  //  private String horario;
-  //  private ArrayList<Integer> registroIngresos = new ArrayList<Integer>();
-  //  private int gananciasTotales;
-  /**
+    /**
   * Metodo para buscar el nombre de una estetica
   * @param estetica -- La estetica a buscar
   * @param lista -- lista de las esteticas registradas
@@ -331,7 +328,7 @@ public class InterfazE {
   public Estetica buscarDireccion(ArrayList<Estetica> lista, String estetica){
     Estetica actual = new Estetica();
     ArrayList<Estetica> busqueda = new ArrayList<Estetica>();
-    if(estetica.equals("")){
+    if(estetica.equals("") || lista.isEmpty()){
       return null;
     }else{
       for(int i = 0; i < lista.size(); i++){
@@ -416,17 +413,16 @@ public class InterfazE {
     }
   }
 
-
   /**
   * Metodo para agregar una estetica
   * @return Estetica -- La estetica agregada
   */
   public Estetica agregarEstetica(){
     input = new Scanner(System.in);
-    String nombre, horario, raza, duenio;
-    nombre = horario = raza = duenio = "";
-    String direccion;
-    int telefono = 0;
+    String nombre, horario, direccion;
+    nombre = horario = direccion = "";
+    int telefono, ingreso, gananciasTotales;
+    telefono = ingreso = 0;
     boolean continua;
     System.out.println("Ingresa el nombre de tu estetica\n");
     nombre = input.nextLine();
@@ -450,19 +446,24 @@ public class InterfazE {
 
     System.out.println("Ingresa el horario de tu estetica\n");
     horario = input.nextLine();
-    
-    System.out.println("Ingresa el telefono de tu estetica\n");
-    telefono = input.nextInt();
-
-    System.out.println("Ingresa la raza de tu estetica\n");
-    raza = input.nextLine();
-
+    do{
+      System.out.println("Ingresa el el ingreso mas tardio de tu estetica\n");
+      try {
+        continua = false;
+        ingreso = input.nextInt();
+      } catch (InputMismatchException e) {
+        System.out.println("Ingresa una cantidad valida");
+        input.next();
+        continua = true;
+      }
+    } while(continua);
+    ArrayList<Integer> ingresos = new ArrayList<Integer>();
+    ingresos.add(ingreso);
     // numero al azar para poder crear estetica
     gananciasTotales = 5;
 
     Estetica estetica = new Estetica(nombre, direccion, telefono, horario, ingresos, gananciasTotales);
     estetica.setGanancias();
-
     return estetica;
   }
 }
