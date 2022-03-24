@@ -60,8 +60,7 @@ public class Interfaz {
           break;
 
           case 3:
-          //dejar que edite cada uno de los atributos de la mascota,
-          //pero que haya una opcion para dejar el atributo que se le deja para editar como esta, hacer un mini menu para que elija que quiere editar, o si quiere editar todo.
+          
           break;
 
           case 4:
@@ -112,6 +111,37 @@ public class Interfaz {
           break;
 
           case 3:
+            System.out.println("Inserte el nombre de su mascota: ")
+            try{
+              String nombreM = input.nextLine();
+              Mascota mascota = buscarMascota(nombreM);
+              if(mascota == null){
+                System.out.println("No hay ninguna mascota registrada con este nombre.");
+                return;
+              }
+              System.out.println("Seleccione la opcion que quiera editar:\n" + "1.- Nombre de la mascota\n" + "2.- Edad\n" + "3.- Peso\n" 
+              + "4.- Especie\n" + "5.- Raza\n" + "6.- Nombre del duenio\n" + "7.- Salir\n");
+              }
+              opcion = input.nextInt();
+              switch(opcion){
+                case 1: editarNombre(mascota); break;
+                case 2: editarEdad(mascota); break;
+                case 3: editarPeso(mascota); break;
+                case 4: editarEspecie(mascota); break;
+                case 5: editarRaza(mascota); break;
+                case 6: editarNombreDuenio(mascota); break;
+                case 7: 
+                  System.out.println("Saliendo del menu de edicion.");
+                break;
+
+                default:
+                  System.out.println("Seleccione una opcion correcta");
+                break;
+              }
+            }catch(InputMismatchException e){
+              input.next();
+              System.out.println("Nombre de mascota invalido.");
+            }
           break;
 
           case 4:
@@ -142,6 +172,95 @@ public class Interfaz {
       default: 
         System.out.println("Por favor introduce una opcion valida");
       break; //BREAK DEFAULT 
+    }
+  }
+
+
+  public void editarNombre(Mascota mascota){
+    System.out.println("Escriba el nuevo nombre de su mascota: \n");
+    String nuevo = input.nextLine();
+    if(nuevo == null){
+      System.out.println("Ponga un nombre\n");
+      return;
+    }
+    mascota.setNombre(nuevo);
+    System.out.println("Se ha guardado el nombre.\n");
+  }
+
+  public void editarEdad(Mascota mascota){
+    System.out.println("Escriba la nueva edad de su mascota: \n");
+    int nuevo = input.nextInt();
+    if(nuevo == null || nuevo < 0 || nuevo > 100){
+      System.out.println("Ponga una edad mayor a 0 y menor a 100\n");
+      return;
+    }
+    mascota.setEdad(nuevo);
+    System.out.println("Se ha guardado la edad.\n");
+  }
+
+  public void editarPeso(Mascota mascota){
+    System.out.println("Escriba el nuevo peso de su mascota: \n");
+    int nuevo = input.nextInt();
+    if(peso == null || peso < 0){
+      System.out.println("Ponga el peso mayor a 0\n");
+      return;
+    }
+    mascota.setPeso(nuevo);
+    System.out.println("Se ha guardado el peso.\n");
+  }
+
+  public void editarPeso(Mascota mascota){
+    System.out.println("Escriba el nuevo peso de su mascota: \n");
+    int nuevo = input.nextInt();
+    if(peso == null || peso < 0){
+      System.out.println("Ponga el peso mayor a 0\n");
+      return;
+    }
+    mascota.setPeso(nuevo);
+    System.out.println("Se ha guardado el peso.\n");
+  }
+
+  public void editarEspecie(Mascota mascota){
+    System.out.println("Escriba la nueva especie de su mascota: \n");
+    String nuevo = input.nextLine();
+    if(nuevo == null){
+      System.out.println("Ponga una especie valida\n");
+      return;
+    }
+    mascota.setEspecie(nuevo);
+    System.out.println("Se ha guardado la especie.\n");
+  }
+
+  public void editarRaza(Mascota mascota){
+    System.out.println("Escriba la nueva raza de su mascota: \n");
+    String nuevo = input.nextLine();
+    if(nuevo == null){
+      System.out.println("Ponga una raza valida\n");
+      return;
+    }
+    mascota.setRaza(nuevo);
+    System.out.println("Se ha guardado la raza.\n");
+  }
+
+  public void editarNombreDuenio(Mascota mascota){
+    System.out.println("Escriba el nuevo duenio de la mascota: \n");
+    String nuevo = input.nextLine();
+    if(nuevo == null){
+      System.out.println("Ponga un nombre valido\n");
+      return;
+    }
+    mascota.setNombreDuenio(nuevo);
+    System.out.println("Se ha guardado el nuevo duenio.\n");
+  }
+
+  /*
+  / Metodo para buscar el nombre de una mascota
+  */
+  public Mascota buscarMascota(String mascota){
+    if(mascota == null){
+      return null;
+    }else{
+
     }
   }
 
@@ -316,8 +435,7 @@ public class Interfaz {
           break;
 
           case 3:
-          //dejar que edite cada uno de los atributos de la duenio,
-          //pero que haya una opcion para dejar el atributo que se le deja para editar como esta, hacer un mini menu para que elija que quiere editar, o si quiere editar todo.
+            
           break;
 
           case 4:
