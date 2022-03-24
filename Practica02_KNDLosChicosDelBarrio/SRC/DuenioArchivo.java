@@ -55,10 +55,13 @@ public class DuenioArchivo extends LeeryEscribir {
         String nombre = linea[0];
         String apellidoP = linea[1];
         String apellidoM = linea[2];
-        String curp = linea[3];
-        String direccion = linea[4];
-        int telefono= Integer.valueOf(linea[5]);
-        return new Duenio(nombre, apellidoP, apellidoM, curp, direccion, telefono);
+        String fecha = linea[3];
+        String curp = linea[4];
+        String direccion = linea[5];
+        int telefono = Integer.valueOf(linea[6]);
+        String tarjeta = linea[7];
+        String correo = linea[8];
+        return new Duenio(nombre, apellidoP, apellidoM, fecha, curp, direccion, telefono, tarjeta, correo);
       }
     
 }

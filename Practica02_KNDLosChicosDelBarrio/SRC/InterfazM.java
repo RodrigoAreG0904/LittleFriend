@@ -112,7 +112,7 @@ public class InterfazM {
 
           case 3:
             System.out.println("Inserte el nombre de su mascota: ");
-            try{
+            try {
               String nombreM = input.nextLine();
               mascota = buscarMascota(mascotas, nombreM);
               if(mascota == null){
@@ -138,10 +138,11 @@ public class InterfazM {
                   System.out.println("Seleccione una opcion correcta");
                 break;
               }
-            } catch(InputMismatchException e){
+            } catch (InputMismatchException e){
               input.next();
               System.out.println("Nombre de mascota invalido.");
             }
+          
           break;
 
           case 4:
@@ -182,7 +183,7 @@ public class InterfazM {
   public void editarNombre(Mascota mascota){
     System.out.println("Escriba el nuevo nombre de su mascota: \n");
     String nuevo = input.nextLine();
-    if(nuevo == null){
+    if(nuevo.equals("")){
       System.out.println("Ponga un nombre\n");
       return;
     }
@@ -227,7 +228,7 @@ public class InterfazM {
   public void editarEspecie(Mascota mascota){
     System.out.println("Escriba la nueva especie de su mascota: \n");
     String nuevo = input.nextLine();
-    if(nuevo == null){
+    if(nuevo.equals("")){
       System.out.println("Ponga una especie valida\n");
       return;
     }
@@ -242,7 +243,7 @@ public class InterfazM {
   public void editarRaza(Mascota mascota){
     System.out.println("Escriba la nueva raza de su mascota: \n");
     String nuevo = input.nextLine();
-    if(nuevo == null){
+    if(nuevo.equals("")){
       System.out.println("Ponga una raza valida\n");
       return;
     }
@@ -257,7 +258,7 @@ public class InterfazM {
   public void editarNombreDuenio(Mascota mascota){
     System.out.println("Escriba el nuevo duenio de la mascota: \n");
     String nuevo = input.nextLine();
-    if(nuevo == null){
+    if(nuevo.equals("")){
       System.out.println("Ponga un nombre valido\n");
       return;
     }
@@ -282,11 +283,16 @@ public class InterfazM {
           busqueda.add(actual);
       }
     }
-    //if(busqueda.size() > 1){
-    //  Mascota actual = buscarEdad(lista, mascota);
-    //  return actual;
-    //}
-    return actual;
+    if(busqueda.size() > 1){
+      System.out.println("Hemos encontrado mas de 1 resultado, por favor inserte la edad de su mascota\n")
+      int edad = input.nextInt();
+      Mascota actual = buscarEdad(busqueda, edad);
+      return actual;
+    }else if(busqueda.isEmpty()){
+      return null;
+    }else{
+      return busqueda.get(0);
+    }
   }
 
 
