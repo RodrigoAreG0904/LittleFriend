@@ -49,7 +49,7 @@ public class InterfazE {
         }
         switch (opcion) {
           case 1:
-            Estetica estetica = new Estetica();
+            Estetica estetica = agregarEstetica();
             esteticas.add(estetica);
             System.out.println("Se agrego la Estetica");
           break; // Break caso 1.1: agregar Estetica
@@ -137,7 +137,7 @@ public class InterfazE {
         }
         switch (opcion) {
           case 1:
-            Estetica estetica = new Estetica();
+            Estetica estetica = agregarEstetica();
             esteticas.add(estetica);
             System.out.println("Se agrego la Estetica");
           break; // Break caso 2.1: agregar Estetica
@@ -283,5 +283,44 @@ public class InterfazE {
     }
     estetica.setHorario(nuevo);
     System.out.println("Se ha guardado el horario.\n");
+  }
+
+  /**
+  * Metodo para agregar una Estetica
+  * @return Estetica -- La Estetica agregada
+  */
+  public Estetica agregarEstetica(){
+    input = new Scanner(System.in);
+    String nombre, direccion, horario;
+    nombre = direccion = horario = "";
+    int telefono;
+    telefono = 0;
+    boolean continua;
+    System.out.println("Ingresa el nombre de la estetica\n");
+    nombre = input.nextLine();
+    //poner error?
+    System.out.println("Ingresa la direccion de la estetica\n");
+    do{
+      try {
+        continua = false;
+        telefono = input.nextInt();
+      } catch (InputMismatchException e) {
+        System.out.println("Ingresa un telefono valido");
+        input.next();
+        continua = true;
+      }
+    } while (continua);
+
+    //nextLine vacio que el programa salta por el nextInt anterior
+    input.nextLine();
+
+    System.out.println("Ingresa la direccion de la estetica\n");
+    direccion = input.nextLine();
+    
+    System.out.println("Ingresa el horario de la estetica\n");
+    horario = input.nextLine();
+
+    Estetica estetica = new Estetica(nombre, direccion, telefono, horario);
+    return estetica;
   }
 }
