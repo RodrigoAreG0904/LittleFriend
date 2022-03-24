@@ -312,7 +312,7 @@ public class InterfazE {
     }
     if(busqueda.size() > 1){
       System.out.println("Hemos encontrado mas de 1 resultado, por favor inserte la direccion de su estetica\n");
-      String direccion = input.nextInt();
+      String direccion = input.nextLine();
       actual = buscarDireccion(busqueda, direccion);
       return actual;
     }else if(busqueda.isEmpty()){
@@ -328,10 +328,10 @@ public class InterfazE {
   * @param lista -- lista de las esteticas registradas con el mismo nombre
   * @return Estetica -- La estetica encontrada
   */
-  public Estetica buscarDireccion(ArrayList<Estetica> lista, int estetica){
+  public Estetica buscarDireccion(ArrayList<Estetica> lista, String estetica){
     Estetica actual = new Estetica();
     ArrayList<Estetica> busqueda = new ArrayList<Estetica>();
-    if(estetica < 0 || lista.isEmpty()){
+    if(estetica.equals("")){
       return null;
     }else{
       for(int i = 0; i < lista.size(); i++){
@@ -413,6 +413,7 @@ public class InterfazE {
       return null;
     }else{
       return busqueda.get(0);
+    }
   }
 
 
@@ -424,8 +425,8 @@ public class InterfazE {
     input = new Scanner(System.in);
     String nombre, horario, raza, duenio;
     nombre = horario = raza = duenio = "";
-    int direccion, telefono;
-    direccion = telefono = 0;
+    String direccion;
+    int telefono = 0;
     boolean continua;
     System.out.println("Ingresa el nombre de tu estetica\n");
     nombre = input.nextLine();
@@ -434,7 +435,6 @@ public class InterfazE {
     direccion = input.nextLine();
     do{
       System.out.println("Ingresa el telefono de tu estetica\n");
->>>>>>> 7c1d394dc8c319c6dd3fde0a27f1a4a4f73a8085
       try {
         continua = false;
         telefono = input.nextInt();
@@ -451,11 +451,14 @@ public class InterfazE {
     System.out.println("Ingresa el horario de tu estetica\n");
     horario = input.nextLine();
     
+    System.out.println("Ingresa el telefono de tu estetica\n");
+    telefono = input.nextInt();
+
     System.out.println("Ingresa la raza de tu estetica\n");
     raza = input.nextLine();
 
     // numero al azar para poder crear estetica
-    gananciasTotales = 5
+    gananciasTotales = 5;
 
     Estetica estetica = new Estetica(nombre, direccion, telefono, horario, ingresos, gananciasTotales);
     estetica.setGanancias();
