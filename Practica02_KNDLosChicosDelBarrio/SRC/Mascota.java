@@ -148,8 +148,8 @@ public class Mascota {
      */
     @Override
     public String toString() {
-        return this.nombre +", "+this.edad+", "+this.peso+", "+this.especie
-                +", "+this.raza+", "+this.nombreDeDuenio;
+        return this.nombre +","+this.edad+","+this.peso+","+this.especie
+               +","+this.raza+","+this.nombreDeDuenio;
     }
 
 }
