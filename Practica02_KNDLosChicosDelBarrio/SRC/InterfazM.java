@@ -286,8 +286,135 @@ public class InterfazM {
     if(busqueda.size() > 1){
       System.out.println("Hemos encontrado mas de 1 resultado, por favor inserte la edad de su mascota\n");
       int edad = input.nextInt();
-      //actual = buscarEdad(busqueda, edad);
+      actual = buscarEdad(busqueda, edad);
       return actual;
+    }else if(busqueda.isEmpty()){
+      return null;
+    }else{
+      return busqueda.get(0);
+    }
+  }
+
+  public Mascota buscarEdad(ArrayList<Mascota> lista, int mascota){
+    Mascota actual = new Mascota();
+    ArrayList<Mascota> busqueda = new ArrayList<Mascota>();
+    if(mascota < 0 || lista.isEmpty()){
+      return null;
+    }else{
+      for(int i = 0; i < lista.size(); i++){
+        actual = lista.get(i);
+        int edadActual = actual.getEdad();
+        if(edadActual.equals(mascota))
+          busqueda.add(actual);
+      }
+    }
+    if(busqueda.size() > 1){
+      System.out.println("Hemos encontrado mas de 1 resultado, por favor inserte el peso de su mascota\n");
+      int peso = input.nextInt();
+      actual = buscarPeso(busqueda, peso);
+      return actual;
+    }else if(busqueda.isEmpty()){
+      return null;
+    }else{
+      return busqueda.get(0);
+    }
+  }
+
+  public Mascota buscarPeso(ArrayList<Mascota> lista, int mascota){
+    Mascota actual = new Mascota();
+    ArrayList<Mascota> busqueda = new ArrayList<Mascota>();
+    if(mascota < 0 || lista.isEmpty()){
+      return null;
+    }else{
+      for(int i = 0; i < lista.size(); i++){
+        actual = lista.get(i);
+        int pesoActual = actual.getPeso();
+        if(pesoActual.equals(mascota))
+          busqueda.add(actual);
+      }
+    }
+    if(busqueda.size() > 1){
+      System.out.println("Hemos encontrado mas de 1 resultado, por favor inserte la especie de su mascota\n");
+      String especie = input.nextLine();
+      actual = buscarEspecie(busqueda, especie);
+      return actual;
+    }else if(busqueda.isEmpty()){
+      return null;
+    }else{
+      return busqueda.get(0);
+    }
+  }
+  
+  public Mascota buscarEspecie(ArrayList<Mascota> lista, String mascota){
+    Mascota actual = new Mascota();
+    ArrayList<Mascota> busqueda = new ArrayList<Mascota>();
+    if(mascota.equals("") || lista.isEmpty()){
+      return null;
+    }else{
+      for(int i = 0; i < lista.size(); i++){
+        actual = lista.get(i);
+        String especieActual = actual.getEspecie();
+        if(especieActual.equals(mascota))
+          busqueda.add(actual);
+      }
+    }
+    if(busqueda.size() > 1){
+      System.out.println("Hemos encontrado mas de 1 resultado, por favor inserte la raza de su mascota\n");
+      String raza = input.nextLine();
+      actual = buscarRaza(busqueda, raza);
+      return actual;
+    }else if(busqueda.isEmpty()){
+      return null;
+    }else{
+      return busqueda.get(0);
+    }
+  }
+
+  public Mascota buscarRaza(ArrayList<Mascota> lista, String mascota){
+    Mascota actual = new Mascota();
+    ArrayList<Mascota> busqueda = new ArrayList<Mascota>();
+    if(mascota.equals("") || lista.isEmpty()){
+      return null;
+    }else{
+      for(int i = 0; i < lista.size(); i++){
+        actual = lista.get(i);
+        String razaActual = actual.getRaza();
+        if(razaActual.equals(mascota))
+          busqueda.add(actual);
+      }
+    }
+    if(busqueda.size() > 1){
+      System.out.println("Hemos encontrado mas de 1 resultado, por favor inserte el duenio de la mascota\n");
+      String duenio = input.nextLine();
+      actual = buscarDuenio(busqueda, duenio);
+      return actual;
+    }else if(busqueda.isEmpty()){
+      return null;
+    }else{
+      return busqueda.get(0);
+    }
+  }
+
+
+  public Mascota buscarDuenio(ArrayList<Mascota> lista, String mascota){
+    Mascota actual = new Mascota();
+    ArrayList<Mascota> busqueda = new ArrayList<Mascota>();
+    if(mascota.equals("") || lista.isEmpty()){
+      return null;
+    }else{
+      for(int i = 0; i < lista.size(); i++){
+        actual = lista.get(i);
+        String duenioActual = actual.getNombreDuenio();
+        if(duenioActual.equals(mascota))
+          busqueda.add(actual);
+      }
+    }
+    if(busqueda.size() > 1){
+      System.out.println("Hemos encontrado una copia de su mascota. Procedemos a eliminar la(s) copia(s).\n");
+      for(int i = 1; i <= busqueda.size(); i++){
+        remove(i);
+      }
+      return busqueda.get(0);
     }else if(busqueda.isEmpty()){
       return null;
     }else{
