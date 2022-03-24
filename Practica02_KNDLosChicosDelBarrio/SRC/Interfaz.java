@@ -182,7 +182,7 @@ public class Interfaz {
   public void editarNombre(Mascota mascota){
     System.out.println("Escriba el nuevo nombre de su mascota: \n");
     String nuevo = input.nextLine();
-    if(nuevo == null){
+    if(nuevo.equals("")){
       System.out.println("Ponga un nombre\n");
       return;
     }
@@ -197,7 +197,7 @@ public class Interfaz {
   public void editarEdad(Mascota mascota){
     System.out.println("Escriba la nueva edad de su mascota: \n");
     int nuevo = input.nextInt();
-    if(nuevo == null || nuevo < 0 || nuevo > 100){
+    if(nuevo < 0 || nuevo > 100){
       System.out.println("Ponga una edad mayor a 0 y menor a 100\n");
       return;
     }
@@ -212,7 +212,7 @@ public class Interfaz {
   public void editarPeso(Mascota mascota){
     System.out.println("Escriba el nuevo peso de su mascota: \n");
     int nuevo = input.nextInt();
-    if(peso == null || peso < 0){
+    if(peso < 0){
       System.out.println("Ponga el peso mayor a 0\n");
       return;
     }
@@ -227,7 +227,7 @@ public class Interfaz {
   public void editarEspecie(Mascota mascota){
     System.out.println("Escriba la nueva especie de su mascota: \n");
     String nuevo = input.nextLine();
-    if(nuevo == null){
+    if(nuevo.equals("")){
       System.out.println("Ponga una especie valida\n");
       return;
     }
@@ -242,7 +242,7 @@ public class Interfaz {
   public void editarRaza(Mascota mascota){
     System.out.println("Escriba la nueva raza de su mascota: \n");
     String nuevo = input.nextLine();
-    if(nuevo == null){
+    if(nuevo.equals("")){
       System.out.println("Ponga una raza valida\n");
       return;
     }
@@ -257,7 +257,7 @@ public class Interfaz {
   public void editarNombreDuenio(Mascota mascota){
     System.out.println("Escriba el nuevo duenio de la mascota: \n");
     String nuevo = input.nextLine();
-    if(nuevo == null){
+    if(nuevo.equals("")){
       System.out.println("Ponga un nombre valido\n");
       return;
     }
@@ -276,7 +276,7 @@ public class Interfaz {
     }else{
       for(int i = 0; i < lista.size(); i++){
         Mascota actual = lista.get(i);
-        nombreActual = actual.getNombre();
+        String nombreActual = actual.getNombre();
         if(nombreActual.equals(mascota))
           busqueda.add(actual);
       }
