@@ -111,8 +111,8 @@ public class Interfaz {
           break;
 
           case 3:
-            System.out.println("Inserte el nombre de su mascota: ")
-            try{
+            System.out.println("Inserte el nombre de su mascota: ");
+            try {
               String nombreM = input.nextLine();
               Mascota mascota = buscarMascota(mascotas, nombreM);
               if(mascota == null){
@@ -121,7 +121,6 @@ public class Interfaz {
               }
               System.out.println("Seleccione la opcion que quiera editar:\n" + "1.- Nombre de la mascota\n" + "2.- Edad\n" + "3.- Peso\n" 
               + "4.- Especie\n" + "5.- Raza\n" + "6.- Nombre del duenio\n" + "7.- Salir\n");
-              }
               opcion = input.nextInt();
               switch(opcion){
                 case 1: editarNombre(mascota); break;
@@ -138,10 +137,11 @@ public class Interfaz {
                   System.out.println("Seleccione una opcion correcta");
                 break;
               }
-            }catch(InputMismatchException e){
+            } catch (InputMismatchException e){
               input.next();
               System.out.println("Nombre de mascota invalido.");
             }
+          
           break;
 
           case 4:
@@ -288,7 +288,6 @@ public class Interfaz {
       return actual;
     }else if(busqueda.isEmpty()){
       return null;
-    }
     }else{
       return busqueda.get(0);
     }
