@@ -16,10 +16,10 @@ public class InterfazM {
   private boolean bandera;
   private int opcion = 0;
   private Scanner input;
+  private ArrayList<Mascota> mascotas = new ArrayList<>();
 
   public void interfazMascota() {
     input = new Scanner(System.in);
-    ArrayList<Mascota> mascotas = new ArrayList<>();
     MascotaArchivo archivo = new MascotaArchivo();
     System.out.println("Ingresa la opcion deseda\n 1-CargarDatos\n 2-CrearNuevo\n 3-Salir");
     try {
@@ -62,6 +62,7 @@ public class InterfazM {
           case 3:
             System.out.println("Inserte el nombre de su mascota: ");
             try {
+              input.nextLine();
               String nombreM = input.nextLine();
               mascota = buscarMascota(mascotas, nombreM);
               if(mascota == null){
@@ -96,6 +97,7 @@ public class InterfazM {
           case 4:
             System.out.println("Inserte el nombre de su mascota: ");
             try {
+              input.nextLine();
               String nombreM = input.nextLine();
               mascota = buscarMascota(mascotas, nombreM);
               if(mascota == null){
@@ -145,13 +147,14 @@ public class InterfazM {
           break; // Break caso 2.1: agregar mascota
 
           case 2:
-            for(int i=0;i<mascotas.size();i++)
+            for(int i = 0;i < mascotas.size();i++)
               System.out.println(mascotas.get(i).toString());
           break;  // Break caso 2.2: ver mascotas
 
           case 3:
             System.out.println("Inserte el nombre de su mascota: ");
             try {
+              input.nextLine();
               String nombreM = input.nextLine();
               mascota = buscarMascota(mascotas, nombreM);
               if(mascota == null){
@@ -186,6 +189,7 @@ public class InterfazM {
           case 4:
             System.out.println("Inserte el nombre de su mascota: ");
             try {
+              input.nextLine();
               String nombreM = input.nextLine();
               mascota = buscarMascota(mascotas, nombreM);
               if(mascota == null){
@@ -338,6 +342,7 @@ public class InterfazM {
     }
     if(busqueda.size() > 1){
       System.out.println("Hemos encontrado mas de 1 resultado, por favor inserte la edad de su mascota\n");
+      input.nextInt();
       int edad = input.nextInt();
       actual = buscarEdad(busqueda, edad);
       return actual;
@@ -363,12 +368,13 @@ public class InterfazM {
       for(int i = 0; i < lista.size(); i++){
         actual = lista.get(i);
         int edadActual = actual.getEdad();
-        if(edadActual.equals(mascota))
+        if(edadActual == mascota)
           busqueda.add(actual);
       }
     }
     if(busqueda.size() > 1){
       System.out.println("Hemos encontrado mas de 1 resultado, por favor inserte el peso de su mascota\n");
+      input.nextInt();
       int peso = input.nextInt();
       actual = buscarPeso(busqueda, peso);
       return actual;
@@ -394,12 +400,13 @@ public class InterfazM {
       for(int i = 0; i < lista.size(); i++){
         actual = lista.get(i);
         int pesoActual = actual.getPeso();
-        if(pesoActual.equals(mascota))
+        if(pesoActual == mascota)
           busqueda.add(actual);
       }
     }
     if(busqueda.size() > 1){
       System.out.println("Hemos encontrado mas de 1 resultado, por favor inserte la especie de su mascota\n");
+      input.nextLine();
       String especie = input.nextLine();
       actual = buscarEspecie(busqueda, especie);
       return actual;
@@ -431,6 +438,7 @@ public class InterfazM {
     }
     if(busqueda.size() > 1){
       System.out.println("Hemos encontrado mas de 1 resultado, por favor inserte la raza de su mascota\n");
+      input.nextLine();
       String raza = input.nextLine();
       actual = buscarRaza(busqueda, raza);
       return actual;
@@ -462,6 +470,7 @@ public class InterfazM {
     }
     if(busqueda.size() > 1){
       System.out.println("Hemos encontrado mas de 1 resultado, por favor inserte el duenio de la mascota\n");
+      input.nextLine();
       String duenio = input.nextLine();
       actual = buscarDuenio(busqueda, duenio);
       return actual;
@@ -494,7 +503,7 @@ public class InterfazM {
     if(busqueda.size() > 1){
       System.out.println("Hemos encontrado una copia de su mascota. Procedemos a eliminar la(s) copia(s).\n");
       for(int i = 1; i <= busqueda.size(); i++){
-        mascotas.remove(i);
+        mascotas.remove(actual);
       }
       return busqueda.get(0);
     }else if(busqueda.isEmpty()){
