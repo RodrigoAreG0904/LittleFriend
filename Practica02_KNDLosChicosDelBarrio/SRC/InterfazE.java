@@ -16,10 +16,10 @@ public class InterfazE {
   private boolean bandera;
   private int opcion = 0;
   private Scanner input;
+  private ArrayList<Estetica> esteticas = new ArrayList<>();
   
     public void interfazEstetica() {
     input = new Scanner(System.in);
-    ArrayList<Estetica> esteticas = new ArrayList<>();
     EsteticaArchivo archivo = new EsteticaArchivo();
     System.out.println("Ingresa la opcion deseda\n 1-CargarDatos\n 2-CrearNuevo\n 3-Salir");
     try {
@@ -52,17 +52,44 @@ public class InterfazE {
             Estetica estetica = new Estetica();
             esteticas.add(estetica);
             System.out.println("Se agrego la Estetica");
-          break;
+          break; // Break caso 1.1: agregar Estetica
 
           case 2:
             for(int i=0;i<esteticas.size();i++)
               System.out.println(esteticas.get(i).toString());
-          break;
+          break; // Break caso 1.2: ver Estetica
 
           case 3:
-          //dejar que edite cada uno de los atributos de la estetica,
-          //pero que haya una opcion para dejar el atributo que se le deja para editar como esta, hacer un mini menu para que elija que quiere editar, o si quiere editar todo.
-          break;
+            System.out.println("Inserte el nombre de la Estetica: ");
+            try {
+              String nombreE = input.nextLine();
+              estetica = buscarEstetica(esteticas, nombreE);
+              if(estetica == null){
+                System.out.println("No hay ninguna Estetica registrada con este nombre.");
+                return;
+              }
+              System.out.println("Seleccione la opcion que quiera editar:\n" + "1.- Nombre de la estetica\n" + "2.- Direccion\n" + "3.- Telefono\n" 
+              + "4.- Horario\n" + "5.- Salir\n");
+            
+              opcion = input.nextInt();
+              switch(opcion){
+                case 1: editarNombre(estetica); break;
+                case 2: editarDireccion(estetica); break;
+                case 3: editarTelefono(estetica); break;
+                case 4: editarHorario(estetica); break;
+                case 5: 
+                  System.out.println("Saliendo del menu de edicion.");
+                break;
+
+                default:
+                  System.out.println("Seleccione una opcion correcta");
+                break;
+              }
+            } catch (InputMismatchException e){
+              input.next();
+              System.out.println("Nombre de estetica invalido.");
+            }
+          break; // Break caso 1.3: editar Estetica
 
           case 4:
           // metodo para buscar estetica y que todos los datos correspondan a una única estetica o que busque por diferentes
@@ -104,12 +131,12 @@ public class InterfazE {
             Estetica estetica = new Estetica();
             esteticas.add(estetica);
             System.out.println("Se agrego la Estetica");
-          break;
+          break; // Break caso 2.1: agregar Estetica
 
           case 2:
             for(int i=0;i<esteticas.size();i++)
               System.out.println(esteticas.get(i).toString());
-          break;
+          break; // Break caso 2.2: ver Esteticas
 
           case 3:
           break;
@@ -125,7 +152,7 @@ public class InterfazE {
             }
             bandera = false;
             System.out.println("Saliendo del sistema...\nHasta pronto.");
-          break;
+          break; // Break caso 2.5: salir
 
           default: 
             System.out.println("Por favor introduce una opcion valida");
@@ -143,5 +170,65 @@ public class InterfazE {
         System.out.println("Por favor introduce una opcion valida");
       break; // BREAK CASO DEFAULT SWITCH PRINCIPAL !!!!! 
     }
+  }
+
+  /**
+  * Metodo para editar el nombre de la estetica
+  * @param estetica -- La estetica que modificaremos
+  */
+  public void editarNombre(Estetica estetica){
+    System.out.println("Escriba el nuevo nombre de su estetica: \n");
+    String nuevo = input.nextLine();
+    if(nuevo.equals("")){
+      System.out.println("Ponga un nombre\n");
+      return;
+    }
+    estetica.setNombre(nuevo);
+    System.out.println("Se ha guardado el nombre.\n");
+  }
+
+  /**
+  * Metodo para editar la direccion de la estetica
+  * @param estetica -- La estetica que modificaremos
+  */
+  public void editarDireccion(Estetica estetica){
+    System.out.println("Escriba la nueva direccion de su estetica: \n");
+    String nuevo = input.nextLine();
+    if(nuevo.equals("")){
+      System.out.println("Ponga una direccion\n");
+      return;
+    }
+    estetica.setDireccion(nuevo);
+    System.out.println("Se ha guardado la direccion.\n");
+  }
+
+  /**
+  * Metodo para editar el telefono de la estetica
+  * @param estetica -- La estetica que modificaremos
+  */
+  public void editarTelefono(Estetica estetica){
+    System.out.println("Escriba el nuevo telefono de su estetica: \n");
+    int nuevo = input.nextInt();
+    if(nuevo <= 0 || nuevo > 9999999999){
+      System.out.println("Ponga un numero mayor a 0 y menor a 9999999999\n");
+      return;
+    }
+    estetica.setTelefono(nuevo);
+    System.out.println("Se ha guardado el telefono.\n");
+  }
+
+  /**
+  * Metodo para editar el horario de la estetica
+  * @param estetica -- La estetica que modificaremos
+  */
+  public void editarHorario(Estetica estetica){
+    System.out.println("Escriba el nuevo horario de su estetica: \n");
+    String nuevo = input.nextLine();
+    if(nuevo.equals("")){
+      System.out.println("Ponga un horario\n");
+      return;
+    }
+    estetica.setHorario(nuevo);
+    System.out.println("Se ha guardado el horario.\n");
   }
 }
