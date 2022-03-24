@@ -11,9 +11,12 @@ public class Duenio {
     private String nombre;
     private String apellidoP;
     private String apellidoM;
+    private String fecha;
     private String curp;
     private String direccion;
     private int telefono;
+    private String tarjeta;
+    private String correo;
 
     /**
      * Constructor por omision
@@ -22,9 +25,12 @@ public class Duenio {
         this.nombre = "Rodrigo";
         this.apellidoP = "Arevalo";
         this.apellidoM = "Gaytan";
+        this.fecha = "01/02/03";
         this.curp = "ARGR010203";
-        this.direccion = "Ciudad de Mexico";
+        this.direccion = "Ciudad de Mexico, Calle, CP";
         this.telefono = 123456789;
+        this.tarjeta = "123456789, 0102, Rodrigo Arevalo Gaytan";
+        this.correo = "RodAreG@gmail.com";
     }
 
     /**
@@ -32,18 +38,25 @@ public class Duenio {
      * @param nombre -- Nombre del Duenio
      * @param apellidoP -- Apellido Paterno del Duenio
      * @param apellidoM -- Apellido Materno del Duenio
+     * @param fecha -- La fecha de Nacimiento del Duenio
      * @param curp -- CURP del Duenio
      * @param direccion -- direccion del Duenio
      * @param telefono -- Telefono del Duenio
+     * @param tarjeta -- La Tarjeta del Duenio
+     * @param correo -- El correo electrónico del Duenio
      */
 
-    public Duenio(String nombre, String apellidoP, String apellidoM, String curp,String direccion, int telefono) {
+    public Duenio(String nombre, String apellidoP, String apellidoM, String fecha, String curp,
+                    String direccion, int telefono, String tarjeta, String correo) {
         this.nombre = nombre;
         this.apellidoP= apellidoP;
         this.apellidoM = apellidoM;
+        this.fecha = fecha;
         this.curp = curp;
         this.direccion = direccion;
         this.telefono = telefono;
+        this.tarjeta = tarjeta;
+        this.correo = correo;
     }
 
     /**
@@ -95,6 +108,22 @@ public class Duenio {
     }
 
     /**
+     * Metodo getFecha que obtiene la fecha de nacimiento del Duenio
+     * @return fecha -- La fecha de nacimiento del Duenio
+     */
+    public String getFecha() {
+        return fecha;
+    }
+
+    /**
+     * Metodo setFecha que define la nueva fecha de nacimiento del Duenio
+     * @param fecha  -- La nueva fecha del Duenio
+     */
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    /**
      * Metodo getCurp que obtiene el curp del Duenio
      * @return curp -- El curp del Duenio
      */
@@ -143,13 +172,45 @@ public class Duenio {
     }
 
     /**
+     * Metodo getTarjeta que obtiene la tarjeta del Duenio
+     * @return tarjeta -- La tarjeta del Duenio
+     */
+    public String getTarjeta() {
+        return tarjeta;
+    }
+
+    /**
+     * Metodo setTarjeta que define la nueva tarjeta del Duenio
+     * @param tarjeta  -- La nueva tarjeta del Duenio
+     */
+    public void setTarjeta(String tarjeta) {
+        this.tarjeta = tarjeta;
+    }
+
+    /**
+     * Metodo getCorreo que obtiene el correo electrónico del Duenio
+     * @return correo -- El correo electrónico del Duenio
+     */
+    public String getCorreo() {
+        return correo;
+    }
+
+    /**
+     * Metodo setCorreo que define el nuevo correo electrónico del Duenio
+     * @param correo  -- EL nuevo correo electrónico del Duenio
+     */
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    /**
      * Metodo ToString de Duenio
      * @return Regresa la representación de un Duenio para generar el CSV
      */
     @Override
     public String toString() {
-        return this.nombre +", "+this.apellidoP+", "+this.apellidoM+", "+this.curp
-                +", "+this.direccion+", "+this.telefono;
+        return this.nombre +", "+this.apellidoP+", "+this.apellidoM+", "+this.fecha+", "+this.curp
+                +", "+this.direccion+", "+this.telefono+", "+this.tarjeta+", "+this.correo;
     }
     
 }
