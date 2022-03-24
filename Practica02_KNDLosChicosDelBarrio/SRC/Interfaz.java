@@ -114,7 +114,7 @@ public class Interfaz {
             System.out.println("Inserte el nombre de su mascota: ")
             try{
               String nombreM = input.nextLine();
-              Mascota mascota = buscarMascota(nombreM);
+              Mascota mascota = buscarMascota(mascotas, nombreM);
               if(mascota == null){
                 System.out.println("No hay ninguna mascota registrada con este nombre.");
                 return;
@@ -265,14 +265,25 @@ public class Interfaz {
     System.out.println("Se ha guardado el nuevo duenio.\n");
   }
 
-  /*
-  / Metodo para buscar el nombre de una mascota
+  /**
+  * Metodo para buscar el nombre de una mascota
+  * @param mascota -- La mascota a buscar
   */
-  public Mascota buscarMascota(String mascota){
-    if(mascota == null){
+  public Mascota buscarMascota(ArrayList<Mascota> lista, String mascota){
+    ArrayList<Mascota> busqueda = new ArrayList<Mascota>();
+    if(mascota.equals("") || lista.isEmpty()){
       return null;
     }else{
-
+      for(int i = 0; i < lista.size(); i++){
+        Mascota actual = lista.get(i);
+        nombreActual = actual.getNombre();
+        if(nombreActual.equals(mascota))
+          busqueda.add(actual);
+      }
+    }
+    if(busqueda.size() > 1){
+      Mascota actual = buscarEdad(lista, mascota);
+      return actual;
     }
   }
 
