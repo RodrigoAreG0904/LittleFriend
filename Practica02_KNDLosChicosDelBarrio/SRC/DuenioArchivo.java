@@ -10,11 +10,12 @@ import java.util.ArrayList;
  * @version 16/03/2022
  */
 public class DuenioArchivo extends LeeryEscribir {
-    /**
-     * Constructor por omision que crea el archivo Duenio.csv
-     */
-    public DuenioArchivo(){
-        super("Duenio.csv");
+  
+      /**
+       * Constructor por omision que crea el archivo Duenio.csv
+       */
+      public DuenioArchivo(){
+          super("Duenio.csv");
       }
   
       /**
