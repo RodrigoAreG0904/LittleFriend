@@ -91,7 +91,7 @@ public class InterfazE {
               listaIngresos.add(ingresoAAgregar);
               estetica.setGanancias();
               break;
-              
+
               case 6: 
                   System.out.println("Saliendo del menu de edicion.");
                 break;
@@ -107,7 +107,7 @@ public class InterfazE {
           break; // Break caso 1.3: editar Estetica
 
           case 4:
-                    System.out.println("Inserte el nombre de la estetica que busca: ");
+              System.out.println("Inserte el nombre de la estetica que busca: ");
             try {
               String nombreE = input.nextLine();
               estetica = buscarEstetica(esteticas, nombreE);
@@ -120,7 +120,6 @@ public class InterfazE {
               input.next();
               System.out.println("Nombre de estetica invalido.");
             }
-
           break;
 
           case 5:
@@ -131,7 +130,7 @@ public class InterfazE {
             }
             bandera = false;
             System.out.println("Saliendo del sistema...\nHasta pronto.");
-          break;
+          break; // Break caso 1.5: salir
 
           default: 
             System.out.println("Por favor introduce una opcion valida");
@@ -164,7 +163,7 @@ public class InterfazE {
           break; // Break caso 2.2: ver Esteticas
 
           case 3:
-                    System.out.println("Inserte el nombre de la estetica: ");
+              System.out.println("Inserte el nombre de la estetica: ");
           try {
             input.nextLine();
             String nombreE = input.nextLine();
@@ -202,15 +201,13 @@ public class InterfazE {
 
               default:
                 System.out.println("Seleccione una opcion correcta");
-          break;
-          }
+              break;
+            }
           } catch (InputMismatchException e){
             input.next();
             System.out.println("Nombre de estetica invalido.");
           }
           break; // Break caso 2.3: editar estetica
-
-
           case 4:
                     System.out.println("Inserte el nombre de la estetica: ");
             try {
@@ -317,7 +314,7 @@ public class InterfazE {
     System.out.println("Se ha guardado el horario.\n");
   }
 
-    /**
+  /**
   * Metodo para buscar el nombre de una estetica
   * @param estetica -- La estetica a buscar
   * @param lista -- lista de las esteticas registradas
