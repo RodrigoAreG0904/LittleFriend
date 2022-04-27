@@ -86,8 +86,8 @@ CREATE TABLE supervisar(
 	calleTrabajador VARCHAR(100) NOT NULL CHECK(calleTrabajador <> ''),
 	numeroTrabajador INT NOT NULL,
 	codigoPostalTrabajador INT NOT NULL,
-	salario INT NOT NULL,
-	fechaDeNacimientoTrabajador DATE CHECK(fechaDeNacimientoTrabajador > '2000-10-01'),
+	salarioTrabajador INT NOT NULL,
+	fechaDeNacimientoTrabajador DATE NOT NULL,
 	generoTrabajador VARCHAR(100) NOT NULL CHECK(generoTrabajador <> ''),
 	rfcTrabajador VARCHAR(100) NOT NULL CHECK(rfcTrabajador <> ''),
 	horaEntradaTrabajador TIME NOT NULL,
@@ -116,6 +116,21 @@ CREATE TABLE mascota(
 	nombreDelDueno VARCHAR(100) NOT NULL CHECK(nombreDelDueno <> ''),
 	edad INT NOT NULL,
 	peso INT NOT NULL
+);
+
+CREATE TABLE cuidar(
+	idEstetica INT NOT NULL UNIQUE,
+	idMascota INT NOT NULL UNIQUE
+);
+
+CREATE TABLE cortar(
+	idConsulta INT NOT NULL UNIQUE,
+	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18)
+);
+
+CREATE TABLE darConsultaEmergencia(
+	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18),
+	idConsulta INT NOT NULL UNIQUE
 );
 
 /*
@@ -233,7 +248,7 @@ REFERENCES mascota(idMascota);
 ALTER TABLE cortar ADD CONSTRAINT cortar_fkey1 FOREIGN KEY (idConsulta)
 REFERENCES servicioEstetica(idConsulta);
 ALTER TABLE cortar ADD CONSTRAINT cortar_fkey2 FOREIGN KEY (curp)
-REFERENCES veterinarios(curp);
+REFERENCES estilistas(curp);
 
 ALTER TABLE darConsultaEmergencia ADD CONSTRAINT darConsultaEmergencia_fkey1 FOREIGN KEY (curp)
 REFERENCES veterinarios(curp);
@@ -247,10 +262,9 @@ REFERENCES estetica(idEstetica);
 ALTER TABLE supervisar ADD CONSTRAINT supervisar_fkey2 FOREIGN KEY (curp)
 REFERENCES supervisor(curp);
 
-
 ALTER TABLE mascota ADD CONSTRAINT mascota_pkey PRIMARY KEY (idMascota);
 ALTER TABLE mascota ADD CONSTRAINT mascota_fkey1 FOREIGN KEY (curp)
-REFERENCES telefono(curp);
+REFERENCES duenio(curp);
 
 /*
 Integridad Referencial Verde
