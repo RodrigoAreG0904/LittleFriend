@@ -210,7 +210,7 @@ Parte Azul
 
 CREATE TABLE telefonoDuenio(
 	curp CHAR(18) NOT NULL CHECK(CHAR_LENGTH(curp)=18),
-	telefonoDuenio CHAR(10) CHECK (telefonoSupervisor SIMILAR TO '[0-9]*')
+	telefonoDuenio CHAR(10) CHECK (telefonoDuenio SIMILAR TO '[0-9]*')
 );
 
 CREATE TABLE felicitar(
@@ -238,9 +238,17 @@ CREATE TABLE tarjeta(
 	vencimiento DATE NOT NULL CHECK(CURRENT_DATE <= vencimiento)
 );
 
-CREATE TABLE efectvo(
+CREATE TABLE efectivo(
 	numeroDeSerie INT NOT NULL UNIQUE,
 	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18)
+);
+
+CREATE TABLE recibo(
+	idRecibo INT NOT NULL UNIQUE,
+	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18),
+	nombreDuenio VARCHAR(100) NOT NULL CHECK(nombreDuenio <> ''),
+	nombreTrabajador VARCHAR(100) NOT NULL CHECK(nombreDuenio <> ''),
+	nombreMascota VARCHAR(100) NOT NULL CHECK(nombreDuenio <> '')
 );
 
 /*
@@ -339,19 +347,23 @@ Integridad Referencial Azul
 
 ALTER TABLE telefonoDuenio ADD CONSTRAINT telefonoDuenio_pkey PRIMARY KEY (curp,telefonoDuenio);
 
-ALTER TABLE felicitar ADD CONSTRAINT felicitar_fkey FOREIGN KEY (curp)
+ALTER TABLE felicitar ADD CONSTRAINT felicitar_fkey1 FOREIGN KEY (curp)
 REFERENCES duenio (curp);
-ALTER TABLE felicitar ADD CONSTRAINT felicitar_fkey FOREIGN KEY (idEstetica)
+ALTER TABLE felicitar ADD CONSTRAINT felicitar_fkey2 FOREIGN KEY (idEstetica)
 REFERENCES estetica(idEstetica);
 
-ALTER TABLE duenio ADD CONSTRAINT duenio_pkey PRIMARY KEY (curp,duenio);
+ALTER TABLE duenio ADD CONSTRAINT duenio_pkey PRIMARY KEY (curp);
 ALTER TABLE duenio ADD CONSTRAINT duenio_fkey FOREIGN KEY (idEstetica)
 REFERENCES estetica(idEstetica);
 
-ALTER TABLE tarjeta ADD CONSTRAINT tarjeta_pkey PRIMARY KEY (numeroTarjeta,tarjeta);
+ALTER TABLE tarjeta ADD CONSTRAINT tarjeta_pkey PRIMARY KEY (numeroTarjeta);
 ALTER TABLE tarjeta ADD CONSTRAINT tarjeta_fkey FOREIGN KEY (curp)
 REFERENCES duenio(curp);
 
-ALTER TABLE efectivo ADD CONSTRAINT efectivo_pkey PRIMARY KEY (numeroDeSerie,efectivo);
+ALTER TABLE efectivo ADD CONSTRAINT efectivo_pkey PRIMARY KEY (numeroDeSerie);
 ALTER TABLE efectivo ADD CONSTRAINT efectivo_fkey FOREIGN KEY (curp)
+REFERENCES duenio(curp);
+
+ALTER TABLE recibo ADD CONSTRAINT recibo_pkey PRIMARY KEY (idRecibo);
+ALTER TABLE recibo ADD CONSTRAINT recibo_fkey FOREIGN KEY (curp)
 REFERENCES duenio(curp);
