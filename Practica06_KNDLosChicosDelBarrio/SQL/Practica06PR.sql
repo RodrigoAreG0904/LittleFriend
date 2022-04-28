@@ -27,7 +27,6 @@ CREATE TABLE consultaEmergencia(
 	idMascota INT NOT NULL UNIQUE,
 	idRecibo INT NOT NULL UNIQUE,
 	procedimientoEmitido VARCHAR(1000) NOT NULL CHECK(procedimientoEmitido <> ''),
-	motivo VARCHAR(1000) NOT NULL CHECK(procedimientoEmitido <> ''),
 	sintomas VARCHAR(500) NOT NULL CHECK(sintomas <> ''),
 	codigoVerde BOOLEAN NOT NULL,
 	codigoAmarillo BOOLEAN NOT NULL,
@@ -113,7 +112,7 @@ CREATE TABLE mascota(
 	nombre VARCHAR(100) NOT NULL CHECK(nombre <> ''),
 	especie VARCHAR(100) NOT NULL CHECK(especie <> ''),
 	raza VARCHAR(100) NOT NULL CHECK(raza <> ''),
-	nombreDelDueno VARCHAR(100) NOT NULL CHECK(nombreDelDueno <> ''),
+	nombreDelDuenio VARCHAR(100) NOT NULL CHECK(nombreDelDuenio <> ''),
 	edad INT NOT NULL,
 	peso INT NOT NULL
 );
