@@ -1,7 +1,7 @@
 /*
 Parte Roja
 */
-
+ 
 --Creacion del esquema
 DROP SCHEMA IF EXISTS public CASCADE;
 CREATE SCHEMA public;
@@ -205,7 +205,46 @@ CREATE TABLE telefonoSupervisor(
 );
 
 /*
-Integridad Referencial
+Parte Azul
+*/
+
+CREATE TABLE telefonoDuenio(
+	curp CHAR(18) NOT NULL CHECK(CHAR_LENGTH(curp)=18),
+	telefonoDuenio CHAR(10) CHECK (telefonoSupervisor SIMILAR TO '[0-9]*')
+);
+
+CREATE TABLE felicitar(
+	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18),
+	idEstetica INT NOT NULL UNIQUE
+);
+
+CREATE TABLE duenio(
+	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18),
+	idEstetica INT NOT NULL UNIQUE,
+	nombreDuenio VARCHAR(100) NOT NULL CHECK(nombreDuenio <> ''),
+	apellidoPaternoDuenio VARCHAR(100) NOT NULL CHECK(apellidoPaternoDuenio <> ''),
+	apellidoMaternoDuenio VARCHAR(100) NOT NULL CHECK(apellidoMaternoDuenio <> ''),
+	correoDuenio VARCHAR(20) NOT NULL CHECK(correoDuenio <>''),
+	estadoDuenio VARCHAR(100) NOT NULL CHECK(estadoDuenio <> ''),
+	calleDuenio VARCHAR(100) NOT NULL CHECK(calleDuenio <> ''),
+	numeroDuenio INT NOT NULL,
+	codigoPostalDuenio INT NOT NULL
+);
+
+CREATE TABLE tarjeta(
+	numeroTarjeta INT NOT NULL UNIQUE,
+	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18),
+	nombrePropietario VARCHAR(100) NOT NULL CHECK(nombrePropietario <> ''),
+	vencimiento DATE NOT NULL CHECK(CURRENT_DATE <= vencimiento)
+);
+
+CREATE TABLE efectvo(
+	numeroDeSerie INT NOT NULL UNIQUE,
+	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18)
+);
+
+/*
+Integridad Referencial Roja
 */
 
 --Llaves foraneas
@@ -293,3 +332,26 @@ REFERENCES veterinarios (curp);
 ALTER TABLE telefonoSupervisor ADD CONSTRAINT telefonoSupervisor_pkey PRIMARY KEY (curp,telefonoSupervisor);
 ALTER TABLE telefonoSupervisor ADD CONSTRAINT telefonoSupervisor_fkey FOREIGN KEY (curp)
 REFERENCES supervisor (curp);
+
+/*
+Integridad Referencial Azul
+*/
+
+ALTER TABLE telefonoDuenio ADD CONSTRAINT telefonoDuenio_pkey PRIMARY KEY (curp,telefonoDuenio);
+
+ALTER TABLE felicitar ADD CONSTRAINT felicitar_fkey FOREIGN KEY (curp)
+REFERENCES duenio (curp);
+ALTER TABLE felicitar ADD CONSTRAINT felicitar_fkey FOREIGN KEY (idEstetica)
+REFERENCES estetica(idEstetica);
+
+ALTER TABLE duenio ADD CONSTRAINT duenio_pkey PRIMARY KEY (curp,duenio);
+ALTER TABLE duenio ADD CONSTRAINT duenio_fkey FOREIGN KEY (idEstetica)
+REFERENCES estetica(idEstetica);
+
+ALTER TABLE tarjeta ADD CONSTRAINT tarjeta_pkey PRIMARY KEY (numeroTarjeta,tarjeta);
+ALTER TABLE tarjeta ADD CONSTRAINT tarjeta_fkey FOREIGN KEY (curp)
+REFERENCES duenio(curp);
+
+ALTER TABLE efectivo ADD CONSTRAINT efectivo_pkey PRIMARY KEY (numeroDeSerie,efectivo);
+ALTER TABLE efectivo ADD CONSTRAINT efectivo_fkey FOREIGN KEY (curp)
+REFERENCES duenio(curp);

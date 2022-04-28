@@ -11,6 +11,10 @@ import java.util.Scanner;
  * @version 16/03/2022
  */
 public class Main {
+    
+    /** 
+     * @param args
+     */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         InterfazM interfazM = new InterfazM();
