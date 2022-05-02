@@ -1,7 +1,7 @@
 /*
 Parte Roja
 */
- 
+
 --Creacion del esquema
 DROP SCHEMA IF EXISTS public CASCADE;
 CREATE SCHEMA public;
@@ -22,6 +22,15 @@ CREATE TABLE consultaNormal(
 	precio INT NOT NULL
 );
 
+COMMENT ON TABLE consultaNormal IS 'Tabla que contiene la informacion de las consultas normales';
+COMMENT ON COLUMN consultaNormal.idConsulta IS '';
+COMMENT ON COLUMN consultaNormal.idMascota IS '';
+COMMENT ON COLUMN consultaNormal.idRecibo IS '';
+COMMENT ON COLUMN consultaNormal.motivo IS '';
+COMMENT ON COLUMN consultaNormal.fechaNuevaRevision IS '';
+COMMENT ON COLUMN consultaNormal.estadoDeSalud IS '';
+COMMENT ON COLUMN consultaNormal.precio IS '';
+
 CREATE TABLE consultaEmergencia(
 	idConsulta INT NOT NULL UNIQUE,
 	idMascota INT NOT NULL UNIQUE,
@@ -33,6 +42,17 @@ CREATE TABLE consultaEmergencia(
 	codigoRojo BOOLEAN NOT NULL,
 	precio INT NOT NULL
 );
+
+COMMENT ON TABLE consultaEmergencia IS 'Tabla que contiene la informacion de las consultas de emergencia';
+COMMENT ON COLUMN consultaEmergencia.idConsulta IS '';
+COMMENT ON COLUMN consultaEmergencia.idMascota IS '';
+COMMENT ON COLUMN consultaEmergencia.idRecibo IS '';
+COMMENT ON COLUMN consultaEmergencia.procedimientoEmitido IS '';
+COMMENT ON COLUMN consultaEmergencia.sintomas IS '';
+COMMENT ON COLUMN consultaEmergencia.codigoVerde IS '';
+COMMENT ON COLUMN consultaEmergencia.codigoAmarillo IS '';
+COMMENT ON COLUMN consultaEmergencia.codigoRojo IS '';
+COMMENT ON COLUMN consultaEmergencia.precio IS '';
 
 CREATE TABLE producto(
 	idConsulta INT NOT NULL UNIQUE,
@@ -50,6 +70,22 @@ CREATE TABLE producto(
 	esComida BOOLEAN NOT NULL
 );
 
+COMMENT ON TABLE producto IS 'Tabla que contiene la informacion de los productos';
+COMMENT ON COLUMN producto.idConsulta IS '';
+COMMENT ON COLUMN producto.idRecibo IS '';
+COMMENT ON COLUMN producto.nombre IS '';
+COMMENT ON COLUMN producto.descripcion IS '';
+COMMENT ON COLUMN producto.cantidadDisponible IS '';
+COMMENT ON COLUMN producto.nombreDeLaImagen IS '';
+COMMENT ON COLUMN producto.fechaDeCaducidadComida IS '';
+COMMENT ON COLUMN producto.fechaDeCaducidadMedicamento IS '';
+COMMENT ON COLUMN producto.precio IS '';
+COMMENT ON COLUMN producto.esJuguetes IS '';
+COMMENT ON COLUMN producto.esMedicamentos IS '';
+COMMENT ON COLUMN producto.esAccesorios IS '';
+COMMENT ON COLUMN producto.esComida IS '';
+
+
 CREATE TABLE servicioEstetica(
 	idConsulta INT NOT NULL UNIQUE,
 	idMascota INT NOT NULL UNIQUE,
@@ -57,10 +93,20 @@ CREATE TABLE servicioEstetica(
 	precio INT NOT NULL
 );
 
+COMMENT ON TABLE servicioEstetica IS 'Tabla que contiene la informacion del servicio de la estetica';
+COMMENT ON COLUMN servicioEstetica.idConsulta IS '';
+COMMENT ON COLUMN servicioEstetica.idMascota IS '';
+COMMENT ON COLUMN servicioEstetica.idRecibo IS '';
+COMMENT ON COLUMN servicioEstetica.precio IS '';
+
 CREATE TABLE darConsultaNormal(
 	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18),
 	idConsulta INT NOT NULL UNIQUE
 );
+
+COMMENT ON TABLE darConsultaNormal IS 'Tabla que contiene la informacion de la relacion dar consulta normal';
+COMMENT ON COLUMN darConsultaNormal.idConsulta IS '';
+COMMENT ON COLUMN darConsultaNormal.curp IS '';
 
 /*
 Parte Amarilla
