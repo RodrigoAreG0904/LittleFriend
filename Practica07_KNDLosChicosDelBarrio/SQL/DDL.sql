@@ -303,31 +303,44 @@ Integridad Referencial Roja
 --Llaves foraneas
 
 ALTER TABLE consultaNormal ADD CONSTRAINT consultaNormal_pkey PRIMARY KEY (idConsulta);
+COMMENT ON CONSTRAINT consultaNormal_pkey ON consultaNormal IS 'La llave primaria de la tabla consultaNormal';
 ALTER TABLE consultaNormal ADD CONSTRAINT consultaNormal_fkey1 FOREIGN KEY (idMascota)
-REFERENCES mascota(idMascota);
+REFERENCES mascota(idMascota)/*ON UPDATE  ON DELETE*/;
+COMMENT ON CONSTRAINT consultaNormal_fkey1 ON consultaNormal IS 'La llave foranea de la tabla consultaNormal que referencia a mascota';
 ALTER TABLE consultaNormal ADD CONSTRAINT consultaNormal_fkey2 FOREIGN KEY (idRecibo)
-REFERENCES recibo(idRecibo);
+REFERENCES recibo(idRecibo)/*ON UPDATE  ON DELETE*/;
+COMMENT ON CONSTRAINT consultaNormal_fkey2 ON consultaNormal IS 'La llave foranea de la tabla consultaNormal que referencia a recibo';
 
 ALTER TABLE consultaEmergencia ADD CONSTRAINT consultaEmergencia_pkey PRIMARY KEY (idConsulta);
+COMMENT ON CONSTRAINT consultaEmergencia_pkey ON consultaEmergencia IS 'La llave primaria de la tabla consultaEmergencia';
 ALTER TABLE consultaEmergencia ADD CONSTRAINT consultaEmergencia_fkey1 FOREIGN KEY (idMascota)
-REFERENCES mascota(idMascota);
+REFERENCES mascota(idMascota)/*ON UPDATE  ON DELETE*/;
+COMMENT ON CONSTRAINT consultaEmergencia_fkey1 ON consultaEmergencia IS 'La llave foranea de la tabla consultaEmergencia que referencia a mascota';
 ALTER TABLE consultaEmergencia ADD CONSTRAINT consultaEmergencia_fkey2 FOREIGN KEY (idRecibo)
-REFERENCES recibo(idRecibo);
+REFERENCES recibo(idRecibo)/*ON UPDATE  ON DELETE*/;
+COMMENT ON CONSTRAINT consultaEmergencia_fkey2 ON consultaEmergencia IS 'La llave foranea de la tabla consultaEmergencia que referencia a recibo';
 
 ALTER TABLE producto ADD CONSTRAINT producto_pkey PRIMARY KEY (idConsulta);
+COMMENT ON CONSTRAINT producto_pkey ON producto IS 'La llave primaria de la tabla producto';
 ALTER TABLE producto ADD CONSTRAINT producto_fkey FOREIGN KEY (idRecibo)
-REFERENCES recibo(idRecibo);
+REFERENCES recibo(idRecibo)/*ON UPDATE  ON DELETE*/;
+COMMENT ON CONSTRAINT producto_fkey ON producto IS 'La llave foranea de la tabla producto que referencia a recibo';
 
 ALTER TABLE servicioEstetica ADD CONSTRAINT servicioEstetica_pkey PRIMARY KEY (idConsulta);
+COMMENT ON CONSTRAINT servicioEstetica_pkey ON servicioEstetica IS 'La llave primaria de la tabla servicioEstetica';
 ALTER TABLE servicioEstetica ADD CONSTRAINT servicioEstetica_fkey1 FOREIGN KEY (idMascota)
-REFERENCES mascota(idMascota);
+REFERENCES mascota(idMascota)/*ON UPDATE  ON DELETE*/;
+COMMENT ON CONSTRAINT servicioEstetica_fkey1 ON servicioEstetica IS 'La llave foranea de la tabla servicioEstetica que referencia a mascota';
 ALTER TABLE servicioEstetica ADD CONSTRAINT servicioEstetica_fkey2 FOREIGN KEY (idRecibo)
-REFERENCES recibo(idRecibo);
+REFERENCES recibo(idRecibo)/*ON UPDATE  ON DELETE*/;
+COMMENT ON CONSTRAINT servicioEstetica_fkey2 ON servicioEstetica IS 'La llave foranea de la tabla servicioEstetica que referencia a recibo';
 
 ALTER TABLE darConsultaNormal ADD CONSTRAINT darConsultaNormal_fkey1 FOREIGN KEY (curp)
-REFERENCES veterinarios(curp);
+REFERENCES veterinarios(curp)/*ON UPDATE  ON DELETE*/;
+COMMENT ON CONSTRAINT darConsultaNormal_fkey1 ON darConsultaNormal IS 'La llave foranea de la tabla darConsultaNormal que referencia a veterinarios';
 ALTER TABLE darConsultaNormal ADD CONSTRAINT darConsultaNormal_fkey2 FOREIGN KEY (idConsulta)
-REFERENCES consultaNormal(idConsulta);
+REFERENCES consultaNormal(idConsulta)/*ON UPDATE  ON DELETE*/;
+COMMENT ON CONSTRAINT darConsultaNormal_fkey2 ON darConsultaNormal IS 'La llave foranea de la tabla darConsultaNormal que referencia a consultaNormal';
 
 /*
 Integridad Referencial Amarillo
