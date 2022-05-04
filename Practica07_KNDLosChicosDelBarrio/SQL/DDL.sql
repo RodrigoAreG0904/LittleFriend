@@ -139,31 +139,31 @@ CREATE TABLE supervisar(
 	horaSalidaTrabajador TIME NOT NULL
 );
 
-COMMENT ON TABLE supervisar IS 'Tabla que contiene la informacion de la relacion supervisar'
-COMMENT ON COLUMN supervisar.idEstetica IS 'El id de la estetica asociada'
-COMMENT ON COLUMN supervisar.curp IS 'El curp del supervisor asociado'
-COMMENT ON COLUMN supervisar.nombre IS 'El nombre de la estetica asociada'
-COMMENT ON COLUMN supervisar.estado IS 'El estado donde se encuentra la estetica asociada'
-COMMENT ON COLUMN supervisar.calle IS 'La calle donde se encuentra la estetica asociada'
-COMMENT ON COLUMN supervisar.numero IS 'El numero de la estetica asociada'
-COMMENT ON COLUMN supervisar.codigoPostal IS 'El codigo postal de la estetica asociada'
-COMMENT ON COLUMN supervisar.telefono IS 'El telefono de la estetica asociada'
-COMMENT ON COLUMN supervisar.horario IS 'El horario de la estetica asociada'
-COMMENT ON COLUMN supervisar.apartado IS 'El apartado de la estetica asociada'
-COMMENT ON COLUMN supervisar.consultorios IS 'Los consultorios de la estetica asociada'
-COMMENT ON COLUMN supervisar.nombreTrabajador IS 'El nombre del supervisor asociado'
-COMMENT ON COLUMN supervisar.apellidoPaternoTrabajador IS 'El apellido paterno del supervisor asociado'
-COMMENT ON COLUMN supervisar.apellidoMaternoTrabajador IS 'El apellido materno del supervisor asociado'
-COMMENT ON COLUMN supervisar.estadoTrabajador IS 'El estado donde se encuentra el supervisor asociado'
-COMMENT ON COLUMN supervisar.calleTrabajador IS 'La calle donde se encuentra el supervisor asociado'
-COMMENT ON COLUMN supervisar.numeroTrabajador IS 'El numero donde se encuentra el supervisor asociado'
-COMMENT ON COLUMN supervisar.codigoPostalTrabajador IS 'El codigo postal donde se encuentra el supervisor asociado'
-COMMENT ON COLUMN supervisar.salarioTrabajador IS 'El salario del supervisor asociado'
-COMMENT ON COLUMN supervisar.fechaDeNacimientoTrabajador IS 'La fecha de naciemiento del supervisor asociado'
-COMMENT ON COLUMN supervisar.generoTrabajador IS 'El genero del supervisor asociado'
-COMMENT ON COLUMN supervisar.rfcTrabajador IS 'El RFC del supervisor asociado'
-COMMENT ON COLUMN supervisar.horaEntradaTrabajador IS 'La hora de entrada del supervisor asociado'
-COMMENT ON COLUMN supervisar.horaSalidaTrabajador IS 'La hora de salida del supervisor asociado'
+COMMENT ON TABLE supervisar IS 'Tabla que contiene la informacion de la relacion supervisar';
+COMMENT ON COLUMN supervisar.idEstetica IS 'El id de la estetica asociada';
+COMMENT ON COLUMN supervisar.curp IS 'El curp del supervisor asociado';
+COMMENT ON COLUMN supervisar.nombre IS 'El nombre de la estetica asociada';
+COMMENT ON COLUMN supervisar.estado IS 'El estado donde se encuentra la estetica asociada';
+COMMENT ON COLUMN supervisar.calle IS 'La calle donde se encuentra la estetica asociada';
+COMMENT ON COLUMN supervisar.numero IS 'El numero de la estetica asociada';
+COMMENT ON COLUMN supervisar.codigoPostal IS 'El codigo postal de la estetica asociada';
+COMMENT ON COLUMN supervisar.telefono IS 'El telefono de la estetica asociada';
+COMMENT ON COLUMN supervisar.horario IS 'El horario de la estetica asociada';
+COMMENT ON COLUMN supervisar.apartado IS 'El apartado de la estetica asociada';
+COMMENT ON COLUMN supervisar.consultorios IS 'Los consultorios de la estetica asociada';
+COMMENT ON COLUMN supervisar.nombreTrabajador IS 'El nombre del supervisor asociado';
+COMMENT ON COLUMN supervisar.apellidoPaternoTrabajador IS 'El apellido paterno del supervisor asociado';
+COMMENT ON COLUMN supervisar.apellidoMaternoTrabajador IS 'El apellido materno del supervisor asociado';
+COMMENT ON COLUMN supervisar.estadoTrabajador IS 'El estado donde se encuentra el supervisor asociado';
+COMMENT ON COLUMN supervisar.calleTrabajador IS 'La calle donde se encuentra el supervisor asociado';
+COMMENT ON COLUMN supervisar.numeroTrabajador IS 'El numero donde se encuentra el supervisor asociado';
+COMMENT ON COLUMN supervisar.codigoPostalTrabajador IS 'El codigo postal donde se encuentra el supervisor asociado';
+COMMENT ON COLUMN supervisar.salarioTrabajador IS 'El salario del supervisor asociado';
+COMMENT ON COLUMN supervisar.fechaDeNacimientoTrabajador IS 'La fecha de naciemiento del supervisor asociado';
+COMMENT ON COLUMN supervisar.generoTrabajador IS 'El genero del supervisor asociado';
+COMMENT ON COLUMN supervisar.rfcTrabajador IS 'El RFC del supervisor asociado';
+COMMENT ON COLUMN supervisar.horaEntradaTrabajador IS 'La hora de entrada del supervisor asociado';
+COMMENT ON COLUMN supervisar.horaSalidaTrabajador IS 'La hora de salida del supervisor asociado';
 
 CREATE TABLE estetica(
 	idEstetica INT NOT NULL UNIQUE,
@@ -178,17 +178,17 @@ CREATE TABLE estetica(
 	codigoPostal INT NOT NULL
 );
 
-COMMENT ON TABLE estetica IS 'Tabla que contiene la informacion de la estetica'
-COMMENT ON COLUMN estetica.idEstetica IS 'El id de la estetica'
-COMMENT ON COLUMN estetica.nombre IS 'El nombre de la estetica'
-COMMENT ON COLUMN estetica.telefono IS 'El telefono de la estetica'
-COMMENT ON COLUMN estetica.horario IS 'El horario de la estetica'
-COMMENT ON COLUMN estetica.apartado IS 'El apartado de la estetica'
-COMMENT ON COLUMN estetica.consultorios IS 'Los consultorios de la estetica'
-COMMENT ON COLUMN estetica.estado IS 'El estado donde se encuentra la estetica'
-COMMENT ON COLUMN estetica.calle IS 'La calle donde se encuentra la estetica'
-COMMENT ON COLUMN estetica.numero IS 'El numero de la estetica'
-COMMENT ON COLUMN estetica.codigoPostal IS 'El codigo postal de la estetica'
+COMMENT ON TABLE estetica IS 'Tabla que contiene la informacion de la estetica';
+COMMENT ON COLUMN estetica.idEstetica IS 'El id de la estetica';
+COMMENT ON COLUMN estetica.nombre IS 'El nombre de la estetica';
+COMMENT ON COLUMN estetica.telefono IS 'El telefono de la estetica';
+COMMENT ON COLUMN estetica.horario IS 'El horario de la estetica';
+COMMENT ON COLUMN estetica.apartado IS 'El apartado de la estetica';
+COMMENT ON COLUMN estetica.consultorios IS 'Los consultorios de la estetica';
+COMMENT ON COLUMN estetica.estado IS 'El estado donde se encuentra la estetica';
+COMMENT ON COLUMN estetica.calle IS 'La calle donde se encuentra la estetica';
+COMMENT ON COLUMN estetica.numero IS 'El numero de la estetica';
+COMMENT ON COLUMN estetica.codigoPostal IS 'El codigo postal de la estetica';
 
 CREATE TABLE mascota(
 	idMascota INT NOT NULL UNIQUE,
@@ -201,42 +201,42 @@ CREATE TABLE mascota(
 	peso INT NOT NULL
 );
 
-COMMENT ON TABLE mascota IS 'Tabla que contiene la informacion de la mascota'
-COMMENT ON COLUMN mascota.idMascota IS 'El id de la mascota'
-COMMENT ON COLUMN mascota.curp IS 'El id curp del duenio de la mascota'
-COMMENT ON COLUMN mascota.nombre IS 'El nombre de la mascota'
-COMMENT ON COLUMN mascota.especie IS 'La especie de la mascota'
-COMMENT ON COLUMN mascota.raza IS 'La raza de la mascota'
-COMMENT ON COLUMN mascota.nombreDelDuenio IS 'El nombre del duenio de la mascota'
-COMMENT ON COLUMN mascota.edad IS 'La edad de la mascota'
-COMMENT ON COLUMN mascota.peso IS 'El peso de la mascota'
+COMMENT ON TABLE mascota IS 'Tabla que contiene la informacion de la mascota';
+COMMENT ON COLUMN mascota.idMascota IS 'El id de la mascota';
+COMMENT ON COLUMN mascota.curp IS 'El id curp del duenio de la mascota';
+COMMENT ON COLUMN mascota.nombre IS 'El nombre de la mascota';
+COMMENT ON COLUMN mascota.especie IS 'La especie de la mascota';
+COMMENT ON COLUMN mascota.raza IS 'La raza de la mascota';
+COMMENT ON COLUMN mascota.nombreDelDuenio IS 'El nombre del duenio de la mascota';
+COMMENT ON COLUMN mascota.edad IS 'La edad de la mascota';
+COMMENT ON COLUMN mascota.peso IS 'El peso de la mascota';
 
 CREATE TABLE cuidar(
 	idEstetica INT NOT NULL,
 	idMascota INT NOT NULL
 );
 
-COMMENT ON TABLE cuidar IS 'Tabla que contiene la relacion cuidar'
-COMMENT ON COLUMN cuidar.idEstetica IS 'El id de la estetica asociada'
-COMMENT ON COLUMN cuidar.idMascota IS 'El id de la mascota asociada'
+COMMENT ON TABLE cuidar IS 'Tabla que contiene la relacion cuidar';
+COMMENT ON COLUMN cuidar.idEstetica IS 'El id de la estetica asociada';
+COMMENT ON COLUMN cuidar.idMascota IS 'El id de la mascota asociada';
 
 CREATE TABLE cortar(
 	idConsulta INT NOT NULL,
 	curp CHAR(18) NOT NULL CHECK(CHAR_LENGTH(curp) = 18)
 );
 
-COMMENT ON TABLE cortar IS 'Tabla que contiene la relacion cortar'
-COMMENT ON COLUMN cortar.idConsulta IS 'El id de la consulta asociada'
-COMMENT ON COLUMN cortar.curp IS 'El estilista asociado'
+COMMENT ON TABLE cortar IS 'Tabla que contiene la relacion cortar';
+COMMENT ON COLUMN cortar.idConsulta IS 'El id de la consulta asociada';
+COMMENT ON COLUMN cortar.curp IS 'El estilista asociado';
 
 CREATE TABLE darConsultaEmergencia(
 	curp CHAR(18) NOT NULL CHECK(CHAR_LENGTH(curp) = 18),
 	idConsulta INT NOT NULL
 );
 
-COMMENT ON TABLE darConsultaEmergencia IS 'Tabla que contiene la relacion dar consulta emergencia'
-COMMENT ON COLUMN darConsultaEmergencia.curp IS 'El CURP del veterinario asociado'
-COMMENT ON COLUMN darConsultaEmergencia.idConsulta IS 'El id de la consulta emergencia asociado'
+COMMENT ON TABLE darConsultaEmergencia IS 'Tabla que contiene la relacion dar consulta emergencia';
+COMMENT ON COLUMN darConsultaEmergencia.curp IS 'El CURP del veterinario asociado';
+COMMENT ON COLUMN darConsultaEmergencia.idConsulta IS 'El id de la consulta emergencia asociado';
 
 /*
 Parte Verde
@@ -508,6 +508,7 @@ Integridad Referencial Amarillo
 */
 ALTER TABLE cuidar ADD CONSTRAINT cuidar_fkey1 FOREIGN KEY (idEstetica)
 REFERENCES estetica(idEstetica);
+COMMENT ON CONSTRAINT cuidar_fkey1 ON cuidar IS 'La llave foranea de la tabla cuidar que referencia a veterinarios';
 ALTER TABLE cuidar ADD CONSTRAINT cuidar_fkey2 FOREIGN KEY (idMascota)
 REFERENCES mascota(idMascota);
 
