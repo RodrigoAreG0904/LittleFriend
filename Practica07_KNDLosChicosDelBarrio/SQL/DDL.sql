@@ -466,72 +466,72 @@ Integridad Referencial Roja
 ALTER TABLE consultaNormal ADD CONSTRAINT consultaNormal_pkey PRIMARY KEY (idConsulta);
 COMMENT ON CONSTRAINT consultaNormal_pkey ON consultaNormal IS 'La llave primaria de la tabla consultaNormal';
 ALTER TABLE consultaNormal ADD CONSTRAINT consultaNormal_fkey1 FOREIGN KEY (idMascota)
-REFERENCES mascota(idMascota)/*ON UPDATE  ON DELETE*/;
+REFERENCES mascota(idMascota) ON UPDATE CASCADE ON DELETE CASCADE;
 COMMENT ON CONSTRAINT consultaNormal_fkey1 ON consultaNormal IS 'La llave foranea de la tabla consultaNormal que referencia a mascota';
 ALTER TABLE consultaNormal ADD CONSTRAINT consultaNormal_fkey2 FOREIGN KEY (idRecibo)
-REFERENCES recibo(idRecibo)/*ON UPDATE  ON DELETE*/;
+REFERENCES recibo(idRecibo) ON UPDATE CASCADE ON DELETE CASCADE;
 COMMENT ON CONSTRAINT consultaNormal_fkey2 ON consultaNormal IS 'La llave foranea de la tabla consultaNormal que referencia a recibo';
 
 ALTER TABLE consultaEmergencia ADD CONSTRAINT consultaEmergencia_pkey PRIMARY KEY (idConsulta);
 COMMENT ON CONSTRAINT consultaEmergencia_pkey ON consultaEmergencia IS 'La llave primaria de la tabla consultaEmergencia';
 ALTER TABLE consultaEmergencia ADD CONSTRAINT consultaEmergencia_fkey1 FOREIGN KEY (idMascota)
-REFERENCES mascota(idMascota)/*ON UPDATE  ON DELETE*/;
+REFERENCES mascota(idMascota) ON UPDATE CASCADE ON DELETE CASCADE;
 COMMENT ON CONSTRAINT consultaEmergencia_fkey1 ON consultaEmergencia IS 'La llave foranea de la tabla consultaEmergencia que referencia a mascota';
 ALTER TABLE consultaEmergencia ADD CONSTRAINT consultaEmergencia_fkey2 FOREIGN KEY (idRecibo)
-REFERENCES recibo(idRecibo)/*ON UPDATE  ON DELETE*/;
+REFERENCES recibo(idRecibo) ON UPDATE CASCADE ON DELETE CASCADE;
 COMMENT ON CONSTRAINT consultaEmergencia_fkey2 ON consultaEmergencia IS 'La llave foranea de la tabla consultaEmergencia que referencia a recibo';
 
 ALTER TABLE producto ADD CONSTRAINT producto_pkey PRIMARY KEY (idProducto);
 COMMENT ON CONSTRAINT producto_pkey ON producto IS 'La llave primaria de la tabla producto';
 ALTER TABLE producto ADD CONSTRAINT producto_fkey FOREIGN KEY (idRecibo)
-REFERENCES recibo(idRecibo)/*ON UPDATE  ON DELETE*/;
+REFERENCES recibo(idRecibo) ON UPDATE CASCADE ON DELETE CASCADE;
 COMMENT ON CONSTRAINT producto_fkey ON producto IS 'La llave foranea de la tabla producto que referencia a recibo';
 
 ALTER TABLE servicioEstetica ADD CONSTRAINT servicioEstetica_pkey PRIMARY KEY (idConsulta);
 COMMENT ON CONSTRAINT servicioEstetica_pkey ON servicioEstetica IS 'La llave primaria de la tabla servicioEstetica';
 ALTER TABLE servicioEstetica ADD CONSTRAINT servicioEstetica_fkey1 FOREIGN KEY (idMascota)
-REFERENCES mascota(idMascota)/*ON UPDATE  ON DELETE*/;
+REFERENCES mascota(idMascota) ON UPDATE CASCADE ON DELETE CASCADE;
 COMMENT ON CONSTRAINT servicioEstetica_fkey1 ON servicioEstetica IS 'La llave foranea de la tabla servicioEstetica que referencia a mascota';
 ALTER TABLE servicioEstetica ADD CONSTRAINT servicioEstetica_fkey2 FOREIGN KEY (idRecibo)
-REFERENCES recibo(idRecibo)/*ON UPDATE  ON DELETE*/;
+REFERENCES recibo(idRecibo) ON UPDATE CASCADE ON DELETE CASCADE;
 COMMENT ON CONSTRAINT servicioEstetica_fkey2 ON servicioEstetica IS 'La llave foranea de la tabla servicioEstetica que referencia a recibo';
 
 ALTER TABLE darConsultaNormal ADD CONSTRAINT darConsultaNormal_fkey1 FOREIGN KEY (curp)
-REFERENCES veterinarios(curp)/*ON UPDATE  ON DELETE*/;
+REFERENCES veterinarios(curp) ON UPDATE CASCADE ON DELETE CASCADE;
 COMMENT ON CONSTRAINT darConsultaNormal_fkey1 ON darConsultaNormal IS 'La llave foranea de la tabla darConsultaNormal que referencia a veterinarios';
 ALTER TABLE darConsultaNormal ADD CONSTRAINT darConsultaNormal_fkey2 FOREIGN KEY (idConsulta)
-REFERENCES consultaNormal(idConsulta)/*ON UPDATE  ON DELETE*/;
+REFERENCES consultaNormal(idConsulta) ON UPDATE CASCADE ON DELETE CASCADE;
 COMMENT ON CONSTRAINT darConsultaNormal_fkey2 ON darConsultaNormal IS 'La llave foranea de la tabla darConsultaNormal que referencia a consultaNormal';
 
 /*
 Integridad Referencial Amarillo
 */
 ALTER TABLE cuidar ADD CONSTRAINT cuidar_fkey1 FOREIGN KEY (idEstetica)
-REFERENCES estetica(idEstetica);
+REFERENCES estetica(idEstetica) ON UPDATE CASCADE ON DELETE CASCADE;
 COMMENT ON CONSTRAINT cuidar_fkey1 ON cuidar IS 'La llave foranea de la tabla cuidar que referencia a veterinarios';
 ALTER TABLE cuidar ADD CONSTRAINT cuidar_fkey2 FOREIGN KEY (idMascota)
-REFERENCES mascota(idMascota);
+REFERENCES mascota(idMascota) ON UPDATE CASCADE ON DELETE CASCADE;
 
 ALTER TABLE cortar ADD CONSTRAINT cortar_fkey1 FOREIGN KEY (idConsulta)
-REFERENCES servicioEstetica(idConsulta);
+REFERENCES servicioEstetica(idConsulta) ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE cortar ADD CONSTRAINT cortar_fkey2 FOREIGN KEY (curp)
-REFERENCES estilistas(curp);
+REFERENCES estilistas(curp) ON UPDATE CASCADE ON DELETE CASCADE;
 
 ALTER TABLE darConsultaEmergencia ADD CONSTRAINT darConsultaEmergencia_fkey1 FOREIGN KEY (curp)
-REFERENCES veterinarios(curp);
+REFERENCES veterinarios(curp) ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE darConsultaEmergencia ADD CONSTRAINT darConsultaEmergencia_fkey2 FOREIGN KEY (idConsulta)
-REFERENCES consultaEmergencia(idConsulta);
+REFERENCES consultaEmergencia(idConsulta) ON UPDATE CASCADE ON DELETE CASCADE;
 
 ALTER TABLE estetica ADD CONSTRAINT estetica_pkey PRIMARY KEY (idEstetica);
 
 ALTER TABLE supervisar ADD CONSTRAINT supervisar_fkey1 FOREIGN KEY (idEstetica)
-REFERENCES estetica(idEstetica);
+REFERENCES estetica(idEstetica) ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE supervisar ADD CONSTRAINT supervisar_fkey2 FOREIGN KEY (curp)
-REFERENCES supervisor(curp);
+REFERENCES supervisor(curp) ON UPDATE CASCADE ON DELETE CASCADE;
 
 ALTER TABLE mascota ADD CONSTRAINT mascota_pkey PRIMARY KEY (idMascota);
 ALTER TABLE mascota ADD CONSTRAINT mascota_fkey1 FOREIGN KEY (curp)
-REFERENCES duenio(curp);
+REFERENCES duenio(curp) ON UPDATE CASCADE ON DELETE CASCADE;
 
 /*
 Integridad Referencial Verde
@@ -540,37 +540,37 @@ Integridad Referencial Verde
 ALTER TABLE estilistas ADD CONSTRAINT estilistas_pkey PRIMARY KEY (curp);
 COMMENT ON CONSTRAINT estilistas_pkey ON estilistas IS 'La llave primaria de la tabla estilistas';
 ALTER TABLE estilistas ADD CONSTRAINT estilistas_fkey FOREIGN KEY (idEstetica)
-REFERENCES estetica(idEstetica);
+REFERENCES estetica(idEstetica) ON UPDATE CASCADE ON DELETE CASCADE;
 COMMENT ON CONSTRAINT estilistas_fkey ON estilistas IS 'La llave foranea de la tabla estilistas que referencia a estetica';
 
 ALTER TABLE veterinarios ADD CONSTRAINT veterinarios_pkey PRIMARY KEY (curp);
 COMMENT ON CONSTRAINT veterinarios_pkey ON veterinarios IS 'La llave primaria de la tabla veterinarios';
 ALTER TABLE veterinarios ADD CONSTRAINT veterinarios_fkey FOREIGN KEY (idEstetica)
-REFERENCES estetica(idEstetica);
+REFERENCES estetica(idEstetica) ON UPDATE CASCADE ON DELETE CASCADE;
 COMMENT ON CONSTRAINT veterinarios_fkey ON veterinarios IS 'La llave foranea de la tabla veterinarios que referencia a estetica';
 
 ALTER TABLE supervisor ADD CONSTRAINT supervisor_pkey PRIMARY KEY (curp);
 COMMENT ON CONSTRAINT supervisor_pkey ON supervisor IS 'La llave primaria de la tabla supervisor';
 ALTER TABLE supervisor ADD CONSTRAINT supervisor_fkey FOREIGN KEY (idEstetica)
-REFERENCES estetica(idEstetica);
+REFERENCES estetica(idEstetica) ON UPDATE CASCADE ON DELETE CASCADE;
 COMMENT ON CONSTRAINT supervisor_fkey ON supervisor IS 'La llave foranea de la tabla supervisor que referencia a estetica';
 
 ALTER TABLE telefonoEstilistas ADD CONSTRAINT telefonoEstilistas_pkey PRIMARY KEY (curp,telefonoEstilistas);
 COMMENT ON CONSTRAINT telefonoEstilistas_pkey ON telefonoEstilistas IS 'La llave primaria de la tabla telefonoEstilistas';
 ALTER TABLE telefonoEstilistas ADD CONSTRAINT telefonoEstilistas_fkey FOREIGN KEY (curp)
-REFERENCES estilistas (curp);
+REFERENCES estilistas (curp) ON UPDATE CASCADE ON DELETE CASCADE;
 COMMENT ON CONSTRAINT telefonoEstilistas_fkey ON telefonoEstilistas IS 'La llave foranea de la tabla telefonoEstilistas que referencia a estilistas';
 
 ALTER TABLE telefonoVeterinarios ADD CONSTRAINT telefonoVeterinarios_pkey PRIMARY KEY (curp,telefonoVeterinarios);
 COMMENT ON CONSTRAINT telefonoVeterinarios_pkey ON telefonoVeterinarios IS 'La llave primaria de la tabla telefonoVeterinarios';
 ALTER TABLE telefonoVeterinarios ADD CONSTRAINT telefonoVeterinarios_fkey FOREIGN KEY (curp)
-REFERENCES veterinarios (curp);
+REFERENCES veterinarios (curp) ON UPDATE CASCADE ON DELETE CASCADE;
 COMMENT ON CONSTRAINT telefonoVeterinarios_fkey ON telefonoVeterinarios IS 'La llave foranea de la tabla telefonoVeterinarios que referencia a veterinarios';
 
 ALTER TABLE telefonoSupervisor ADD CONSTRAINT telefonoSupervisor_pkey PRIMARY KEY (curp,telefonoSupervisor);
 COMMENT ON CONSTRAINT telefonoSupervisor_pkey ON telefonoSupervisor IS 'La llave primaria de la tabla telefonoSupervisor';
 ALTER TABLE telefonoSupervisor ADD CONSTRAINT telefonoSupervisor_fkey FOREIGN KEY (curp)
-REFERENCES supervisor (curp);
+REFERENCES supervisor (curp) ON UPDATE CASCADE ON DELETE CASCADE;
 COMMENT ON CONSTRAINT telefonoSupervisor_fkey ON telefonoSupervisor IS 'La llave foranea de la tabla telefonoSupervisor que referencia a supervisor';
 
 /*
@@ -578,24 +578,35 @@ Integridad Referencial Azul
 */
 
 ALTER TABLE telefonoDuenio ADD CONSTRAINT telefonoDuenio_pkey PRIMARY KEY (curp,telefonoDuenio);
+COMMENT ON CONSTRAINT telefonoDuenio_pkey ON telefonoDuenio IS 'La llave primaria de la tabla telefonoDuenio';
 
 ALTER TABLE felicitar ADD CONSTRAINT felicitar_fkey1 FOREIGN KEY (curp)
-REFERENCES duenio (curp);
+REFERENCES duenio (curp) ON UPDATE CASCADE ON DELETE CASCADE;
+COMMENT ON CONSTRAINT felicitar_fkey1 ON felicitar IS 'La llave foranea de la tabla felicitar que referencia a duenio';
 ALTER TABLE felicitar ADD CONSTRAINT felicitar_fkey2 FOREIGN KEY (idEstetica)
-REFERENCES estetica(idEstetica);
+REFERENCES estetica(idEstetica) ON UPDATE CASCADE ON DELETE CASCADE;
+COMMENT ON CONSTRAINT felicitar_fkey2 ON felicitar IS 'La llave foranea de la tabla felicitar que referencia a estetica';
 
 ALTER TABLE duenio ADD CONSTRAINT duenio_pkey PRIMARY KEY (curp);
+COMMENT ON CONSTRAINT duenio_pkey ON duenio IS 'La llave primaria de la tabla duenio';
 ALTER TABLE duenio ADD CONSTRAINT duenio_fkey FOREIGN KEY (idEstetica)
-REFERENCES estetica(idEstetica);
+REFERENCES estetica(idEstetica) ON UPDATE CASCADE ON DELETE CASCADE;
+COMMENT ON CONSTRAINT duenio_fkey ON duenio IS 'La llave foranea de la tabla duenio que referencia a estetica';
 
 ALTER TABLE tarjeta ADD CONSTRAINT tarjeta_pkey PRIMARY KEY (numeroTarjeta);
+COMMENT ON CONSTRAINT tarjeta_pkey ON tarjeta IS 'La llave primaria de la tabla tarjeta';
 ALTER TABLE tarjeta ADD CONSTRAINT tarjeta_fkey FOREIGN KEY (curp)
-REFERENCES duenio(curp);
+REFERENCES duenio(curp) ON UPDATE CASCADE ON DELETE CASCADE;
+COMMENT ON CONSTRAINT tarjeta_fkey ON tarjeta IS 'La llave foranea de la tabla tarjeta que referencia a duenio';
 
 ALTER TABLE efectivo ADD CONSTRAINT efectivo_pkey PRIMARY KEY (numeroDeSerie);
+COMMENT ON CONSTRAINT efectivo_pkey ON efectivo IS 'La llave primaria de la tabla efectivo';
 ALTER TABLE efectivo ADD CONSTRAINT efectivo_fkey FOREIGN KEY (curp)
-REFERENCES duenio(curp);
+REFERENCES duenio(curp) ON UPDATE CASCADE ON DELETE CASCADE;
+COMMENT ON CONSTRAINT efectivo_fkey ON efectivo IS 'La llave foranea de la tabla efectivo que referencia a duenio';
 
 ALTER TABLE recibo ADD CONSTRAINT recibo_pkey PRIMARY KEY (idRecibo);
+COMMENT ON CONSTRAINT recibo_pkey ON recibo IS 'La llave primaria de la tabla recibo';
 ALTER TABLE recibo ADD CONSTRAINT recibo_fkey FOREIGN KEY (curp)
-REFERENCES duenio(curp);
+REFERENCES duenio(curp) ON UPDATE CASCADE ON DELETE CASCADE;
+COMMENT ON CONSTRAINT recibo_fkey ON recibo IS 'La llave foranea de la recibo efectivo que referencia a duenio';
