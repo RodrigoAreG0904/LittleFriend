@@ -258,10 +258,19 @@ CREATE TABLE telefonoDuenio(
 	telefonoDuenio CHAR(10) CHECK (telefonoDuenio SIMILAR TO '[0-9]*')
 );
 
+COMMENT ON TABLE telefonoDuenio IS 'Tabla que contiene la informacion del telefono del duenio';
+COMMENT ON COLUMN telefonoDuenio.curp IS 'El curp del duenio asociado';
+COMMENT ON COLUMN telefonoDuenio.telefonoDuenio IS 'El numero de telefono a 10 digitos';
+
+
 CREATE TABLE felicitar(
 	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18),
 	idEstetica INT NOT NULL UNIQUE
 );
+
+COMMENT ON TABLE felicitar IS 'Tabla que contiene la informacion sobre la relacion felicitar';
+COMMENT ON COLUMN felicitar.curp IS 'El curp del duenio asociado';
+COMMENT ON COLUMN felicitar.idEstetica IS 'El id de la estetica asociada';
 
 CREATE TABLE duenio(
 	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18),
@@ -276,6 +285,19 @@ CREATE TABLE duenio(
 	codigoPostalDuenio INT NOT NULL
 );
 
+COMMENT ON TABLE duenio IS 'Tabla que contiene la informacion del duenio';
+COMMENT ON COLUMN duenio.curp IS 'El curp (id) del duenio';
+COMMENT ON COLUMN duenio.nombreDuenio IS 'El nombre personal';
+COMMENT ON COLUMN duenio.apellidoPaternoDuenio 'El apellido paterno del duenio';
+COMMENT ON COLUMN duenio.apellidoPaternoDuenio 'El apellido materno del duenio';
+COMMENT ON COLUMN duenio.correoDuenio IS 'El correo electronico del duenio';
+COMMENT ON COLUMN duenio.estadoDuenio IS 'El estado donde reside';
+COMMENT ON COLUMN duenio.calleDuenio IS 'La calle donde vive';
+COMMENT ON COLUMN duenio.numeroDuenio IS 'El numero del duenio';
+COMMENT ON COLUMN duenio.codigoPostalDuenio IS 'CP';
+
+
+
 CREATE TABLE tarjeta(
 	numeroTarjeta INT NOT NULL UNIQUE,
 	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18),
@@ -283,10 +305,20 @@ CREATE TABLE tarjeta(
 	vencimiento DATE NOT NULL CHECK(CURRENT_DATE <= vencimiento)
 );
 
+COMMENT ON TABLE tarjeta IS 'Tabla que contiene la informacion de una tarjeta';
+COMMENT ON COLUMN tarjeta.numeroTarjeta IS 'El id(numero de tajreta) del tajreta';
+COMMENT ON COLUMN tarjeta.curp IS 'El curp del duenio asociado';
+COMMENT ON COLUMN tarjeta.nombrePropietario IS 'El nombre del duenio asociado';
+COMMENT ON COLUMN tarjeta.vencimiento IS 'El vencimiento de la tarjeta';
+
 CREATE TABLE efectivo(
 	numeroDeSerie INT NOT NULL UNIQUE,
 	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18)
 );
+
+COMMENT ON TABLE efectivo IS 'Tabla que contiene la informacion del efectivo';
+COMMENT ON COLUMN efectivo.numeroDeSerie IS 'El id(numero de serie) del efectivo';
+COMMENT ON COLUMN efectivo.curp IS 'El curp del duenio asociado';
 
 CREATE TABLE recibo(
 	idRecibo INT NOT NULL UNIQUE,
@@ -295,6 +327,13 @@ CREATE TABLE recibo(
 	nombreTrabajador VARCHAR(100) NOT NULL CHECK(nombreDuenio <> ''),
 	nombreMascota VARCHAR(100) NOT NULL CHECK(nombreDuenio <> '')
 );
+
+COMMENT ON TABLE recibo IS 'Tabla que contiene la informacion del recibo';
+COMMENT ON COLUMN recibo.id IS 'El id del recibo';
+COMMENT ON COLUMN recibo.curp IS 'El curp del duenio asociado';
+COMMENT ON COLUMN recibo.nombreDuenio IS 'El nombre que aparece en el recibo';
+COMMENT ON COLUMN recibo.nombreMascota IS 'El nombre de la mascota que aparece en el recibo';
+COMMENT ON COLUMN recibo.nombreTrabajador IS 'El nombre del trabajador que aparece en el recibo';
 
 /*
 Integridad Referencial Roja
