@@ -114,7 +114,7 @@ Parte Amarilla
 
 CREATE TABLE supervisar(
 	idEstetica INT NOT NULL UNIQUE,
-	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18),
+	curp CHAR(18) NOT NULL CHECK(CHAR_LENGTH(curp) = 18),
 	nombre VARCHAR(100) NOT NULL CHECK(nombre <> ''),
 	estado VARCHAR(100) NOT NULL CHECK(estado <> ''),
 	calle VARCHAR(100) NOT NULL CHECK(calle <> ''),
@@ -154,7 +154,7 @@ CREATE TABLE estetica(
 
 CREATE TABLE mascota(
 	idMascota INT NOT NULL UNIQUE,
-	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18),
+	curp CHAR(18) NOT NULL CHECK(CHAR_LENGTH(curp) = 18),
 	nombre VARCHAR(100) NOT NULL CHECK(nombre <> ''),
 	especie VARCHAR(100) NOT NULL CHECK(especie <> ''),
 	raza VARCHAR(100) NOT NULL CHECK(raza <> ''),
@@ -164,18 +164,18 @@ CREATE TABLE mascota(
 );
 
 CREATE TABLE cuidar(
-	idEstetica INT NOT NULL UNIQUE,
-	idMascota INT NOT NULL UNIQUE
+	idEstetica INT NOT NULL,
+	idMascota INT NOT NULL
 );
 
 CREATE TABLE cortar(
-	idConsulta INT NOT NULL UNIQUE,
-	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18)
+	idConsulta INT NOT NULL,
+	curp CHAR(18) NOT NULL CHECK(CHAR_LENGTH(curp) = 18)
 );
 
 CREATE TABLE darConsultaEmergencia(
-	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18),
-	idConsulta INT NOT NULL UNIQUE
+	curp CHAR(18) NOT NULL CHECK(CHAR_LENGTH(curp) = 18),
+	idConsulta INT NOT NULL
 );
 
 /*
@@ -183,7 +183,7 @@ Parte Verde
 */
 CREATE TABLE estilistas(
 	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18),
-	idEstetica INT NOT NULL UNIQUE,
+	idEstetica INT NOT NULL,
 	nombreTrabajador VARCHAR(100) NOT NULL CHECK(nombreTrabajador <> ''),
 	apellidoPaternoTrabajador VARCHAR(100) NOT NULL CHECK(apellidoPaternoTrabajador <> ''),
 	apellidoMaternoTrabajador VARCHAR(100) NOT NULL CHECK(apellidoMaternoTrabajador <> ''),
@@ -197,14 +197,33 @@ CREATE TABLE estilistas(
 	numeroDeCertificadoTrabajador INT NOT NULL
 );
 
+COMMENT ON TABLE estilistas IS 'Tabla que contiene la informacion de los estilistas';
+COMMENT ON COLUMN estilistas.curp IS 'El curp del estilista';
+COMMENT ON COLUMN estilistas.idEstetica IS 'El id de la estetica';
+COMMENT ON COLUMN estilistas.nombreTrabajador IS 'El nombre del estilista';
+COMMENT ON COLUMN estilistas.apellidoPaternoTrabajador IS 'El apellido paterno del estilista';
+COMMENT ON COLUMN estilistas.apellidoMaternoTrabajador IS 'El apellido materno del estilista';
+COMMENT ON COLUMN estilistas.estadoTrabajador IS 'El estado donde vive el estilista';
+COMMENT ON COLUMN estilistas.calleTrabajador IS 'La calle donde vive el estilista';
+COMMENT ON COLUMN estilistas.numeroTrabajador IS 'El numero de la calle donde vive el estilista';
+COMMENT ON COLUMN estilistas.codigoPostalTrabajador IS 'El codigo postal de donde vive el estilista';
+COMMENT ON COLUMN estilistas.salarioTrabajador IS 'El salario del estilista';
+COMMENT ON COLUMN estilistas.fechaDeNacimientoTrabajador IS 'La fecha de nacimiento del estilista';
+COMMENT ON COLUMN estilistas.generoTrabajador IS 'El genero del estilista';
+COMMENT ON COLUMN estilistas.numeroDeCertificadoTrabajador IS 'El numero de certificado del estilista';
+
 CREATE TABLE telefonoEstilistas(
-	curp CHAR(18) NOT NULL CHECK(CHAR_LENGTH(curp)=18),
-	telefonoEstilistas CHAR(10) CHECK (telefonoEstilistas SIMILAR TO '[0-9]*')
+	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp)=18),
+	telefonoEstilistas CHAR(10) UNIQUE CHECK (telefonoEstilistas SIMILAR TO '[0-9]*')
 );
+
+COMMENT ON TABLE telefonoEstilistas IS 'Tabla que contiene la informacion de los telefonos de estilistas';
+COMMENT ON COLUMN telefonoEstilistas.curp IS 'El curp del estilista';
+COMMENT ON COLUMN telefonoEstilistas.telefonoEstilistas IS 'El telefono del estilista';
 
 CREATE TABLE veterinarios(
 	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18),
-	idEstetica INT NOT NULL UNIQUE,
+	idEstetica INT NOT NULL,
 	nombreTrabajador VARCHAR(100) NOT NULL CHECK(nombreTrabajador <> ''),
 	apellidoPaternoTrabajador VARCHAR(100) NOT NULL CHECK(apellidoPaternoTrabajador <> ''),
 	apellidoMaternoTrabajador VARCHAR(100) NOT NULL CHECK(apellidoMaternoTrabajador <> ''),
@@ -221,14 +240,36 @@ CREATE TABLE veterinarios(
 	horaSalidaTrabajador TIME NOT NULL
 );
 
+COMMENT ON TABLE veterinarios IS 'Tabla que contiene la informacion de los veterinarios';
+COMMENT ON COLUMN veterinarios.curp IS 'El curp del veterinario';
+COMMENT ON COLUMN veterinarios.idEstetica IS 'El id de la estetica';
+COMMENT ON COLUMN veterinarios.nombreTrabajador IS 'El nombre del veterinario';
+COMMENT ON COLUMN veterinarios.apellidoPaternoTrabajador IS 'El apellido paterno del veterinario';
+COMMENT ON COLUMN veterinarios.apellidoMaternoTrabajador IS 'El apellido materno del veterinario';
+COMMENT ON COLUMN veterinarios.estadoTrabajador IS 'El estado donde vive el veterinario';
+COMMENT ON COLUMN veterinarios.calleTrabajador IS 'La calle donde vive el veterinario';
+COMMENT ON COLUMN veterinarios.numeroTrabajador IS 'El numero de la calle donde vive el veterinario';
+COMMENT ON COLUMN veterinarios.codigoPostalTrabajador IS 'El codigo postal de donde vive el veterinario';
+COMMENT ON COLUMN veterinarios.salarioTrabajador IS 'El salario del veterinario';
+COMMENT ON COLUMN veterinarios.fechaDeNacimientoTrabajador IS 'La fecha de nacimiento del veterinario';
+COMMENT ON COLUMN veterinarios.generoTrabajador IS 'El genero del veterinario';
+COMMENT ON COLUMN veterinarios.rfcTrabajador IS 'El rfc del veterinario';
+COMMENT ON COLUMN veterinarios.numeroDePacientesActivosTrabajador IS 'El numero de pacientes activos del veterinario';
+COMMENT ON COLUMN veterinarios.horaEntradaTrabajador IS 'La hora de entrada del veterinario';
+COMMENT ON COLUMN veterinarios.horaSalidaTrabajador IS 'La hora de salida del veterinario';
+
 CREATE TABLE telefonoVeterinarios(
-	curp CHAR(18) NOT NULL CHECK(CHAR_LENGTH(curp)=18),
-	telefonoVeterinarios CHAR(10) CHECK (telefonoVeterinarios SIMILAR TO '[0-9]*')
+	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp)=18),
+	telefonoVeterinarios CHAR(10) UNIQUE CHECK (telefonoVeterinarios SIMILAR TO '[0-9]*')
 );
+
+COMMENT ON TABLE telefonoVeterinarios IS 'Tabla que contiene la informacion de los telefonos de veterinarios';
+COMMENT ON COLUMN telefonoVeterinarios.curp IS 'El curp del veterinario';
+COMMENT ON COLUMN telefonoVeterinarios.telefonoVeterinarios IS 'El telefono del veterinario';
 
 CREATE TABLE supervisor(
 	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18),
-	idEstetica INT NOT NULL UNIQUE,
+	idEstetica INT NOT NULL,
 	nombreTrabajador VARCHAR(100) NOT NULL CHECK(nombreTrabajador <> ''),
 	apellidoPaternoTrabajador VARCHAR(100) NOT NULL CHECK(apellidoPaternoTrabajador <> ''),
 	apellidoMaternoTrabajador VARCHAR(100) NOT NULL CHECK(apellidoMaternoTrabajador <> ''),
@@ -244,18 +285,39 @@ CREATE TABLE supervisor(
 	horaSalidaTrabajador TIME NOT NULL
 );
 
+COMMENT ON TABLE supervisor IS 'Tabla que contiene la informacion del supervisor';
+COMMENT ON COLUMN supervisor.curp IS 'El curp del supervisor';
+COMMENT ON COLUMN supervisor.idEstetica IS 'El id de la estetica';
+COMMENT ON COLUMN supervisor.nombreTrabajador IS 'El nombre del supervisor';
+COMMENT ON COLUMN supervisor.apellidoPaternoTrabajador IS 'El apellido paterno del supervisor';
+COMMENT ON COLUMN supervisor.apellidoMaternoTrabajador IS 'El apellido materno del supervisor';
+COMMENT ON COLUMN supervisor.estadoTrabajador IS 'El estado donde vive el supervisor';
+COMMENT ON COLUMN supervisor.calleTrabajador IS 'La calle donde vive el supervisor';
+COMMENT ON COLUMN supervisor.numeroTrabajador IS 'El numero de la calle donde vive el supervisor';
+COMMENT ON COLUMN supervisor.codigoPostalTrabajador IS 'El codigo postal de donde vive el supervisor';
+COMMENT ON COLUMN supervisor.salarioTrabajador IS 'El salario del supervisor';
+COMMENT ON COLUMN supervisor.fechaDeNacimientoTrabajador IS 'La fecha de nacimiento del supervisor';
+COMMENT ON COLUMN supervisor.generoTrabajador IS 'El genero del supervisor';
+COMMENT ON COLUMN supervisor.rfcTrabajador IS 'El rfc del supervisor';
+COMMENT ON COLUMN supervisor.horaEntradaTrabajador IS 'La hora de entrada del supervisor';
+COMMENT ON COLUMN supervisor.horaSalidaTrabajador IS 'La hora de salida del supervisor';
+
 CREATE TABLE telefonoSupervisor(
-	curp CHAR(18) NOT NULL CHECK(CHAR_LENGTH(curp)=18),
-	telefonoSupervisor CHAR(10) CHECK (telefonoSupervisor SIMILAR TO '[0-9]*')
+	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp)=18),
+	telefonoSupervisor CHAR(10) UNIQUE CHECK (telefonoSupervisor SIMILAR TO '[0-9]*')
 );
+
+COMMENT ON TABLE telefonoSupervisor IS 'Tabla que contiene la informacion del telefono del supervisor';
+COMMENT ON COLUMN telefonoSupervisor.curp IS 'El curp del supervisor';
+COMMENT ON COLUMN telefonoSupervisor.telefonoSupervisor IS 'El telefono del supervisor';
 
 /*
 Parte Azul
 */
 
 CREATE TABLE telefonoDuenio(
-	curp CHAR(18) NOT NULL CHECK(CHAR_LENGTH(curp)=18),
-	telefonoDuenio CHAR(10) CHECK (telefonoDuenio SIMILAR TO '[0-9]*')
+	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp)=18),
+	telefonoDuenio CHAR(10) UNIQUE CHECK (telefonoDuenio SIMILAR TO '[0-9]*')
 );
 
 COMMENT ON TABLE telefonoDuenio IS 'Tabla que contiene la informacion del telefono del duenio';
@@ -264,8 +326,8 @@ COMMENT ON COLUMN telefonoDuenio.telefonoDuenio IS 'El numero de telefono a 10 d
 
 
 CREATE TABLE felicitar(
-	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18),
-	idEstetica INT NOT NULL UNIQUE
+	curp CHAR(18) NOT NULL CHECK(CHAR_LENGTH(curp) = 18),
+	idEstetica INT NOT NULL
 );
 
 COMMENT ON TABLE felicitar IS 'Tabla que contiene la informacion sobre la relacion felicitar';
@@ -274,7 +336,7 @@ COMMENT ON COLUMN felicitar.idEstetica IS 'El id de la estetica asociada';
 
 CREATE TABLE duenio(
 	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18),
-	idEstetica INT NOT NULL UNIQUE,
+	idEstetica INT NOT NULL,
 	nombreDuenio VARCHAR(100) NOT NULL CHECK(nombreDuenio <> ''),
 	apellidoPaternoDuenio VARCHAR(100) NOT NULL CHECK(apellidoPaternoDuenio <> ''),
 	apellidoMaternoDuenio VARCHAR(100) NOT NULL CHECK(apellidoMaternoDuenio <> ''),
@@ -288,8 +350,8 @@ CREATE TABLE duenio(
 COMMENT ON TABLE duenio IS 'Tabla que contiene la informacion del duenio';
 COMMENT ON COLUMN duenio.curp IS 'El curp (id) del duenio';
 COMMENT ON COLUMN duenio.nombreDuenio IS 'El nombre personal';
-COMMENT ON COLUMN duenio.apellidoPaternoDuenio 'El apellido paterno del duenio';
-COMMENT ON COLUMN duenio.apellidoPaternoDuenio 'El apellido materno del duenio';
+COMMENT ON COLUMN duenio.apellidoPaternoDuenio IS 'El apellido paterno del duenio';
+COMMENT ON COLUMN duenio.apellidoPaternoDuenio IS 'El apellido materno del duenio';
 COMMENT ON COLUMN duenio.correoDuenio IS 'El correo electronico del duenio';
 COMMENT ON COLUMN duenio.estadoDuenio IS 'El estado donde reside';
 COMMENT ON COLUMN duenio.calleDuenio IS 'La calle donde vive';
@@ -300,7 +362,7 @@ COMMENT ON COLUMN duenio.codigoPostalDuenio IS 'CP';
 
 CREATE TABLE tarjeta(
 	numeroTarjeta INT NOT NULL UNIQUE,
-	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18),
+	curp CHAR(18) NOT NULL CHECK(CHAR_LENGTH(curp) = 18),
 	nombrePropietario VARCHAR(100) NOT NULL CHECK(nombrePropietario <> ''),
 	vencimiento DATE NOT NULL CHECK(CURRENT_DATE <= vencimiento)
 );
@@ -313,7 +375,7 @@ COMMENT ON COLUMN tarjeta.vencimiento IS 'El vencimiento de la tarjeta';
 
 CREATE TABLE efectivo(
 	numeroDeSerie INT NOT NULL UNIQUE,
-	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18)
+	curp CHAR(18) NOT NULL CHECK(CHAR_LENGTH(curp) = 18)
 );
 
 COMMENT ON TABLE efectivo IS 'Tabla que contiene la informacion del efectivo';
@@ -322,14 +384,14 @@ COMMENT ON COLUMN efectivo.curp IS 'El curp del duenio asociado';
 
 CREATE TABLE recibo(
 	idRecibo INT NOT NULL UNIQUE,
-	curp CHAR(18) NOT NULL UNIQUE CHECK(CHAR_LENGTH(curp) = 18),
+	curp CHAR(18) NOT NULL CHECK(CHAR_LENGTH(curp) = 18),
 	nombreDuenio VARCHAR(100) NOT NULL CHECK(nombreDuenio <> ''),
 	nombreTrabajador VARCHAR(100) NOT NULL CHECK(nombreDuenio <> ''),
 	nombreMascota VARCHAR(100) NOT NULL CHECK(nombreDuenio <> '')
 );
 
 COMMENT ON TABLE recibo IS 'Tabla que contiene la informacion del recibo';
-COMMENT ON COLUMN recibo.id IS 'El id del recibo';
+COMMENT ON COLUMN recibo.idRecibo IS 'El id del recibo';
 COMMENT ON COLUMN recibo.curp IS 'El curp del duenio asociado';
 COMMENT ON COLUMN recibo.nombreDuenio IS 'El nombre que aparece en el recibo';
 COMMENT ON COLUMN recibo.nombreMascota IS 'El nombre de la mascota que aparece en el recibo';
@@ -415,28 +477,40 @@ Integridad Referencial Verde
 */
 
 ALTER TABLE estilistas ADD CONSTRAINT estilistas_pkey PRIMARY KEY (curp);
+COMMENT ON CONSTRAINT estilistas_pkey ON estilistas IS 'La llave primaria de la tabla estilistas';
 ALTER TABLE estilistas ADD CONSTRAINT estilistas_fkey FOREIGN KEY (idEstetica)
 REFERENCES estetica(idEstetica);
+COMMENT ON CONSTRAINT estilistas_fkey ON estilistas IS 'La llave foranea de la tabla estilistas que referencia a estetica';
 
 ALTER TABLE veterinarios ADD CONSTRAINT veterinarios_pkey PRIMARY KEY (curp);
+COMMENT ON CONSTRAINT veterinarios_pkey ON veterinarios IS 'La llave primaria de la tabla veterinarios';
 ALTER TABLE veterinarios ADD CONSTRAINT veterinarios_fkey FOREIGN KEY (idEstetica)
 REFERENCES estetica(idEstetica);
+COMMENT ON CONSTRAINT veterinarios_fkey ON veterinarios IS 'La llave foranea de la tabla veterinarios que referencia a estetica';
 
 ALTER TABLE supervisor ADD CONSTRAINT supervisor_pkey PRIMARY KEY (curp);
+COMMENT ON CONSTRAINT supervisor_pkey ON supervisor IS 'La llave primaria de la tabla supervisor';
 ALTER TABLE supervisor ADD CONSTRAINT supervisor_fkey FOREIGN KEY (idEstetica)
 REFERENCES estetica(idEstetica);
+COMMENT ON CONSTRAINT supervisor_fkey ON supervisor IS 'La llave foranea de la tabla supervisor que referencia a estetica';
 
 ALTER TABLE telefonoEstilistas ADD CONSTRAINT telefonoEstilistas_pkey PRIMARY KEY (curp,telefonoEstilistas);
+COMMENT ON CONSTRAINT telefonoEstilistas_pkey ON telefonoEstilistas IS 'La llave primaria de la tabla telefonoEstilistas';
 ALTER TABLE telefonoEstilistas ADD CONSTRAINT telefonoEstilistas_fkey FOREIGN KEY (curp)
 REFERENCES estilistas (curp);
+COMMENT ON CONSTRAINT telefonoEstilistas_fkey ON telefonoEstilistas IS 'La llave foranea de la tabla telefonoEstilistas que referencia a estilistas';
 
 ALTER TABLE telefonoVeterinarios ADD CONSTRAINT telefonoVeterinarios_pkey PRIMARY KEY (curp,telefonoVeterinarios);
+COMMENT ON CONSTRAINT telefonoVeterinarios_pkey ON telefonoVeterinarios IS 'La llave primaria de la tabla telefonoVeterinarios';
 ALTER TABLE telefonoVeterinarios ADD CONSTRAINT telefonoVeterinarios_fkey FOREIGN KEY (curp)
 REFERENCES veterinarios (curp);
+COMMENT ON CONSTRAINT telefonoVeterinarios_fkey ON telefonoVeterinarios IS 'La llave foranea de la tabla telefonoVeterinarios que referencia a veterinarios';
 
 ALTER TABLE telefonoSupervisor ADD CONSTRAINT telefonoSupervisor_pkey PRIMARY KEY (curp,telefonoSupervisor);
+COMMENT ON CONSTRAINT telefonoSupervisor_pkey ON telefonoSupervisor IS 'La llave primaria de la tabla telefonoSupervisor';
 ALTER TABLE telefonoSupervisor ADD CONSTRAINT telefonoSupervisor_fkey FOREIGN KEY (curp)
 REFERENCES supervisor (curp);
+COMMENT ON CONSTRAINT telefonoSupervisor_fkey ON telefonoSupervisor IS 'La llave foranea de la tabla telefonoSupervisor que referencia a supervisor';
 
 /*
 Integridad Referencial Azul
