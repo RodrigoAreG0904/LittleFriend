@@ -16,10 +16,10 @@ CREATE TABLE consultaNormal(
 	idConsulta INT NOT NULL UNIQUE,
 	idMascota INT NOT NULL,
 	idRecibo INT NOT NULL,
-	motivo VARCHAR(500) NOT NULL CHECK(motivo <> ''),
+	motivo TEXT NOT NULL CHECK(motivo <> ''),
 	fechaNuevaRevision DATE CHECK(fechaNuevaRevision > '2022-04-20'),
-	estadoDeSalud VARCHAR(500) NOT NULL CHECK(estadoDeSalud <> ''),
-	precio INT NOT NULL
+	estadoDeSalud TEXT NOT NULL CHECK(estadoDeSalud <> ''),
+	precio MONEY NOT NULL
 );
 
 COMMENT ON TABLE consultaNormal IS 'Tabla que contiene la informacion de las consultas normales';
@@ -36,11 +36,11 @@ CREATE TABLE consultaEmergencia(
 	idMascota INT NOT NULL,
 	idRecibo INT NOT NULL,
 	procedimientoEmitido TEXT NOT NULL CHECK(procedimientoEmitido <> ''),
-	sintomas VARCHAR(500) NOT NULL CHECK(sintomas <> ''),
+	sintomas TEXT NOT NULL CHECK(sintomas <> ''),
 	codigoVerde BOOLEAN NOT NULL,
 	codigoAmarillo BOOLEAN NOT NULL,
 	codigoRojo BOOLEAN NOT NULL,
-	precio INT NOT NULL
+	precio MONEY NOT NULL
 );
 
 COMMENT ON TABLE consultaEmergencia IS 'Tabla que contiene la informacion de las consultas de emergencia';
@@ -58,13 +58,13 @@ CREATE TABLE producto(
 	idProducto INT NOT NULL UNIQUE,
 	idConsulta INT NOT NULL,
 	idRecibo INT NOT NULL,
-	nombre VARCHAR(100) NOT NULL CHECK(nombre <> ''),
-	descripcion VARCHAR(500) NOT NULL CHECK(descripcion <> ''),
+	nombre VARCHAR(50) NOT NULL CHECK(nombre <> ''),
+	descripcion TEXT NOT NULL CHECK(descripcion <> ''),
 	cantidadDisponible INT NOT NULL,
-	nombreDeLaImagen VARCHAR(100) NOT NULL CHECK(nombreDeLaImagen <> ''),
+	nombreDeLaImagen VARCHAR(50) NOT NULL CHECK(nombreDeLaImagen <> ''),
 	fechaDeCaducidadComida DATE CHECK(fechaDeCaducidadComida > '2022-04-20'),
 	fechaDeCaducidadMedicamento DATE CHECK(fechaDeCaducidadMedicamento > '2022-04-20'),
-	precio INT NOT NULL,
+	precio MONEY NOT NULL,
 	esJuguetes BOOLEAN NOT NULL,
 	esMedicamentos BOOLEAN NOT NULL,
 	esAccesorios BOOLEAN NOT NULL,
@@ -92,7 +92,7 @@ CREATE TABLE servicioEstetica(
 	idConsulta INT NOT NULL UNIQUE,
 	idMascota INT NOT NULL,
 	idRecibo INT NOT NULL,
-	precio INT NOT NULL
+	precio MONEY NOT NULL
 );
 
 COMMENT ON TABLE servicioEstetica IS 'Tabla que contiene la informacion del servicio de la estetica';
