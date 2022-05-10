@@ -254,7 +254,7 @@ CREATE TABLE estilistas(
 	numeroTrabajador INT NOT NULL,
 	codigoPostalTrabajador INT NOT NULL,
 	salarioTrabajador INT NOT NULL,
-	fechaDeNacimientoTrabajador DATE CHECK(fechaDeNacimientoTrabajador > '2000-10-01'),
+	fechaDeNacimientoTrabajador DATE CHECK(fechaDeNacimientoTrabajador > '1969-01-01'),
 	generoTrabajador VARCHAR(100) NOT NULL CHECK(generoTrabajador <> ''),
 	numeroDeCertificadoTrabajador INT NOT NULL
 );
@@ -294,7 +294,7 @@ CREATE TABLE veterinarios(
 	numeroTrabajador INT NOT NULL,
 	codigoPostalTrabajador INT NOT NULL,
 	salarioTrabajador INT NOT NULL,
-	fechaDeNacimientoTrabajador DATE CHECK(fechaDeNacimientoTrabajador > '2000-10-01'),
+	fechaDeNacimientoTrabajador DATE CHECK(fechaDeNacimientoTrabajador > '1969-01-01'),
 	generoTrabajador VARCHAR(100) NOT NULL CHECK(generoTrabajador <> ''),
 	rfcTrabajador VARCHAR(100) NOT NULL CHECK(rfcTrabajador <> ''),
 	numeroDePacientesActivosTrabajador INT NOT NULL, 
@@ -340,7 +340,7 @@ CREATE TABLE supervisor(
 	numeroTrabajador INT NOT NULL,
 	codigoPostalTrabajador INT NOT NULL,
 	salarioTrabajador INT NOT NULL,
-	fechaDeNacimientoTrabajador DATE CHECK(fechaDeNacimientoTrabajador > '2000-10-01'),
+	fechaDeNacimientoTrabajador DATE CHECK(fechaDeNacimientoTrabajador > '1969-01-01'),
 	generoTrabajador VARCHAR(100) NOT NULL CHECK(generoTrabajador <> ''),
 	rfcTrabajador VARCHAR(100) NOT NULL CHECK(rfcTrabajador <> ''),
 	horaEntradaTrabajador TIME NOT NULL,
