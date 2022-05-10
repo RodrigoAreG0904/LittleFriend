@@ -16,10 +16,10 @@ CREATE TABLE consultaNormal(
 	idConsulta INT NOT NULL UNIQUE,
 	idMascota INT NOT NULL,
 	idRecibo INT NOT NULL,
-	motivo TEXT NOT NULL CHECK(motivo <> ''),
+	motivo VARCHAR(500) NOT NULL CHECK(motivo <> ''),
 	fechaNuevaRevision DATE CHECK(fechaNuevaRevision > '2022-04-20'),
-	estadoDeSalud TEXT NOT NULL CHECK(estadoDeSalud <> ''),
-	precio MONEY NOT NULL
+	estadoDeSalud VARCHAR(500) NOT NULL CHECK(estadoDeSalud <> ''),
+	precio INT NOT NULL
 );
 
 COMMENT ON TABLE consultaNormal IS 'Tabla que contiene la informacion de las consultas normales';
@@ -36,11 +36,11 @@ CREATE TABLE consultaEmergencia(
 	idMascota INT NOT NULL,
 	idRecibo INT NOT NULL,
 	procedimientoEmitido TEXT NOT NULL CHECK(procedimientoEmitido <> ''),
-	sintomas TEXT NOT NULL CHECK(sintomas <> ''),
+	sintomas VARCHAR(500) NOT NULL CHECK(sintomas <> ''),
 	codigoVerde BOOLEAN NOT NULL,
 	codigoAmarillo BOOLEAN NOT NULL,
 	codigoRojo BOOLEAN NOT NULL,
-	precio MONEY NOT NULL
+	precio INT NOT NULL
 );
 
 COMMENT ON TABLE consultaEmergencia IS 'Tabla que contiene la informacion de las consultas de emergencia';
@@ -58,13 +58,13 @@ CREATE TABLE producto(
 	idProducto INT NOT NULL UNIQUE,
 	idConsulta INT NOT NULL,
 	idRecibo INT NOT NULL,
-	nombre VARCHAR(50) NOT NULL CHECK(nombre <> ''),
-	descripcion TEXT NOT NULL CHECK(descripcion <> ''),
+	nombre VARCHAR(100) NOT NULL CHECK(nombre <> ''),
+	descripcion VARCHAR(500) NOT NULL CHECK(descripcion <> ''),
 	cantidadDisponible INT NOT NULL,
-	nombreDeLaImagen VARCHAR(50) NOT NULL CHECK(nombreDeLaImagen <> ''),
+	nombreDeLaImagen VARCHAR(100) NOT NULL CHECK(nombreDeLaImagen <> ''),
 	fechaDeCaducidadComida DATE CHECK(fechaDeCaducidadComida > '2022-04-20'),
 	fechaDeCaducidadMedicamento DATE CHECK(fechaDeCaducidadMedicamento > '2022-04-20'),
-	precio MONEY NOT NULL,
+	precio INT NOT NULL,
 	esJuguetes BOOLEAN NOT NULL,
 	esMedicamentos BOOLEAN NOT NULL,
 	esAccesorios BOOLEAN NOT NULL,
@@ -92,7 +92,7 @@ CREATE TABLE servicioEstetica(
 	idConsulta INT NOT NULL UNIQUE,
 	idMascota INT NOT NULL,
 	idRecibo INT NOT NULL,
-	precio MONEY NOT NULL
+	precio INT NOT NULL
 );
 
 COMMENT ON TABLE servicioEstetica IS 'Tabla que contiene la informacion del servicio de la estetica';
@@ -133,7 +133,7 @@ CREATE TABLE supervisar(
 	calleTrabajador VARCHAR(100) NOT NULL CHECK(calleTrabajador <> ''),
 	numeroTrabajador INT NOT NULL,
 	codigoPostalTrabajador INT NOT NULL,
-	salarioTrabajador MONEY NOT NULL,
+	salarioTrabajador INT NOT NULL,
 	fechaDeNacimientoTrabajador DATE NOT NULL,
 	generoTrabajador VARCHAR(100) NOT NULL CHECK(generoTrabajador <> ''),
 	rfcTrabajador VARCHAR(100) NOT NULL CHECK(rfcTrabajador <> ''),
@@ -253,7 +253,7 @@ CREATE TABLE estilistas(
 	calleTrabajador VARCHAR(100) NOT NULL CHECK(calleTrabajador <> ''),
 	numeroTrabajador INT NOT NULL,
 	codigoPostalTrabajador INT NOT NULL,
-	salarioTrabajador MONEY NOT NULL,
+	salarioTrabajador INT NOT NULL,
 	fechaDeNacimientoTrabajador DATE CHECK(fechaDeNacimientoTrabajador > '2000-10-01'),
 	generoTrabajador VARCHAR(100) NOT NULL CHECK(generoTrabajador <> ''),
 	numeroDeCertificadoTrabajador INT NOT NULL
@@ -293,7 +293,7 @@ CREATE TABLE veterinarios(
 	calleTrabajador VARCHAR(100) NOT NULL CHECK(calleTrabajador <> ''),
 	numeroTrabajador INT NOT NULL,
 	codigoPostalTrabajador INT NOT NULL,
-	salarioTrabajador MONEY NOT NULL,
+	salarioTrabajador INT NOT NULL,
 	fechaDeNacimientoTrabajador DATE CHECK(fechaDeNacimientoTrabajador > '2000-10-01'),
 	generoTrabajador VARCHAR(100) NOT NULL CHECK(generoTrabajador <> ''),
 	rfcTrabajador VARCHAR(100) NOT NULL CHECK(rfcTrabajador <> ''),
@@ -339,7 +339,7 @@ CREATE TABLE supervisor(
 	calleTrabajador VARCHAR(100) NOT NULL CHECK(calleTrabajador <> ''),
 	numeroTrabajador INT NOT NULL,
 	codigoPostalTrabajador INT NOT NULL,
-	salarioTrabajador MONEY NOT NULL,
+	salarioTrabajador INT NOT NULL,
 	fechaDeNacimientoTrabajador DATE CHECK(fechaDeNacimientoTrabajador > '2000-10-01'),
 	generoTrabajador VARCHAR(100) NOT NULL CHECK(generoTrabajador <> ''),
 	rfcTrabajador VARCHAR(100) NOT NULL CHECK(rfcTrabajador <> ''),
