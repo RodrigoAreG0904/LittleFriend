@@ -198,7 +198,7 @@ CREATE TABLE mascota(
 	nombre VARCHAR(100) NOT NULL CHECK(nombre <> ''),
 	especie VARCHAR(100) NOT NULL CHECK(especie <> ''),
 	raza VARCHAR(100) NOT NULL CHECK(raza <> ''),
-	nombreDelDuenio VARCHAR(100) NOT NULL CHECK(nombreDelDuenio <> ''),
+	nombreDuenio VARCHAR(100) NOT NULL CHECK(nombreDuenio <> ''),
 	edad INT NOT NULL,
 	peso INT NOT NULL
 );
@@ -209,7 +209,7 @@ COMMENT ON COLUMN mascota.curp IS 'El id curp del duenio de la mascota';
 COMMENT ON COLUMN mascota.nombre IS 'El nombre de la mascota';
 COMMENT ON COLUMN mascota.especie IS 'La especie de la mascota';
 COMMENT ON COLUMN mascota.raza IS 'La raza de la mascota';
-COMMENT ON COLUMN mascota.nombreDelDuenio IS 'El nombre del duenio de la mascota';
+COMMENT ON COLUMN mascota.nombreDuenio IS 'El nombre del duenio de la mascota';
 COMMENT ON COLUMN mascota.edad IS 'La edad de la mascota';
 COMMENT ON COLUMN mascota.peso IS 'El peso de la mascota';
 
@@ -402,7 +402,7 @@ CREATE TABLE duenio(
 	nombreDuenio VARCHAR(100) NOT NULL CHECK(nombreDuenio <> ''),
 	apellidoPaternoDuenio VARCHAR(100) NOT NULL CHECK(apellidoPaternoDuenio <> ''),
 	apellidoMaternoDuenio VARCHAR(100) NOT NULL CHECK(apellidoMaternoDuenio <> ''),
-	correoDuenio VARCHAR(20) NOT NULL CHECK(correoDuenio <>''),
+	correoDuenio VARCHAR(35) NOT NULL CHECK(correoDuenio <>''),
 	estadoDuenio VARCHAR(100) NOT NULL CHECK(estadoDuenio <> ''),
 	calleDuenio VARCHAR(100) NOT NULL CHECK(calleDuenio <> ''),
 	numeroDuenio INT NOT NULL,
