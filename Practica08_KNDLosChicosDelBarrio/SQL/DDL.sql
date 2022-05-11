@@ -424,7 +424,7 @@ COMMENT ON COLUMN duenio.codigoPostalDuenio IS 'CP';
 
 
 CREATE TABLE tarjeta(
-	numeroTarjeta INT NOT NULL UNIQUE,
+	numeroTarjeta varchar(20) NOT NULL UNIQUE,
 	curp CHAR(18) NOT NULL CHECK(CHAR_LENGTH(curp) = 18),
 	nombrePropietario VARCHAR(100) NOT NULL CHECK(nombrePropietario <> ''),
 	vencimiento DATE NOT NULL CHECK(CURRENT_DATE <= vencimiento)
