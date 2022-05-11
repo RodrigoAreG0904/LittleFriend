@@ -1,17 +1,4 @@
 -- ESTETICA
-DROP TABLE IF EXISTS estetica;
-CREATE TABLE IF NOT EXISTS estetica(
-   idEstetica   INTEGER  NOT NULL PRIMARY KEY 
-  ,nombre       VARCHAR(21) NOT NULL
-  ,telefono     INTEGER  NOT NULL
-  ,horario      VARCHAR(5) NOT NULL
-  ,apartado     VARCHAR(52) NOT NULL
-  ,consultorios INTEGER  NOT NULL
-  ,estado       VARCHAR(20) NOT NULL
-  ,calle        VARCHAR(16) NOT NULL
-  ,numero       INTEGER  NOT NULL
-  ,codigoPostal INTEGER  NOT NULL
-);
 INSERT INTO estetica(idEstetica,nombre,telefono,horario,apartado,consultorios,estado,calle,numero,codigoPostal) VALUES (1,'Jerrilee Chasmor',1818693479,'12:32','in felis donec',4,'Tamaulipas','High Crossing',26,88710);
 INSERT INTO estetica(idEstetica,nombre,telefono,horario,apartado,consultorios,estado,calle,numero,codigoPostal) VALUES (2,'Maxy Laight',4261773625,'18:31','justo etiam pretium iaculis justo in',3,'Coahuila De Zaragoza','Mitchell',2757,27443);
 INSERT INTO estetica(idEstetica,nombre,telefono,horario,apartado,consultorios,estado,calle,numero,codigoPostal) VALUES (3,'Lise Ducker',5943982134,'15:10','pede venenatis non sodales sed',1,'Michoacan De Ocampo','Gina',6966,61910);
@@ -232,4 +219,3 @@ INSERT INTO estetica(idEstetica,nombre,telefono,horario,apartado,consultorios,es
 -- CONSULTANORMAL
 
 -- PRODUCTO
-
