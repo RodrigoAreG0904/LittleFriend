@@ -16,9 +16,9 @@ CREATE TABLE consultaNormal(
 	idConsulta INT NOT NULL UNIQUE,
 	idMascota INT NOT NULL,
 	idRecibo INT NOT NULL,
-	motivo VARCHAR(500) NOT NULL CHECK(motivo <> ''),
+	motivo TEXT NOT NULL CHECK(motivo <> ''),
 	fechaNuevaRevision DATE CHECK(fechaNuevaRevision > '2022-04-20'),
-	estadoDeSalud VARCHAR(500) NOT NULL CHECK(estadoDeSalud <> ''),
+	estadoDeSalud TEXT NOT NULL CHECK(estadoDeSalud <> ''),
 	precio INT NOT NULL
 );
 
@@ -36,7 +36,7 @@ CREATE TABLE consultaEmergencia(
 	idMascota INT NOT NULL,
 	idRecibo INT NOT NULL,
 	procedimientoEmitido TEXT NOT NULL CHECK(procedimientoEmitido <> ''),
-	sintomas VARCHAR(500) NOT NULL CHECK(sintomas <> ''),
+	sintomas TEXT NOT NULL CHECK(sintomas <> ''),
 	codigoVerde BOOLEAN NOT NULL,
 	codigoAmarillo BOOLEAN NOT NULL,
 	codigoRojo BOOLEAN NOT NULL,
@@ -58,12 +58,12 @@ CREATE TABLE producto(
 	idProducto INT NOT NULL UNIQUE,
 	idConsulta INT NOT NULL,
 	idRecibo INT NOT NULL,
-	nombre VARCHAR(100) NOT NULL CHECK(nombre <> ''),
-	descripcion VARCHAR(500) NOT NULL CHECK(descripcion <> ''),
+	nombre VARCHAR(106) NOT NULL CHECK(nombre <> ''),
+	descripcion TEXT NOT NULL CHECK(descripcion <> ''),
 	cantidadDisponible INT NOT NULL,
-	nombreDeLaImagen VARCHAR(100) NOT NULL CHECK(nombreDeLaImagen <> ''),
-	fechaDeCaducidadComida DATE CHECK(fechaDeCaducidadComida > '2022-04-20'),
-	fechaDeCaducidadMedicamento DATE CHECK(fechaDeCaducidadMedicamento > '2022-04-20'),
+	nombreDeLaImagen VARCHAR(106) NOT NULL CHECK(nombreDeLaImagen <> ''),
+	fechaDeCaducidadComida DATE CHECK(fechaDeCaducidadComida > '2021-01-01'),
+	fechaDeCaducidadMedicamento DATE CHECK(fechaDeCaducidadMedicamento > '2021-01-01'),
 	precio INT NOT NULL,
 	esJuguetes BOOLEAN NOT NULL,
 	esMedicamentos BOOLEAN NOT NULL,
@@ -86,7 +86,6 @@ COMMENT ON COLUMN producto.esJuguetes IS 'El producto es un juguete';
 COMMENT ON COLUMN producto.esMedicamentos IS 'El producto es un medicamento';
 COMMENT ON COLUMN producto.esAccesorios IS 'El producto es un accesorio';
 COMMENT ON COLUMN producto.esComida IS 'El producto es comida';
-
 
 CREATE TABLE servicioEstetica(
 	idConsulta INT NOT NULL UNIQUE,
