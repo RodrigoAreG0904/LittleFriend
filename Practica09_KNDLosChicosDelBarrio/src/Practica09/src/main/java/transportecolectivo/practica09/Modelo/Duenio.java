@@ -205,7 +205,7 @@ public class Duenio {
     /**
      * Metodo set que define el nuevo numero del duenio
      * 
-     * @param cp -- el nuevo numero del duenio
+     * @param numeroDuenio -- el nuevo numero del duenio
      */
     public void setNumeroDuenio(int numeroDuenio) {
         this.numeroDuenio = numeroDuenio;
@@ -223,7 +223,7 @@ public class Duenio {
     /**
      * Metodo set que define el nuevo codigo postal del duenio
      * 
-     * @param cp -- el nuevo codigo postal del duenio
+     * @param codigoPostalDuenio -- el nuevo codigo postal del duenio
      */
     public void setCodigoPostalDuenio(int codigoPostalDuenio) {
         this.codigoPostalDuenio = codigoPostalDuenio;
@@ -236,9 +236,9 @@ public class Duenio {
      */
     @Override
     public String toString() {
-        return "Duenio{" + "curp=" + curp + ", idEstetica =" + idEstetica + ", nombreDuenio =" + nombreDuenio + ", apellidoPaternoDuenio=" + apellidoPaternoDuenio
-                + ", apellidoMaternoDuenio=" + apellidoMaternoDuenio + ", correoDuenio =" + correoDuenio + ", estadoDuenio =" + estadoDuenio + 
-                ", calleDuenio =" + calleDuenio + ", numeroDuenio =" + numeroDuenio + ", codigoPostalDuenio=" + codigoPostalDuenio + "}";
+        return "Duenio{" + "curp=" + curp + ", idEstetica=" + idEstetica + ", nombreDuenio=" + nombreDuenio + ", apellidoPaternoDuenio=" + apellidoPaternoDuenio
+                + ", apellidoMaternoDuenio=" + apellidoMaternoDuenio + ", correoDuenio=" + correoDuenio + ", estadoDuenio=" + estadoDuenio + 
+                ", calleDuenio=" + calleDuenio + ", numeroDuenio=" + numeroDuenio + ", codigoPostalDuenio=" + codigoPostalDuenio + "}";
     }
 
 }
