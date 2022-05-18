@@ -22,7 +22,7 @@ public class Estetica {
     private int codigoPostal;
 
     /**
-     * Constructor por parametros que crea un operador
+     * Constructor por parametros que crea una estetica
      * 
      * @param idEstetica      -- El idEstetica de la estetica
      * @param nombre          -- El nombre de la estetica
@@ -35,7 +35,7 @@ public class Estetica {
      * @param numero          -- El numero donde se encuentra la estetica
      * @param codigoPostal    -- El codigo postal donde se encuentra la estetica
      */
-    public Operador(int idEstetica, String nombre, int telefono, int horario, String apartado,
+    public Estetica(int idEstetica, String nombre, int telefono, int horario, String apartado,
             String consultorios, String estado, String calle, int numero, int codigoPostal) {
         this.idEstetica = idEstetica;
         this.nombre = nombre;

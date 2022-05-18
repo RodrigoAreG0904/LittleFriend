@@ -22,7 +22,7 @@ public class Duenio {
     private int codigoPostalDuenio;
 
     /**
-     * Constructor por parametros que crea un operador
+     * Constructor por parametros que crea un duenio
      * 
      * @param curp                  -- El CURP del duenio
      * @param nombreDuenio          -- El nombre del duenio
@@ -34,7 +34,7 @@ public class Duenio {
      * @param numeroDuenio          -- El numero donde vive el duenio
      * @param codigoPostalDuenio    -- El codigo postal donde vive el duenio
      */
-    public Operador(String curp, int idEstetica, String nombreDuenio, String apellidoPaternoDuenio, String apellidoMaternoDuenio, String correoDuenio,
+    public Duenio(String curp, int idEstetica, String nombreDuenio, String apellidoPaternoDuenio, String apellidoMaternoDuenio, String correoDuenio,
             String estadoDuenio, String calleDuenio, int numeroDuenio, int codigoPostalDuenio) {
         this.curp = curp;
         this.idEstetica = idEstetica;
