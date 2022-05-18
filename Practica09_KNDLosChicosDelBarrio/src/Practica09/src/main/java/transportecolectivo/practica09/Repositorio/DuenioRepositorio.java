@@ -155,7 +155,7 @@ public class DuenioRepositorio {
      * @param curp   -- El curp del duenio a buscar para actualizar
      * @param duenio -- El duenio al que vamos a intercambiar sus valores
      */
-    public void actualizarMascota(String curp, Duenio duenio) {
+    public void actualizarDuenio(String curp, Duenio duenio) {
         String query = "UPDATE duenio SET curp = ?, idEstetica = ?, "
                 + "nombreDuenio = ?, apellidoPaternoDuenio = ?, apellidoMaternoDuenio = ?, "
                 + "correoDuenio = ?, estadoDuenio = ?, calleDuenio = ?, numeroDuenio = ?, codigoPostalDuenio = ? WHERE curp = ?";
