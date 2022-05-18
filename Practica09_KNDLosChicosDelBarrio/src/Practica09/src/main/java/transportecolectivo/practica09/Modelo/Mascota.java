@@ -1,3 +1,5 @@
+package transportecolectivo.practica09.Modelo;
+
 /**
  * Clase que representa las Mascotas.
  * @author Rodrigo Arevalo Gaytan
@@ -173,8 +175,8 @@ public class Mascota {
      */
     @Override
     public String toString() {
-        return this.idMascota +","+ this.curp +","+ this.nombre +","+ this.especie
-               +","+ this.raza +","+ this.nombreDuenio +"," + this.edad +","+ this.peso;
+        return "Mascota{" + "idMascota=" + idMascota + ", curp=" + curp + ", nombre=" + nombre + ", especie=" + especie + ", raza=" + raza
+                + ", nombreDuenio=" + nombreDuenio + ", edad=" + edad + ", peso=" + peso + "}";
     }
 
 }

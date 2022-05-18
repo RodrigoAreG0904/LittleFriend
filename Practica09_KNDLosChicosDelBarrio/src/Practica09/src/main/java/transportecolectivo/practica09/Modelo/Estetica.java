@@ -15,7 +15,7 @@ public class Estetica {
     private int telefono;
     private int horario;
     private String apartado;
-    private String consultorios;
+    private int consultorios;
     private String estado;
     private String calle;
     private int numero;
@@ -36,7 +36,7 @@ public class Estetica {
      * @param codigoPostal    -- El codigo postal donde se encuentra la estetica
      */
     public Estetica(int idEstetica, String nombre, int telefono, int horario, String apartado,
-            String consultorios, String estado, String calle, int numero, int codigoPostal) {
+            int consultorios, String estado, String calle, int numero, int codigoPostal) {
         this.idEstetica = idEstetica;
         this.nombre = nombre;
         this.telefono = telefono;
@@ -145,7 +145,7 @@ public class Estetica {
      * 
      * @return String -- los consultorios de la estetica
      */
-    public String consultorios() {
+    public int getConsultorios() {
         return consultorios;
     }
 
@@ -154,7 +154,7 @@ public class Estetica {
      * 
      * @param consultorios -- los nuevos consultorios de la estetica
      */
-    public void setConsultorios(String consultorios) {
+    public void setConsultorios(int consultorios) {
         this.consultorios = consultorios;
     }
 
