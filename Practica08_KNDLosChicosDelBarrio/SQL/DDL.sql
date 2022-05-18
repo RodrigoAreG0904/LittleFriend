@@ -172,7 +172,7 @@ CREATE TABLE estetica(
 	telefono CHAR(10) NOT NULL CHECK (telefono SIMILAR TO '[0-9]*'),
 	horario TIME NOT NULL,
 	apartado VARCHAR(100) NOT NULL CHECK(apartado <> ''),
-	consultorios VARCHAR(100) NOT NULL CHECK(consultorios <> ''),
+	consultorios INT NOT NULL,
 	estado VARCHAR(100) NOT NULL CHECK(estado <> ''),
 	calle VARCHAR(100) NOT NULL CHECK(calle <> ''),
 	numero INT NOT NULL,
