@@ -28,7 +28,7 @@
             <configuration>
               <archive>
                 <manifest>
-                  <mainClass>transportecolectivo.practica09.Practica09</mainClass>
+                  <mainClass>practica09.Practica09</mainClass>
                 </manifest>
               </archive>
             </configuration>
