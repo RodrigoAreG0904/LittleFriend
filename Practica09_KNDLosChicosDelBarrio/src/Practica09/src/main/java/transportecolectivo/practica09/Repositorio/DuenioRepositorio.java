@@ -173,7 +173,7 @@ public class DuenioRepositorio {
             ps.setString(8, duenio.getCalleDuenio());
             ps.setInt(9, duenio.getNumeroDuenio());
             ps.setInt(10, duenio.getCodigoPostalDuenio());
-            ps.setInt(11, curp);
+            ps.setString(11, curp);
             ps.executeUpdate();
         } catch (SQLException sql) {
             sql.printStackTrace();
