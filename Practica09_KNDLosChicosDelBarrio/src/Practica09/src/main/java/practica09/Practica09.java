@@ -97,8 +97,7 @@ public class Practica09 {
                 System.out.println("Por favor introduce el curp a buscar: ");
                 curp = leeCadena();
                 try {
-                Duenio dn = duenioServicio.getDuenio(curp);
-                System.out.println(dn.getNombreDuenio());
+                System.out.println(duenioServicio.getDuenio(curp));
                 } catch (NullPointerException npe) {
                     System.out.println("NO SE ENCONTRÓ EN LA BD!!!!!");
                 }
@@ -176,7 +175,7 @@ public class Practica09 {
                 System.out.println("Por favor introduce el id a buscar: ");
                 try {
                 idEstetica = Integer.parseInt(leeCadena());
-                esteticaServicio.getEstetica(idEstetica);
+                System.out.println(esteticaServicio.getEstetica(idEstetica));
                 } catch (NullPointerException npe) {
                     System.out.println("NO SE ENCONTRÓ EN LA BD!!!!!");
                 }
@@ -255,7 +254,7 @@ public class Practica09 {
                 System.out.println("Por favor introduce el id a buscar: ");
                 try {
                 idMascota = Integer.parseInt(leeCadena());
-                mascotaServicio.getMascota(idMascota);
+                System.out.println(mascotaServicio.getMascota(idMascota));
                 } catch (NullPointerException npe) {
                     System.out.println("NO SE ENCONTRÓ EN LA BD!!!!!");
                 }
