@@ -36,7 +36,7 @@ public class DuenioRepositorio {
      *                      la query de la consulta o la conexion
      */
     public List<Duenio> getDuenios() throws SQLException {
-        String query = "SELECT * FROM mascota"; // Escribimos nuestra query
+        String query = "SELECT * FROM duenio"; // Escribimos nuestra query
         List<Duenio> duenioLista = new ArrayList<Duenio>();
         try {
             // Nos conectamos a la base de datos
@@ -56,7 +56,7 @@ public class DuenioRepositorio {
                         rs.getString("estadoDuenio"),
                         rs.getString("calleDuenio"),
                         rs.getInt("numeroDuenio"),
-                        rs.getInt("codgioPostalDuenio"));
+                        rs.getInt("codigoPostalDuenio"));
                 // Agrego el resultado
                 duenioLista.add(dn);
             }
@@ -102,7 +102,7 @@ public class DuenioRepositorio {
                         rs.getString("estadoDuenio"),
                         rs.getString("calleDuenio"),
                         rs.getInt("numeroDuenio"),
-                        rs.getInt("codgioPostalDuenio"));
+                        rs.getInt("codigoPostalDuenio"));
             }
         } catch (SQLException sql) {
             sql.printStackTrace();

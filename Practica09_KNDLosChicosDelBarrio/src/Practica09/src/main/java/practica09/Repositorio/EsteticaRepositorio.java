@@ -49,8 +49,8 @@ public class EsteticaRepositorio {
                 Estetica es = new Estetica(
                         rs.getInt("idEstetica"),
                         rs.getString("nombre"),
-                        rs.getInt("telefono"),
-                        rs.getInt("horario"),
+                        rs.getLong("telefono"),
+                        rs.getString("horario"),
                         rs.getString("apartado"),
                         rs.getInt("consultorios"),
                         rs.getString("estado"),
@@ -95,8 +95,8 @@ public class EsteticaRepositorio {
                 es = new Estetica(
                         rs.getInt("idEstetica"),
                         rs.getString("nombre"),
-                        rs.getInt("telefono"),
-                        rs.getInt("horario"),
+                        rs.getLong("telefono"),
+                        rs.getString("horario"),
                         rs.getString("apartado"),
                         rs.getInt("consultorios"),
                         rs.getString("estado"),
@@ -130,8 +130,8 @@ public class EsteticaRepositorio {
             ps = conexion.prepararDeclaracionPreparada(query);
             ps.setInt(1, estetica.getIdEstetica());
             ps.setString(2, estetica.getNombre());
-            ps.setInt(3, estetica.getTelefono());
-            ps.setInt(4, estetica.getHorario());
+            ps.setLong(3, estetica.getTelefono());
+            ps.setString(4, estetica.getHorario());
             ps.setString(5, estetica.getApartado());
             ps.setInt(6, estetica.getConsultorios());
             ps.setString(7, estetica.getEstado());
@@ -167,8 +167,8 @@ public class EsteticaRepositorio {
             ps = conexion.prepararDeclaracionPreparada(query);
             ps.setInt(1, estetica.getIdEstetica());
             ps.setString(2, estetica.getNombre());
-            ps.setInt(3, estetica.getTelefono());
-            ps.setInt(4, estetica.getHorario());
+            ps.setLong(3, estetica.getTelefono());
+            ps.setString(4, estetica.getHorario());
             ps.setString(5, estetica.getApartado());
             ps.setInt(6, estetica.getConsultorios());
             ps.setString(7, estetica.getEstado());

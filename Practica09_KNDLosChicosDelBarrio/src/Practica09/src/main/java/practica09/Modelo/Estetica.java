@@ -12,8 +12,8 @@ package practica09.Modelo;
 public class Estetica {
     private int idEstetica;
     private String nombre;
-    private int telefono;
-    private int horario;
+    private long telefono;
+    private String horario;
     private String apartado;
     private int consultorios;
     private String estado;
@@ -35,7 +35,7 @@ public class Estetica {
      * @param numero       -- El numero donde se encuentra la estetica
      * @param codigoPostal -- El codigo postal donde se encuentra la estetica
      */
-    public Estetica(int idEstetica, String nombre, int telefono, int horario, String apartado,
+    public Estetica(int idEstetica, String nombre, long telefono, String horario, String apartado,
             int consultorios, String estado, String calle, int numero, int codigoPostal) {
         this.idEstetica = idEstetica;
         this.nombre = nombre;
@@ -90,7 +90,7 @@ public class Estetica {
      * 
      * @return -- int el telefono de la estetica
      */
-    public int getTelefono() {
+    public long getTelefono() {
         return telefono;
     }
 
@@ -99,7 +99,7 @@ public class Estetica {
      * 
      * @param telefono -- El nuevo telefono de la estetica
      */
-    public void setTelefono(int telefono) {
+    public void setTelefono(long telefono) {
         this.telefono = telefono;
     }
 
@@ -108,7 +108,7 @@ public class Estetica {
      * 
      * @return int -- el horario de la estetica
      */
-    public int getHorario() {
+    public String getHorario() {
         return horario;
     }
 
@@ -117,7 +117,7 @@ public class Estetica {
      * 
      * @param horario -- el nuevo horario de la estetica
      */
-    public void setHorario(int horario) {
+    public void setHorario(String horario) {
         this.horario = horario;
     }
 

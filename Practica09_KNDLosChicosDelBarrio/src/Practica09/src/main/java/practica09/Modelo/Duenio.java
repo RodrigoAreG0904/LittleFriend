@@ -25,6 +25,7 @@ public class Duenio {
      * Constructor por parametros que crea un duenio
      * 
      * @param curp                  -- El CURP del duenio
+     * @param idEstetica            -- La Estetica asociada
      * @param nombreDuenio          -- El nombre del duenio
      * @param apellidoPaternoDuenio -- El apellido Paterno del duenio
      * @param apellidoMaternoDuenio -- El apellido Materno del duenio
