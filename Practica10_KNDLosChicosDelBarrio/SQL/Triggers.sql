@@ -1,8 +1,8 @@
 -- TRIGER INVERTIR APELLIDOS
 CREATE OR REPLACE FUNCTION invierte() RETURNS TRIGGER
-	AS $$
+	AS $$ 
 	DECLARE
-   		temporal varchar := NEW.apellidoPaternoTrabajador;  -- svariable temporal para no perder el valor
+   		temporal varchar := NEW.apellidoPaternoTrabajador;  -- variable temporal para no perder el valor
 	BEGIN
 		NEW.apellidoPaternoTrabajador := NEW.apellidoMaternoTrabajador;
 		NEW.apellidoMaternoTrabajador := temporal;
@@ -24,7 +24,9 @@ CREATE OR REPLACE TRIGGER trigger_supervisor
 CREATE OR REPLACE FUNCTION evita_mascota() RETURNS TRIGGER
 	AS $$
 	BEGIN
-		--NEW := OLD;
+		-- OLD es mascota viejita
+		-- NEW es mascota actualizada
+		-- NEW := OLD;
 		RAISE EXCEPTION 'No puedes borrar ni modificar la tabla mascota';
 		RETURN NEW;
 	END;
