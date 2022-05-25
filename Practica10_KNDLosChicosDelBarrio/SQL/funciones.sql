@@ -4,13 +4,15 @@ CREATE OR REPLACE FUNCTION edad(cu varchar)
 	AS $$
 	DECLARE 
 		anio int;
+		curpV varchar;
 	BEGIN
-		 anio := CAST(SUBSTRING(cu FROM 5 FOR 2) AS INTEGER);
+		SELECT curp INTO curpV FROM duenio WHERE curp = cu;	
+		 anio := CAST(SUBSTRING(curpV FROM 5 FOR 2) AS INTEGER);
 		 -- Si alguien es mayor de 100 anios entonces nacio en los 2000's
 		 IF anio < 22 THEN
-		 	anio := anio+2000;
+			anio := anio+2000;
 		 ELSE
-		 	anio := anio+1900;
+			anio := anio+1900;
 		 END IF;
 		 RETURN date_part('year', now())-anio;
 	END;
