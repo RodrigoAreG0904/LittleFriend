@@ -929,6 +929,8 @@ INSERT INTO ingrediente(idInventario,rfc,cantidad,fechaCaduc,marca,diaCompra,pre
 INSERT INTO ingrediente(idInventario,rfc,cantidad,fechaCaduc,marca,diaCompra,precio) VALUES (698,'AOYI910101689',0,'2029-03-26','mcCormick','2021-10-14',6585.66);
 INSERT INTO ingrediente(idInventario,rfc,cantidad,fechaCaduc,marca,diaCompra,precio) VALUES (699,'QOLH310124B3J',34,'2029-05-16','bonafont','2021-01-09',7170.95);
 INSERT INTO ingrediente(idInventario,rfc,cantidad,fechaCaduc,marca,diaCompra,precio) VALUES (700,'QURU260117138',19,'2025-04-04','la costeÃ±a','2020-11-21',1427.48);
+INSERT INTO ingrediente(idInventario,rfc,cantidad,fechaCaduc,marca,diaCompra,precio) VALUES (701,'XUQX6316033H9',62,'2022-06-29','pepsi','2021-12-13',9894.6);
+INSERT INTO ingrediente(idInventario,rfc,cantidad,fechaCaduc,marca,diaCompra,precio) VALUES (702,'IUYT290613116',13,'2022-06-20','la costeña','2021-04-18',6442.78);
 
 -- MOBILIARIO
 
